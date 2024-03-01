@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
-import { motion,AnimatePresence } from "framer-motion"
+import { motion,AnimatePresence, delay } from "framer-motion"
 import Hamburger from 'hamburger-react'
-const variants = {
-  open: { opacity: 1, x: 0 },
-  closed: { opacity: 0, x: "-100%" },
-}
+import { HiChevronLeft } from "react-icons/hi";
 const DropDownMenu = () => {
   const [dropDown,setDropDown]=useState(false);
-
+  const [secondaryDropDown,setSecondaryDropDown]=useState(false);
   return (
     <div 
     className='w-[90%] justify-center items-between sm:hidden flex flex-col gap-0.5'
@@ -16,8 +13,8 @@ const DropDownMenu = () => {
 
         <motion.div 
           whileTap={{ scale: 0.97 }}
-          onClick={() => setDropDown(!dropDown)}
-          className='flex justify-between items-center bg-black p-3 rounded-lg'
+          onClick={() => {setDropDown(!dropDown);setSecondaryDropDown(false)}}
+          className='flex justify-between items-center bg-black p-2 rounded-lg'
           >
               <div className='pl-4 font-semibold text-lg'>तूर्यनाद समिति</div>
               <Hamburger direction='right' toggled={dropDown} toggle={setDropDown} size={25} className=' items-center justify-center flex'></Hamburger>
@@ -26,56 +23,116 @@ const DropDownMenu = () => {
 
         {/* Primary DropDownMenu */}
 
-        {
-        (dropDown===true)&&
+        
         <div 
         className='flex flex-col items-center min-[480px]:w-1/2 min-[480px]:ml-auto'
         >
             <AnimatePresence>
-            <motion.div
+            {(dropDown===true && secondaryDropDown===false)&&<motion.div
               className='w-full'
-              initial={{opacity:0,x:-150}}
+              initial={{opacity:0,x:-50}}
               animate={{opacity:1,x:0}}
-              exit={{opacity:0,x:150}}
+              exit={{opacity:0,x:50}}
+              transition={{
+                duration:"0.45"
+              }}
             >
-             <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 rounded-t-lg hover:scale-110'>मुख्य पृष्ठ</a>
-            </motion.div>
+             <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 rounded-t-lg'>मुख्य पृष्ठ</a>
+            </motion.div>}
             </AnimatePresence>
 
             <AnimatePresence>
-            <motion.div
+            {(dropDown===true && secondaryDropDown===false)&&<motion.div
               className='w-full'
-              initial={{opacity:0,x:150}}
+              initial={{opacity:0,x:50}}
               animate={{opacity:1,x:0}}
-              exit={{opacity:0,x:-150}}
+              exit={{opacity:0,x:-50}}
+              transition={{
+                duration:"0.4"
+              }}
             >
-            <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 hover:scale-110'>अतिथि</a>
-            </motion.div>
+            <a href="" className='bg-black w-full flex justify-center items-center text-center py-2'>अतिथि</a>
+            </motion.div>}
             </AnimatePresence>
 
             <AnimatePresence>
-            <motion.div
+            {(dropDown===true && secondaryDropDown===false)&&<motion.div
               className='w-full'
-              initial={{opacity:0,x:-150}}
+              initial={{opacity:0,x:-50}}
               animate={{opacity:1,x:0}}
-              exit={{opacity:0,x:150}}
+              exit={{opacity:0,x:50}}
+              transition={{
+                duration:"0.35"
+              }}
             >
-            <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 hover:scale-110'>सदस्य</a>
-            </motion.div>
+            <div onClick={()=>setSecondaryDropDown(true)} className='bg-black w-full flex justify-center items-center text-center py-2'>सदस्य</div>
+            </motion.div>}
             </AnimatePresence>
 
             <AnimatePresence>
-            <motion.div
+            {(dropDown===true && secondaryDropDown===false)&&<motion.div
               className='w-full'
-              initial={{opacity:0,x:150}}
+              initial={{opacity:0,x:50}}
               animate={{opacity:1,x:0}}
-              exit={{opacity:0,x:-150}}
+              exit={{opacity:0,x:-50}}
+              transition={{
+                duration:"0.3",
+              }}
             >
-            <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 rounded-b-lg hover:scale-110'>वीथिका</a>
-            </motion.div>
+            <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 rounded-b-lg '>वीथिका</a>
+            </motion.div>}
+            </AnimatePresence>
+
+            <AnimatePresence>
+            {(dropDown===true && secondaryDropDown===true)&&<motion.div
+              className='w-full'
+              initial={{opacity:0,x:-50}}
+              animate={{opacity:1,x:0}}
+              exit={{opacity:0,x:50,transition:{duration:"0"}}}
+              transition={{
+                duration:"0.4",
+                delay:"0.4"
+              }}
+            >
+            <div onClick={()=>setSecondaryDropDown(!secondaryDropDown)} className='bg-black w-full flex justify-center items-center text-center py-2 rounded-t-lg '>
+              <HiChevronLeft className='relative left-[-30%] font-bold text-2xl' />
+              सदस्य
+              </div>
+            </motion.div>}
+            </AnimatePresence>
+            
+            <AnimatePresence>
+            {(dropDown===true && secondaryDropDown===true)&&<motion.div
+              className='w-full'
+              initial={{opacity:0,x:50}}
+              animate={{opacity:1,x:0}}
+              exit={{opacity:0,x:-50,
+                transition:{duration:"0"}
+              }}
+              transition={{
+                duration:"0.35",
+                delay:"0.4"
+              }}
+            >
+            <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 '>संस्थापक सदस्य</a>
+            </motion.div>}
+            </AnimatePresence>
+
+            <AnimatePresence>
+            {(dropDown===true && secondaryDropDown===true)&&<motion.div
+              className='w-full'
+              initial={{opacity:0,x:-50}}
+              animate={{opacity:1,x:0}}
+              exit={{opacity:0,x:50,transition:{duration:"0"}}}
+              transition={{
+                duration:"0.3",
+                delay:"0.4"
+              }}
+            >
+            <a href="" className='bg-black w-full flex justify-center items-center text-center py-2 rounded-b-lg '>कार्यकारिणी सदस्य</a>
+            </motion.div>}
             </AnimatePresence>
         </div>
-        }  
 
 
     </div>
