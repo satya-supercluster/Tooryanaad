@@ -7,6 +7,9 @@
 /* *{
   background-image: ;
 } */
+body{
+  background-color: black;
+}
 .paddings {
   padding: 1.5rem;
 }
