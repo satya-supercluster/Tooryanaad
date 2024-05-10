@@ -15,7 +15,7 @@ const DropDownMenu = () => {
           setDropDown(!dropDown);
           setSecondaryDropDown(false);
         }}
-        className="flex justify-between items-center bg-black p-2 rounded-lg shadow-[0_0px_7px_0px_rgba(255,255,255,0.5)]"
+        className="flex justify-between items-center bg-[rgba(20,20,20)] p-2 rounded-lg "
       >
         <div className="pl-4 font-semibold text-lg">तूर्यनाद समिति</div>
         <Hamburger
@@ -43,7 +43,7 @@ const DropDownMenu = () => {
             >
               <a
                 href=""
-                className="bg-black w-full flex justify-center items-center text-center py-2 rounded-t-lg"
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-t-lg"
               >
                 मुख्य पृष्ठ
               </a>
@@ -64,7 +64,7 @@ const DropDownMenu = () => {
             >
               <a
                 href=""
-                className="bg-black w-full flex justify-center items-center text-center py-2"
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2"
               >
                 अतिथि
               </a>
@@ -85,7 +85,7 @@ const DropDownMenu = () => {
             >
               <div
                 onClick={() => setSecondaryDropDown(true)}
-                className="bg-black w-full flex justify-center items-center text-center py-2"
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2"
               >
                 सदस्य
               </div>
@@ -106,7 +106,7 @@ const DropDownMenu = () => {
             >
               <a
                 href=""
-                className="bg-black w-full flex justify-center items-center text-center py-2 rounded-b-lg "
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
                 वीथिका
               </a>
@@ -128,9 +128,9 @@ const DropDownMenu = () => {
             >
               <div
                 onClick={() => setSecondaryDropDown(!secondaryDropDown)}
-                className="bg-black w-full flex justify-center items-center text-center py-2 rounded-t-lg "
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-t-lg "
               >
-                <HiChevronLeft className="relative left-[-30%] font-bold text-2xl" />
+                <HiChevronLeft className="relative left-[-20%] font-bold text-2xl" />
                 सदस्य
               </div>
             </motion.div>
@@ -151,7 +151,7 @@ const DropDownMenu = () => {
             >
               <a
                 href=""
-                className="bg-black w-full flex justify-center items-center text-center py-2 "
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 "
               >
                 संस्थापक सदस्य
               </a>
@@ -173,7 +173,7 @@ const DropDownMenu = () => {
             >
               <a
                 href=""
-                className="bg-black w-full flex justify-center items-center text-center py-2 rounded-b-lg "
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
                 कार्यकारिणी सदस्य
               </a>
