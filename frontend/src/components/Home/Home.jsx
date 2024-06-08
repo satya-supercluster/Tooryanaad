@@ -21,11 +21,11 @@ const Home = () => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
-  };
+  }; 
   return (
     <div className="">
       <div
-        className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:min-h-[100vh] min-h-[95vh]"
+        className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:h-screen min-h-[95vh]"
         style={backgroundStyle}
       >
         <div className="px-5 sm:px-10 max-sm:pt-20">
