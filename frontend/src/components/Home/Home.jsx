@@ -23,7 +23,7 @@ const Home = () => {
     backgroundAttachment: "fixed",
   };
   return (
-    <div className="">
+    <div className="abolute">
       <div
         className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:min-h-[100vh] min-h-[95vh]"
         style={backgroundStyle}
