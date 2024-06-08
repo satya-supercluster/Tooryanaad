@@ -28,7 +28,7 @@ const Home = () => {
         className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:min-h-[100vh] min-h-[95vh]"
         style={backgroundStyle}
       >
-        <div className="px-5 sm:px-10 pt-20">
+        <div className="px-5 sm:px-10 max-sm:pt-20">
           <div className="flex justify-center items-center lg:mb-10">
             <img
               src="/img/logo/imgTyW.png"
