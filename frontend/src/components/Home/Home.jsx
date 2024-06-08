@@ -17,7 +17,7 @@ const Home = () => {
     backgroundImage: isMobile
       ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),url('/main.png')`
       : `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/main.png')`,
-    backgroundSize: isMobile?"auto":"cover",
+    backgroundSize:"cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
