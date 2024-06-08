@@ -10,6 +10,7 @@ import {
 const IconBarSm = () => {
   return (
     <div className="sm:hidden w-full p-10 bottom-0">
+      <div className="text-center font-semibold text-yellow-500 pb-2">सोशल मीडिया</div>
       <div className="flex gap-2 justify-center ">
         <a href="https://www.facebook.com/651896654877454" target="_blank">
           <FontAwesomeIcon

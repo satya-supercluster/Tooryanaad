@@ -36,12 +36,12 @@ const Home = () => {
               className=" w-[20rem] lg:m-2"
             />
           </div>
-          <h1 className=" font-bold text-yellow-300 text-xl sm:text-3xl text-center mt-2">
+          <h1 className=" font-bold text-yellow-500 text-xl sm:text-3xl text-center mt-2">
             हिन्दी है हम
           </h1>
           <div className="flex justify-center items-center">
             <p className=" text-gray-300 py-5 text-lg sm:text-2xl font-semibold lg:w-[50rem] leading-10 text-center">
-              <span className="text-yellow-300"> उद्देश्य -</span> राजभाषा
+              <span className="text-yellow-500"> उद्देश्य -</span> राजभाषा
               हिन्दी व भारतीय संस्कृति के प्रचार-प्रसार द्वारा देशवक्षियों में
               राष्ट्रगौरव व आत्मगौरव की भवना का विकाश करना।
             </p>
