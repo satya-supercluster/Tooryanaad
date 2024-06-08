@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 const IconBar = () => {
     return (
-      <div className="fixed top-1/2 -translate-y-1/2 left-1 z-10">
+      <div className="max-sm:hidden fixed top-1/2 -translate-y-1/2 left-1 z-10">
         <div className="grid grid-cols-1 gap-2 w-8">
           <a href="https://www.facebook.com/651896654877454" target="_blank">
             <FontAwesomeIcon

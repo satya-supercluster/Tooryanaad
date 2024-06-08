@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import shellImage from "/shell.png"; // Import the image directly
-import tywlogo from "../../assets/img/logo/imgTyW.png";
 
 const Loader = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -25,7 +23,7 @@ const Loader = () => {
           <div
             className="relative w-80 h-40 bottom-2 bg-contain bg-no-repeat"
             style={{
-              backgroundImage: `url(${tywlogo})`,
+              backgroundImage: `url('/img/logo/imgTyW.png')`,
             }}
           />
           <div className="relative flex space-x-1 mt-10">
@@ -44,7 +42,7 @@ const Loader = () => {
               >
                 <img
                   className="transform rotate-[701deg] w-16"
-                  src={shellImage}
+                  src='/shell.png'
                   alt="shell"
                 />
               </motion.div>
