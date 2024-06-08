@@ -17,13 +17,13 @@ const Home = () => {
     backgroundImage: isMobile
       ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),url('/main.png')`
       : `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/main.png')`,
-    backgroundSize: isMobile ? `${window.innerWidth*0.5} auto`:"cover",
+    backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
   };
   return (
-    <div className="abolute">
+    <div className="">
       <div
         className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:min-h-[100vh] min-h-[95vh]"
         style={backgroundStyle}
@@ -51,8 +51,7 @@ const Home = () => {
           <IconBarSm></IconBarSm>
         </div>
       </div>
-      <div className="min-h-screen">
-      </div>
+      <div className="min-h-screen"></div>
     </div>
   );
 };
