@@ -40,7 +40,7 @@ const Home = () => {
           <h1 className=" font-bold text-yellow-500 text-xl sm:text-3xl text-center mt-2">
             हिन्दी है हम
           </h1>
-          <div className="flex justify-center items-center max-sm:mb-40">
+          <div className="flex justify-center items-center">
             <p className=" text-gray-300 py-5 text-lg sm:text-2xl font-semibold min-[500px]:w-3/4 lg:w-1/2 leading-10 text-center">
               <span className="text-yellow-500"> उद्देश्य -</span>
               राजभाषा हिन्दी व भारतीय संस्कृति के प्रचार-प्रसार द्वारा

@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 const IconBarSm = () => {
   return (
-    <div className="sm:hidden absolute w-full p-10 top-[80vh]">
+    <div className="sm:hidden w-full p-10">
       <div className="text-center font-semibold text-yellow-500 pb-2">सोशल मीडिया</div>
       <div className="flex gap-2 justify-center ">
         <a href="https://www.facebook.com/651896654877454" target="_blank">
