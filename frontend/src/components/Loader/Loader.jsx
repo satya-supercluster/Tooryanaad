@@ -18,7 +18,7 @@ const Loader = () => {
         <motion.div
           className="fixed inset-0 flex flex-col items-center justify-center bg-black"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          exit={{ opacity: 0,y:-500 }}
         >
           <div
             className="relative w-80 h-40 bottom-2 bg-contain bg-no-repeat"
