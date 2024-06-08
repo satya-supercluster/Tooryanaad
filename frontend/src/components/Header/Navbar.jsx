@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 const Navbar = () => {
   return (
-    <div className="innerWidth flex justify-between items-center p-4 rounded-full bg-[rgba(20,20,20)] max-sm:hidden">
+    <div className="innerWidth flex justify-between items-center p-4 bg-[rgba(20,20,20)] max-sm:hidden">
       {/* Navbar for large screens */}
       {/* <a className="px-4 font-bold text-2xl">तूर्यनाद समिति</a> */}
       <NavLink className="px-4 font-bold text-2xl" to="/">
