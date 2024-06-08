@@ -25,7 +25,7 @@ const Home = () => {
   return (
     <div className="">
       <div
-        className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:min-h-[105vh] min-h-[95vh]"
+        className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:min-h-[100vh] min-h-[95vh]"
         style={backgroundStyle}
       >
         <div className="px-5 sm:px-10 pt-20">
