@@ -34,8 +34,8 @@ const Loader = () => {
                 initial={{ opacity: 0, y: 0 }}
                 animate={{ opacity: 1, y: [-15, 15] }}
                 transition={{
-                  duration: 1,
-                  delay: index * 0.2,
+                  duration: 0.6,
+                  delay: index * 0.12,
                   repeat: Infinity,
                   repeatType: "reverse",
                 }}
