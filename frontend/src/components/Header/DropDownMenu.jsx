@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion,AnimatePresence, delay } from "framer-motion"
 import Hamburger from 'hamburger-react'
 import { HiChevronLeft } from "react-icons/hi";
+import { NavLink } from 'react-router-dom';
 const DropDownMenu = () => {
   const [dropDown,setDropDown]=useState(false);
   const [secondaryDropDown,setSecondaryDropDown]=useState(false);
@@ -41,16 +42,19 @@ const DropDownMenu = () => {
                 duration: "0.45",
               }}
             >
-              <a
-                href=""
+              <NavLink
+                to="/"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                }}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-t-lg"
               >
                 मुख्य पृष्ठ
-              </a>
+              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
-
         <AnimatePresence>
           {dropDown === true && secondaryDropDown === false && (
             <motion.div
@@ -62,16 +66,19 @@ const DropDownMenu = () => {
                 duration: "0.4",
               }}
             >
-              <a
-                href=""
+              <NavLink
+                to="/"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                }}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2"
               >
                 अतिथि
-              </a>
+              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
-
         <AnimatePresence>
           {dropDown === true && secondaryDropDown === false && (
             <motion.div
@@ -83,16 +90,16 @@ const DropDownMenu = () => {
                 duration: "0.35",
               }}
             >
-              <div
+              <NavLink
+                to="/"
                 onClick={() => setSecondaryDropDown(true)}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2"
               >
                 सदस्य
-              </div>
+              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
-
         <AnimatePresence>
           {dropDown === true && secondaryDropDown === false && (
             <motion.div
@@ -104,16 +111,20 @@ const DropDownMenu = () => {
                 duration: "0.3",
               }}
             >
-              <a
-                href=""
+              <NavLink
+                to="/"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                }}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
                 वीथिका
-              </a>
+              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
-
+        {/* Secondary DropDownMenu */}
         <AnimatePresence>
           {dropDown === true && secondaryDropDown === true && (
             <motion.div
@@ -126,17 +137,17 @@ const DropDownMenu = () => {
                 delay: "0.45",
               }}
             >
-              <div
+              <NavLink
+                to="/"
                 onClick={() => setSecondaryDropDown(!secondaryDropDown)}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-t-lg "
               >
                 <HiChevronLeft className="relative left-[-20%] font-bold text-2xl" />
                 सदस्य
-              </div>
+              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
-
         <AnimatePresence>
           {dropDown === true && secondaryDropDown === true && (
             <motion.div
@@ -149,16 +160,19 @@ const DropDownMenu = () => {
                 delay: "0.45",
               }}
             >
-              <a
-                href=""
+              <NavLink
+                to="/"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                }}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 "
               >
                 संस्थापक सदस्य
-              </a>
+              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
-
         <AnimatePresence>
           {dropDown === true && secondaryDropDown === true && (
             <motion.div
@@ -171,12 +185,16 @@ const DropDownMenu = () => {
                 delay: "0.45",
               }}
             >
-              <a
-                href=""
+              <NavLink
+                to="/"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                }}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
                 कार्यकारिणी सदस्य
-              </a>
+              </NavLink>
             </motion.div>
           )}
         </AnimatePresence>
