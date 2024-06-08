@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import IconBarSm from "../IconBar/IconBarSm";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
@@ -14,7 +15,7 @@ const Home = () => {
 
   const backgroundStyle = {
     backgroundImage: isMobile
-      ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),url('/main.png')`
+      ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),url('/main.png')`
       : `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/main.png')`,
     backgroundSize: "cover",
     backgroundPosition: "center",
@@ -24,11 +25,11 @@ const Home = () => {
   return (
     <div className="">
       <div
-        className="pt-10 lg:pt-0 flex justify-center items-center lg:rounded-lg h-screen"
+        className="pt-10 lg:pt-0 flex flex-col justify-center items-center lg:rounded-lg max-[380px]:min-h-[105vh] min-h-[95vh]"
         style={backgroundStyle}
       >
-        <div className="px-5 sm:px-10">
-          <div className="flex justify-center items-center">
+        <div className="px-5 sm:px-10 pt-20">
+          <div className="flex justify-center items-center lg:mb-10">
             <img
               src="/img/logo/imgTyW.png"
               alt=""
@@ -45,6 +46,9 @@ const Home = () => {
               राष्ट्रगौरव व आत्मगौरव की भवना का विकाश करना।
             </p>
           </div>
+        </div>
+        <div className="w-screen">
+          <IconBarSm></IconBarSm>
         </div>
       </div>
       <div className="min-h-screen">
