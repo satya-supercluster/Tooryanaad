@@ -10,7 +10,15 @@
 body {
   background-color: rgb(0, 0, 0);
 }
-
+body>div{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:0.5px;
+  bottom:0.5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .paddings {
   padding: 1.5rem;
 }
