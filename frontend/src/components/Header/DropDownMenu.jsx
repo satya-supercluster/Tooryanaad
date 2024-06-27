@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, delay } from "framer-motion";
 import Hamburger from "hamburger-react";
 import { HiChevronLeft } from "react-icons/hi";
@@ -6,8 +6,25 @@ import { NavLink } from "react-router-dom";
 const DropDownMenu = () => {
   const [dropDown, setDropDown] = useState(false);
   const [secondaryDropDown, setSecondaryDropDown] = useState(false);
+  const dropdownRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropDown(false);
+        setSecondaryDropDown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
-    <div className="w-[90%] justify-center items-between sm:hidden flex flex-col gap-0.5">
+    <div
+      className="w-[90%] justify-center items-between sm:hidden flex flex-col gap-0.5"
+      ref={dropdownRef}
+    >
       {/* Dropdown Menu for short Screens */}
 
       <motion.div
@@ -91,11 +108,10 @@ const DropDownMenu = () => {
               }}
             >
               <NavLink
-                to="/"
                 onClick={() => setSecondaryDropDown(true)}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2"
               >
-                सदस्य
+                समिति सदस्य
               </NavLink>
             </motion.div>
           )}
@@ -138,12 +154,11 @@ const DropDownMenu = () => {
               }}
             >
               <NavLink
-                to="/"
                 onClick={() => setSecondaryDropDown(!secondaryDropDown)}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-t-lg "
               >
                 <HiChevronLeft className="relative left-[-20%] font-bold text-2xl" />
-                सदस्य
+                समिति सदस्य
               </NavLink>
             </motion.div>
           )}
@@ -161,7 +176,7 @@ const DropDownMenu = () => {
               }}
             >
               <NavLink
-                to="/"
+                to="/founders"
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
@@ -169,6 +184,31 @@ const DropDownMenu = () => {
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 "
               >
                 संस्थापक सदस्य
+              </NavLink>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {dropDown === true && secondaryDropDown === true && (
+            <motion.div
+              className="w-full"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50, transition: { duration: "0" } }}
+              transition={{
+                duration: "0.2",
+                delay: "0.45",
+              }}
+            >
+              <NavLink
+                to="/final"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                }}
+                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 "
+              >
+                कार्यकारिणी सदस्य
               </NavLink>
             </motion.div>
           )}
@@ -186,14 +226,14 @@ const DropDownMenu = () => {
               }}
             >
               <NavLink
-                to="/"
+                to="/prefinal"
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
                 }}
                 className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
-                कार्यकारिणी सदस्य
+                सदस्य
               </NavLink>
             </motion.div>
           )}
