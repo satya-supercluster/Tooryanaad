@@ -28,7 +28,7 @@ const DropDownMenu = () => {
       {/* Dropdown Menu for short Screens */}
 
       <motion.div
-        whileTap={{ scale: 0.97 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => {
           setDropDown(!dropDown);
           setSecondaryDropDown(false);

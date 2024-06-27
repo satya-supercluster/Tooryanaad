@@ -4,10 +4,10 @@ const TeamCard = ({ member }) => {
   const initialX = Math.random() < 0.5 ? -50 : 50;
   return (
     <motion.div
-      initial={{ opacity:0,x:initialX,y:initialX }}
-      whileInView={{ opacity: 1, x: 0,y:0 }}
+      initial={{ opacity: 0, x: initialX, y: initialX }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: 0.5 }}
-      viewport={{once:true}}
+      viewport={{ once: true }}
       className="flex flex-col gap-1 pt-5 justify-center items-center overflow-hidden rounded-2xl shadow-[0_0px_60px_15px_rgba(0,0,0,0.3)] sm:hover:scale-[1.05] "
     >
       <img
