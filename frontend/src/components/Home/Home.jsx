@@ -18,11 +18,11 @@ const Home = () => {
     backgroundImage: isMobile
       ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),url('/mobile.png')`
       : `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/main.png')`,
-    backgroundSize:isMobile?"contain":"cover",
+    backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
-  }; 
+  };
   return (
     <div className="">
       <div
@@ -48,10 +48,13 @@ const Home = () => {
             </p>
           </div>
         </div>
-        {(isMobile)?
-        <div className="w-screen">
-          <IconBarSm></IconBarSm>
-        </div>:<div></div>}
+        {isMobile ? (
+          <div className="w-screen">
+            <IconBarSm></IconBarSm>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
       <About />
     </div>
