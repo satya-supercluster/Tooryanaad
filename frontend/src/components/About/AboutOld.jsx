@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./about.css";
 import Counter from "./Counter";
 const About = () => {
