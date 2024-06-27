@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import IconBarSm from "../IconBar/IconBarSm";
-import About from "../About/About";
+import About from "../About/AboutOld";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
@@ -16,7 +16,7 @@ const Home = () => {
 
   const backgroundStyle = {
     backgroundImage: isMobile
-      ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),url('/main.png')`
+      ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),url('/mobile.png')`
       : `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/main.png')`,
     backgroundSize:"cover",
     backgroundPosition: "center",
