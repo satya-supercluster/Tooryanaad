@@ -3,7 +3,7 @@ import "./about.css";
 import Counter from "./Counter";
 const About = () => {
   const backgroundStyle = {
-    backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('../../../public/about/bg.jpg')`,
+    backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/bg.jpg')`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
