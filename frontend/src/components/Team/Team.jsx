@@ -1,45 +1,24 @@
-import React, {useEffect} from "react";
-import TeamCard from "./TeamCard";
+import React, { useState } from "react";
 import DropDown from "./DropDown";
+import Executive from "./Executive";
+import Regular from "./Regular";
+import Founder from "./Founder";
+import { useData } from "../../Data/useData";
 const Team = () => {
-    const teamMembers = [
-      {
-        id: 1,
-        name: "John Doe",
-        position: "CEO",
-        image: "/ankit-upadhyaya.jpg",
-      },
-      {
-        id: 2,
-        name: "Jane Smith",
-        position: "CTO",
-        image: "/ankit-upadhyaya.jpg",
-      },
-      {
-        id: 3,
-        name: "Mike Johnson",
-        position: "Designer",
-        image: "/ankit-upadhyaya.jpg",
-      },
-      {
-        id: 4,
-        name: "Mike Johnson",
-        position: "Designer",
-        image: "/ankit-upadhyaya.jpg",
-      },
-      // Add more team members as needed
-    ];
+  const { founder, executive, regular } = useData();
+  const [selectedOption, setSelectedOption] = useState(0);
   return (
-    <div className="flex flex-col justify-center items-center gap-5 container mx-auto px-4 py-4 mt-20 ">
+    <div className="flex flex-col items-center gap-5 mx-auto px-4 py-4 mt-20 ">
       <div className="font-bold text-yellow-500 text-xl sm:text-3xl">
         समिति सदस्य
       </div>
-      <DropDown></DropDown>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {teamMembers.map((member) => (
-          <TeamCard member={member} key={member.id} />
-        ))}
-      </div>
+      <DropDown setSelectedOption={setSelectedOption} selectedOption={selectedOption}></DropDown>
+      {(selectedOption==0 || selectedOption==1)?
+      <Founder members={founder} />:<div></div>}
+      {(selectedOption==0 || selectedOption==2)?
+      <Executive members={executive} />:<div></div>}
+      {(selectedOption==0 || selectedOption==3)?
+      <Regular members={regular} />:<div></div>}
     </div>
   );
 };

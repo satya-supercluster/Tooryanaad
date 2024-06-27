@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DropDown = () => {
+const DropDown = ({setSelectedOption,selectedOption}) => {
   const options = ["सभी सदस्य", "संस्थापक सदस्य", "कार्यकारिणी सदस्य", "सदस्य"];
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
   const dropdownRef = useRef(null);
-
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleOptionClick = (option) => {
@@ -26,7 +24,6 @@ const DropDown = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
   return (
     <div
       className="relative inline-block text-left max-sm:hidden w-[40vw] lg:w-[20vw]"
@@ -35,10 +32,10 @@ const DropDown = () => {
       <div>
         <button
           type="button"
-          className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
           onClick={toggleDropdown}
         >
-          {selectedOption}
+          {options[selectedOption]}
           <svg
             className="-mr-1 ml-2 h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +71,7 @@ const DropDown = () => {
                 <button
                   key={index}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full text-left"
-                  onClick={() => handleOptionClick(option)}
+                  onClick={() => handleOptionClick(index)}
                   role="menuitem"
                 >
                   {option}

@@ -16,9 +16,9 @@ const Loader = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          className="fixed inset-0 flex flex-col items-center justify-center bg-black"
+          className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(29,32,38)]"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0,y:-500 }}
+          exit={{ opacity: 0, y: -500 }}
         >
           <div
             className="relative w-80 h-40 bottom-2 bg-contain bg-no-repeat"
@@ -42,7 +42,7 @@ const Loader = () => {
               >
                 <img
                   className="transform rotate-[701deg] w-16"
-                  src='/shell.png'
+                  src="/shell.png"
                   alt="shell"
                 />
               </motion.div>

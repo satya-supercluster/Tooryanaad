@@ -192,16 +192,16 @@ const DropDownMenu = () => {
           {dropDown === true && secondaryDropDown === true && (
             <motion.div
               className="w-full"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50, transition: { duration: "0" } }}
+              exit={{ opacity: 0, x: 50, transition: { duration: "0" } }}
               transition={{
-                duration: "0.2",
+                duration: "0.15",
                 delay: "0.45",
               }}
             >
               <NavLink
-                to="/final"
+                to="/executives"
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
@@ -217,16 +217,16 @@ const DropDownMenu = () => {
           {dropDown === true && secondaryDropDown === true && (
             <motion.div
               className="w-full"
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 50, transition: { duration: "0" } }}
+              exit={{ opacity: 0, x: -50, transition: { duration: "0" } }}
               transition={{
-                duration: "0.15",
+                duration: "0.10",
                 delay: "0.45",
               }}
             >
               <NavLink
-                to="/prefinal"
+                to="/regulars"
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
