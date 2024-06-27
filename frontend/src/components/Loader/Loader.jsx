@@ -20,7 +20,15 @@ const Loader = () => {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: -500 }}
         >
-          <div
+          <motion.div
+            initial={{ scale:1 }}
+            animate={{ scale:1.1 }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeIn",
+            }}
             className="relative w-80 h-40 bottom-2 bg-contain bg-no-repeat"
             style={{
               backgroundImage: `url('/img/logo/imgTyW.png')`,
