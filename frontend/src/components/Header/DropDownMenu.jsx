@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { motion,AnimatePresence, delay } from "framer-motion"
-import Hamburger from 'hamburger-react'
+import React, { useState } from "react";
+import { motion, AnimatePresence, delay } from "framer-motion";
+import Hamburger from "hamburger-react";
 import { HiChevronLeft } from "react-icons/hi";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 const DropDownMenu = () => {
-  const [dropDown,setDropDown]=useState(false);
-  const [secondaryDropDown,setSecondaryDropDown]=useState(false);
+  const [dropDown, setDropDown] = useState(false);
+  const [secondaryDropDown, setSecondaryDropDown] = useState(false);
   return (
     <div className="w-[90%] justify-center items-between sm:hidden flex flex-col gap-0.5">
       {/* Dropdown Menu for short Screens */}
@@ -16,7 +16,7 @@ const DropDownMenu = () => {
           setDropDown(!dropDown);
           setSecondaryDropDown(false);
         }}
-        className="flex justify-between items-center bg-[rgba(20,20,20)] p-2 rounded-lg "
+        className="flex justify-between items-center bg-[rgba(20,20,20)] p-2 rounded-lg shadow-sm shadow-slate-400 "
       >
         <div className="pl-4 font-semibold text-lg">तूर्यनाद समिति</div>
         <Hamburger
@@ -201,6 +201,6 @@ const DropDownMenu = () => {
       </div>
     </div>
   );
-}
+};
 
-export default DropDownMenu
+export default DropDownMenu;

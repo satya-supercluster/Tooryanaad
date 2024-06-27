@@ -18,6 +18,7 @@ body>div{
   bottom:0.5px;
   overflow-x: hidden;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 .paddings {
   padding: 1.5rem;

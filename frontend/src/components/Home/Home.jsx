@@ -21,7 +21,7 @@ const Home = () => {
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundAttachment: "fixed",
+    // backgroundAttachment: "fixed",
   };
   return (
     <div className="">
