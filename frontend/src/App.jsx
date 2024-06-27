@@ -7,6 +7,7 @@ import Team from "./components/Team/Team";
 import Founder from "./components/Team/Founder";
 import Executive from "./components/Team/Executive";
 import Regular from "./components/Team/Regular";
+import Guest from "./components/Guests/Guest";
 import { useData } from "./Data/useData";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +35,10 @@ const App = () => {
             <Route
               path="/regulars"
               element={<Regular members={regular} />}
+            ></Route>
+            <Route
+              path="/guests"
+              element={<Guest/>}
             ></Route>
           </Route>
         </Routes>

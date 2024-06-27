@@ -84,7 +84,7 @@ const DropDownMenu = () => {
               }}
             >
               <NavLink
-                to="/"
+                to="/guests"
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);

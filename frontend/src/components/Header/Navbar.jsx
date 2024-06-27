@@ -12,7 +12,7 @@ const Navbar = () => {
         <NavLink className="hover:scale-110" to="/">
           मुख्य पृष्ठ
         </NavLink>
-        <NavLink className="hover:scale-110" to="/">
+        <NavLink className="hover:scale-110" to="/guests">
           अतिथि
         </NavLink>
         <NavLink className="hover:scale-110" to="/team">
