@@ -33,7 +33,7 @@ const Sponsor = () => {
 
   return (
     <div className="my-20">
-      <h1 className="text-4xl font-light text-center text-yellow-600 mb-10">
+      <h1 className="text-lg lg:text-3xl font text-center text-yellow-600 mb-10">
         हमारे प्रायोजक
       </h1>
       <div className="relative w-[90%] rounded-xl max-w-[960px] h-28 mx-auto overflow-hidden bg-white shadow-lg">

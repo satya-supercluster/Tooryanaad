@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./about.css";
 import Counter from "./Counter";
 const About = () => {
@@ -18,10 +19,12 @@ const About = () => {
         <Counter></Counter>
       </div>
       <div className="responsive-container-block Container">
-        <div
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5,delay:0.2 }}
+          viewport={{ once: true }}
           className="responsive-container-block rightSide"
-          //   data-aos="fade-right"
-          //   data-aos-delay="300"
         >
           <img className="number1img" src="/about/1.jpeg" />
           <img className="number2img" src="/about/2.jpeg" />
@@ -35,11 +38,13 @@ const About = () => {
           ></iframe>
           <img className="number7img" src="/about/5.jpg" />
           <img className="number6img" src="/about/6.jpg" />
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5,delay:0.2 }}
+          viewport={{ once: true }}
           className="responsive-container-block leftSide"
-          //   data-aos="fade-left"
-          //   data-aos-delay="600"
         >
           <p className="text-blk heading">तूर्यनाद</p>
           <p className="text-md min-[400px]:text-lg max-sm:p-7 max-sm:text-center md:text-xl text-white ">
@@ -55,7 +60,7 @@ const About = () => {
             देशवासियों में राष्ट्रगौरव एवं आत्मगौरव के भाव को जागृत करने के
             ध्येय से विगत 9 वर्षों से कार्यरत है।
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

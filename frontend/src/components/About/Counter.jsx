@@ -1,5 +1,7 @@
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 
 const Counter = () => {
   const counters = [
@@ -9,25 +11,29 @@ const Counter = () => {
     { label: "यूट्यूब", value: 3500 },
   ];
 
-  const { scrollYProgress } = useScroll();
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
 
   return (
-    <div className="flex max-sm:flex-col justify-center gap-5 lg:gap-10 text-white px-10 rounded-lg py-5 border border-white items-center  bg-gray-700 bg-opacity-40">
+    <div
+      ref={ref}
+      className="grid grid-cols-2 md:grid-cols-4 my-5 justify-center gap-x-10 gap-y-10 lg:gap-10 text-white px-10 rounded-lg py-5 border border-yellow-500 shadow-md shadow-yellow-300 items-center bg-gray-700 bg-opacity-50"
+    >
       {counters.map((counter, index) => (
-        <div key={index}>
-          <motion.div
-            initial={{ value: 0 }}
-            whileInView={{ value: counter.value }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            style={{
-              value: useTransform(scrollYProgress, [0, 1], [0, counter.value]),
-            }}
-            className="text-3xl font-bold"
-          >
-            {`${counter.value}+`}
-          </motion.div>
-          <div className="text-center">{counter.label}</div>
+        <div key={index} >
+          <div className="text-2xl max-[500px]:text-md text-yellow-500 text-center">
+            {inView ? (
+              <CountUp start={0} end={counter.value} duration={2} />
+            ) : (
+              0
+            )}
+            +
+          </div>
+          <div className="text-center text-xl max-[500px]:text-sm font-bold ">
+            {counter.label}
+          </div>
         </div>
       ))}
     </div>
