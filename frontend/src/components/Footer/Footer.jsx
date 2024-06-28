@@ -29,7 +29,7 @@ export default function Footer() {
           viewport={{ once: false }}
         >
           <img className="w-[200px]" src="/ty24.png" alt="ty24" />
-          <div className="flex flex-wrap gap-2 text-sm xl:text-xl">
+          <div className="flex flex-wrap gap-2 text-sm xl:text-md">
             <NavLink
               className="border-r-2 border-white pr-2"
               to="/"
@@ -56,7 +56,7 @@ export default function Footer() {
             </NavLink>
           </div>
           <p className="footer-company-name text-sm text-center text-yellow-500">
-            Tooryanaad © 2023
+            Tooryanaad © 2024
           </p>
         </motion.div>
 

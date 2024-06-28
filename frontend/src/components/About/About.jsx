@@ -22,8 +22,9 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
+          exit={{opacity:0,x:-50}}
           transition={{ duration: 0.5,delay:0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="responsive-container-block rightSide"
         >
           <img className="number1img" src="/about/1.jpeg" />
@@ -42,8 +43,9 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
+          exit={{opacity:0,x:50}}
           transition={{ duration: 0.5,delay:0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="responsive-container-block leftSide"
         >
           <p className="text-blk heading">तूर्यनाद</p>

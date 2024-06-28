@@ -35,9 +35,14 @@ const Books = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-cover bg-center">
+    <motion.div 
+      initial={{ scale: 1.1, y: 5 }}
+      whileInView={{ scale: 1, y: 0 }}
+      transition={{ duration: 1,delay:0.8 }}
+      viewpost={{once:true}}
+      className="bg-cover bg-center">
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: -5 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
         className="container mx-auto pt-16"
@@ -71,7 +76,7 @@ const Books = () => {
           </motion.div>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
