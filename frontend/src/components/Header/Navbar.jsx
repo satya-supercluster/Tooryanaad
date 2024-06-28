@@ -24,7 +24,7 @@ const Navbar = () => {
         <NavLink onClick={handleClick} className="hover:scale-110" to="/events">
           प्रतियोगिताएँ
         </NavLink>
-        <NavLink onClick={handleClick} className="hover:scale-110" to="/">
+        <NavLink onClick={handleClick} className="hover:scale-110" to="/gallery">
           वीथिका
         </NavLink>
       </div>

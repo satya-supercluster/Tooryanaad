@@ -9,10 +9,9 @@ import Executive from "./components/Team/Executive";
 import Regular from "./components/Team/Regular";
 import Guest from "./components/Guests/Guest";
 import Events from "./components/Events/Events";
-import { useData } from "./Data/useData";
+import Gallery from "./components/Gallery/Gallery";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const { founder, executive, regular } = useData();
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -26,15 +25,15 @@ const App = () => {
             <Route path="/team" element={<Team />}></Route>
             <Route
               path="/founders"
-              element={<Founder members={founder} />}
+              element={<Founder />}
             ></Route>
             <Route
               path="/executives"
-              element={<Executive members={executive} />}
+              element={<Executive />}
             ></Route>
             <Route
               path="/regulars"
-              element={<Regular members={regular} />}
+              element={<Regular />}
             ></Route>
             <Route
               path="/guests"
@@ -43,6 +42,10 @@ const App = () => {
             <Route
               path="/events"
               element={<Events/>}
+            ></Route>
+            <Route
+              path="/gallery"
+              element={<Gallery/>}
             ></Route>
           </Route>
         </Routes>

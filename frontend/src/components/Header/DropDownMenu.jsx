@@ -158,7 +158,7 @@ const DropDownMenu = () => {
               }}
             >
               <NavLink
-                to="/"
+                to="/gallery"
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
