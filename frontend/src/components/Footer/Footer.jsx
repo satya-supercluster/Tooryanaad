@@ -26,7 +26,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <img className="w-[200px]" src="/ty24.png" alt="ty24" />
           <div className="flex flex-wrap gap-2 text-sm xl:text-xl">
@@ -55,7 +55,7 @@ export default function Footer() {
               वीथिका
             </NavLink>
           </div>
-          <p className="footer-company-name text-yellow-500">
+          <p className="footer-company-name text-sm text-yellow-500">
             Tooryanaad © 2023
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <div className="mb-4 flex items-center">
             <FontAwesomeIcon
@@ -103,7 +103,7 @@ export default function Footer() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <p className="footer-company-about flex w-full justify-center mb-4">
             <span className="text-center font-bold">तूर्यनाद समिति</span>
