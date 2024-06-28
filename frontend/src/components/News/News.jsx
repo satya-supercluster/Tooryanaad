@@ -32,10 +32,10 @@ function News() {
   };
 
   return (
-    <div className="mx-auto my-20">
-      <div className="text-lg lg:text-3xl font text-center text-yellow-600 mb-10">
+    <div className=" my-20">
+      <div className="">
         <motion.p
-          className="text-4xl font-bold"
+          className="text-xl lg:text-3xl font-bold text-center text-yellow-500 mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
@@ -43,7 +43,7 @@ function News() {
           हमारी खबरें
         </motion.p>
       </div>
-      <div className="mx-12 shadow-lg rounded-lg">
+      <div className="min-[400px]:mx-12 shadow-lg rounded-lg">
         <Carousel
           responsive={responsive}
           pauseOnHover={true}
@@ -61,7 +61,7 @@ function News() {
         >
           {photos.map((photo, index) => (
             <div key={index} className="flex justify-center">
-              <div className="p-2">
+              <div className="min-[400px]:p-2">
                 <img
                   className="w-[80vw] md:w-[45vw] lg:w-[30vw] h-80 object-stretch rounded-lg"
                   src={`${photo}`}
