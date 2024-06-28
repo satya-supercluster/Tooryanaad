@@ -36,7 +36,7 @@ const DropDownMenu = () => {
           setDropDown(!dropDown);
           setSecondaryDropDown(false);
         }}
-        className="flex justify-between items-center bg-[rgba(20,20,20)] p-2 rounded-lg shadow-sm shadow-slate-400 "
+        className="flex justify-between items-center bg-[rgba(30,30,30)] p-2 rounded-lg shadow-sm shadow-slate-400 "
       >
         <div className="pl-4 font-semibold text-lg">तूर्यनाद समिति</div>
         <Hamburger
@@ -59,7 +59,7 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
               transition={{
-                duration: "0.45",
+                duration: "0.5",
               }}
             >
               <NavLink
@@ -69,7 +69,7 @@ const DropDownMenu = () => {
                   setSecondaryDropDown(false);
                   handleClick();
                 }}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-t-lg"
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-t-lg"
               >
                 मुख्य पृष्ठ
               </NavLink>
@@ -84,7 +84,7 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{
-                duration: "0.4",
+                duration: "0.45",
               }}
             >
               <NavLink
@@ -94,7 +94,7 @@ const DropDownMenu = () => {
                   setSecondaryDropDown(false);
                   handleClick();
                 }}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2"
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2"
               >
                 अतिथि
               </NavLink>
@@ -109,14 +109,19 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
               transition={{
-                duration: "0.35",
+                duration: "0.4",
               }}
             >
               <NavLink
-                onClick={() => setSecondaryDropDown(true)}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2"
+                to="/events"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                  handleClick();
+                }}
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2"
               >
-                समिति सदस्य
+                प्रतियोगिताएँ
               </NavLink>
             </motion.div>
           )}
@@ -129,6 +134,26 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{
+                duration: "0.35",
+              }}
+            >
+              <NavLink
+                onClick={() => setSecondaryDropDown(true)}
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2"
+              >
+                समिति सदस्य
+              </NavLink>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {dropDown === true && secondaryDropDown === false && (
+            <motion.div
+              className="w-full"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              transition={{
                 duration: "0.3",
               }}
             >
@@ -139,7 +164,7 @@ const DropDownMenu = () => {
                   setSecondaryDropDown(false);
                   handleClick();
                 }}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
                 वीथिका
               </NavLink>
@@ -161,7 +186,7 @@ const DropDownMenu = () => {
             >
               <NavLink
                 onClick={() => setSecondaryDropDown(!secondaryDropDown)}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-t-lg "
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-t-lg "
               >
                 <HiChevronLeft className="relative left-[-20%] font-bold text-2xl" />
                 समिति सदस्य
@@ -188,7 +213,7 @@ const DropDownMenu = () => {
                   setSecondaryDropDown(false);
                   handleClick();
                 }}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 "
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 "
               >
                 संस्थापक सदस्य
               </NavLink>
@@ -214,7 +239,7 @@ const DropDownMenu = () => {
                   setSecondaryDropDown(false);
                   handleClick();
                 }}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 "
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 "
               >
                 कार्यकारिणी सदस्य
               </NavLink>
@@ -240,7 +265,7 @@ const DropDownMenu = () => {
                   setSecondaryDropDown(false);
                   handleClick();
                 }}
-                className="bg-[rgba(20,20,20)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
                 सदस्य
               </NavLink>

@@ -8,7 +8,7 @@ const Team = () => {
   const { founder, executive, regular } = useData();
   const [selectedOption, setSelectedOption] = useState(0);
   return (
-    <div className="flex flex-col items-center gap-5 mx-auto px-4 py-4 mt-20 ">
+    <div className="flex flex-col items-center gap-5 mx-auto px-4 mt-24 mb-5 ">
       <div className="font-bold text-yellow-500 text-xl sm:text-3xl">
         समिति सदस्य
       </div>
