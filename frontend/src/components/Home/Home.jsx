@@ -3,6 +3,7 @@ import IconBarSm from "../IconBar/IconBarSm";
 import About from "../About/About";
 import { motion } from "framer-motion";
 import Sponsor from "../Sponsor/Sponsor";
+import News from "../News/News";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
@@ -83,6 +84,7 @@ const Home = () => {
         )}
       </div>
       <About />
+      <News></News>
       <Sponsor></Sponsor>
     </div>
   );
