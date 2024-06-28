@@ -9,24 +9,23 @@ const logos = [
   "/sponsor/logo2_t23.png",
   "/sponsor/logo3_t23.png",
   "/sponsor/logo4_t23.png",
-  // Add all your logos here
 ];
 
 const Sponsor = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    const animationDuration = 50000; // 100 seconds for a slower speed
-    const totalWidth = 250 * logos.length * 2; // Double the total width for infinite loop
+    const animationDuration = 50000; 
+    const totalWidth = 250 * logos.length * 2;
 
     const animate = () => {
       setScrollPosition((prevPosition) => {
-        const newPosition = prevPosition - 0.5; // Adjust speed here
+        const newPosition = prevPosition - 0.5; 
         return newPosition <= -totalWidth / 2 ? 0 : newPosition;
       });
     };
 
-    const intervalId = setInterval(animate, 10); // Adjust interval for smoothness
+    const intervalId = setInterval(animate, 10); 
 
     return () => clearInterval(intervalId);
   }, []);
@@ -34,7 +33,7 @@ const Sponsor = () => {
   return (
     <div className="my-20">
       <h1 className="text-xl lg:text-3xl font-bold text-center text-yellow-500 mb-10">
-        हमारे प्रायोजक
+        हमारे प्रायोजक 
       </h1>
       <div className="relative w-[90%] rounded-xl max-w-[960px] h-28 mx-auto overflow-hidden bg-white shadow-lg">
         <div
