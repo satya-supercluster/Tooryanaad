@@ -12,7 +12,7 @@ const Counter = () => {
   const { scrollYProgress } = useScroll();
 
   return (
-    <div className="flex max-sm:flex-col justify-center gap-5 lg:gap-10 text-white px-10 rounded-lg py-5 border border-white items-center">
+    <div className="flex max-sm:flex-col justify-center gap-5 lg:gap-10 text-white px-10 rounded-lg py-5 border border-white items-center  bg-gray-700 bg-opacity-40">
       {counters.map((counter, index) => (
         <div key={index}>
           <motion.div

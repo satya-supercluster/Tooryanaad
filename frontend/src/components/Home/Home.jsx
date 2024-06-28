@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import IconBarSm from "../IconBar/IconBarSm";
-import About from "../About/AboutOld";
+import About from "../About/About";
 import { motion } from "framer-motion";
+import Sponsor from "../Sponsor/Sponsor";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
@@ -82,6 +83,7 @@ const Home = () => {
         )}
       </div>
       <About />
+      <Sponsor></Sponsor>
     </div>
   );
 };

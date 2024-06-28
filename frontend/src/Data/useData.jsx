@@ -31,9 +31,6 @@ export const DataProvider = ({ children }) => {
       2021: guest21,
     });
   }, []);
-  useEffect(() => {
-    console.log(guests);
-  }, [guests]);
 
   useEffect(() => {
     if (members.length > 0) {
