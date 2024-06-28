@@ -16,6 +16,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
+    const handleClick = () => {
+      window.scrollTo(0, 0);
+    };
   return (
     <footer className="w-full flex justify-center items-center bg-gray-800 text-white p-10">
       <div className="max-w-[1200px] w-full flex max-[900px]:flex-col flex-wrap justify-evenly items-center gap-8 mx-auto">
@@ -27,16 +30,30 @@ export default function Footer() {
         >
           <img className="w-[200px]" src="/ty24.png" alt="ty24" />
           <div className="flex flex-wrap gap-2 text-sm xl:text-xl">
-            <NavLink className="border-r-2 border-white pr-2" to="/">
+            <NavLink
+              className="border-r-2 border-white pr-2"
+              to="/"
+              onClick={handleClick}
+            >
               मुख्य पृष्ठ
             </NavLink>
-            <NavLink className="border-r-2 border-white pr-2" to="/guests">
+            <NavLink
+              className="border-r-2 border-white pr-2"
+              to="/guests"
+              onClick={handleClick}
+            >
               अतिथि
             </NavLink>
-            <NavLink className="border-r-2 border-white pr-2" to="/team">
+            <NavLink
+              className="border-r-2 border-white pr-2"
+              to="/team"
+              onClick={handleClick}
+            >
               सदस्य
             </NavLink>
-            <NavLink to="/">वीथिका</NavLink>
+            <NavLink to="/" onClick={handleClick}>
+              वीथिका
+            </NavLink>
           </div>
           <p className="footer-company-name text-yellow-500">
             Tooryanaad © 2023

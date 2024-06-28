@@ -17,9 +17,8 @@ const App = () => {
       setIsLoading(false);
     }, 4500);
   }, []);
-
   return (
-      <BrowserRouter>
+    <BrowserRouter>
         <Routes>
           <Route path="/" element={isLoading ? <Loader /> : <Layout />}>
             <Route index element={<Home />}></Route>

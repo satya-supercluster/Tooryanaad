@@ -24,9 +24,10 @@ const DropDown = ({setSelectedOption,selectedOption}) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <div
-      className="relative inline-block text-left max-sm:hidden w-[40vw] lg:w-[20vw]"
+      className="relative inline-block text-left max-[400px]:w-[70vw] w-[40vw] lg:w-[20vw]"
       ref={dropdownRef}
     >
       <div>
@@ -55,7 +56,7 @@ const DropDown = ({setSelectedOption,selectedOption}) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 w-[40vw] lg:w-[20vw]"
+            className="origin-top-right absolute right-0 mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 max-[400px]:w-[70vw] w-[40vw] lg:w-[20vw]"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
