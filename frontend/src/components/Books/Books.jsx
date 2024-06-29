@@ -66,6 +66,7 @@ const Books = () => {
             className="relative aspect-auto"
             whileHover={{ scale: 1.05, rotate: index % 2 == 0 ? 5 : -5 }}
             whileTap={{ scale: 0.95 }}
+            viewport={{once:true}}
           >
             <div className="block w-full h-full">
               <motion.img
