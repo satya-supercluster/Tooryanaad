@@ -59,7 +59,7 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
               transition={{
-                duration: "0.5",
+                duration: "0.44",
               }}
             >
               <NavLink
@@ -84,7 +84,7 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{
-                duration: "0.45",
+                duration: "0.39",
               }}
             >
               <NavLink
@@ -109,7 +109,7 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
               transition={{
-                duration: "0.4",
+                duration: "0.34",
               }}
             >
               <NavLink
@@ -134,7 +134,7 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{
-                duration: "0.35",
+                duration: "0.29",
               }}
             >
               <NavLink
@@ -154,7 +154,7 @@ const DropDownMenu = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
               transition={{
-                duration: "0.3",
+                duration: "0.24",
               }}
             >
               <NavLink
