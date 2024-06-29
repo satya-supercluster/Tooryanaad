@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Loader = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 4000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <AnimatePresence>
-      {isVisible && (
         <motion.div
           className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(29,32,38)]"
           initial={{ opacity: 1 }}
@@ -23,7 +13,7 @@ const Loader = () => {
         >
           <motion.div
             initial={{ rotateZ: 0 }}
-            animate={{ rotateZ: [-5, 5, -360, 0, 360] }}
+            animate={{ rotateZ: [60, -360, 60, 360] }}
             transition={{
               duration: 4,
               repeat: Infinity,
@@ -58,7 +48,6 @@ const Loader = () => {
             ))}
           </div>
         </motion.div>
-      )}
     </AnimatePresence>
   );
 };
