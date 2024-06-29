@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Layout from "./components/Layout/Layout";
@@ -13,12 +13,6 @@ import Gallery from "./components/Gallery/Gallery";
 import EventDetails from "./components/Events/EventDetails";
 import { useData } from "./Data/useData";
 const App = () => {
-  // const [isLoading, setIsLoading] = useState(true);
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 4500);
-  // }, []);
   const { isLoading } = useData();
   return (
     <BrowserRouter>

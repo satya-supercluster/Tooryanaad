@@ -20,9 +20,6 @@ const DropDownMenu = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  const handleClick = () => {
-    window.scrollTo(0, 0);
-  };
   return (
     <div
       className="w-[90%] justify-center items-between sm:hidden flex flex-col gap-0.5"
@@ -67,7 +64,6 @@ const DropDownMenu = () => {
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
-                  handleClick();
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-t-lg"
               >
@@ -92,7 +88,6 @@ const DropDownMenu = () => {
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
-                  handleClick();
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2"
               >
@@ -117,7 +112,6 @@ const DropDownMenu = () => {
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
-                  handleClick();
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2"
               >
@@ -162,7 +156,6 @@ const DropDownMenu = () => {
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
-                  handleClick();
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
@@ -211,7 +204,6 @@ const DropDownMenu = () => {
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
-                  handleClick();
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 "
               >
@@ -237,7 +229,6 @@ const DropDownMenu = () => {
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
-                  handleClick();
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 "
               >
@@ -263,7 +254,6 @@ const DropDownMenu = () => {
                 onClick={() => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
-                  handleClick();
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >

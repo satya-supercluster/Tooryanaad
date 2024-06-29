@@ -7,15 +7,52 @@ body {
   background-color: rgb(29,32,38);
 }
 body>div{
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   top:0.5px;
   bottom:0.5px;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   scroll-behavior: smooth;
 }
+
+body > div {
+  /* Your existing styles */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.5px;
+  bottom: 0.5px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* Scrollbar styles */
+  scrollbar-width: auto;
+  scrollbar-color: rgb(179, 117, 46) rgb(31 41 55);
+  scrollbar-color: rgb(179, 117, 46) rgb(29,32,38);
+}
+
+body > div::-webkit-scrollbar {
+  width: 20px;
+}
+
+body > div::-webkit-scrollbar-track {
+  background: rgb(31 41 55);
+  background: rgb(29,32,38);
+}
+
+body > div::-webkit-scrollbar-thumb {
+  background-color: rgb(31 41 55);
+  border-radius: 6px;
+  border: 3px solid rgb(31 41 55);
+  border: 3px solid rgb(29,32,38);
+}
+
+body > div::-webkit-scrollbar-thumb:hover {
+  background: rgb(29,32,65);
+}
+
 .paddings {
   padding: 1.5rem;
 }
