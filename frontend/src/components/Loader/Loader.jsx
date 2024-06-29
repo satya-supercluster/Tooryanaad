@@ -21,8 +21,8 @@ const Loader = () => {
           exit={{ opacity: 0, y: -500 }}
         >
           <motion.div
-            initial={{ rotateZ:0 }}
-            animate={{ rotateZ: [5,-5,360,-360] }}
+            initial={{ rotateZ: 0 }}
+            animate={{ rotateZ: [-5, 5, -10,10, 360, -360] }}
             transition={{
               duration: 4,
               repeat: Infinity,
