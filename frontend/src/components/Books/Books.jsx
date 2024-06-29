@@ -35,12 +35,13 @@ const Books = () => {
   ];
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ scale: 1.1, y: 5 }}
       whileInView={{ scale: 1, y: 0 }}
-      transition={{ duration: 0.5,delay:0.5 }}
-      viewpost={{once:true}}
-      className="bg-cover bg-center">
+      transition={{ duration: 0.5, delay: 0.5 }}
+      viewpost={{ once: true }}
+      className="bg-cover bg-center"
+    >
       <motion.div
         initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
@@ -56,6 +57,7 @@ const Books = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true }}
         className="container max-sm:px-10 max-[350px]:grid-cols-2 sm:max-w-[70%] mx-auto grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-8 px-4"
       >
         {books.map((book, index) => (
