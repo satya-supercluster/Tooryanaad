@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useData } from "../../Data/useData";
 const EventCard = ({ event }) => {
+  const { eventDescriptions } = useData();
   const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const initialX = Math.random() < 0.5 ? -50 : 50;
 
@@ -46,7 +48,7 @@ const EventCard = ({ event }) => {
             onClick={toggleDetails}
           >
             <h3 className="text-xl font-bold mb-1 text-yellow-500">उद्देश्य</h3>
-            <p className="text-sm font-semibold">{event.description}</p>
+            <p className="text-sm font-semibold">{eventDescriptions[event.alias]}</p>
           </motion.div>
         )}
       </AnimatePresence>

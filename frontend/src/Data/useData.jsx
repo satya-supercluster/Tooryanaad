@@ -1,40 +1,53 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import membersData from "./Members";
-import {
-  guest15,
-  guest16,
-  guest17,
-  guest18,
-  guest19,
-  guest20,
-  guest21,
-} from "./Guests";
-import events23,{eventData23} from "./Events23";
+import eventDescriptions from "./Events23";
 const DataContext = createContext();
 
 export const useData = () => useContext(DataContext);
 
 export const DataProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [members, setMembers] = useState([]);
   const [founder, setFounder] = useState([]);
   const [executive, setExecutive] = useState([]);
   const [regular, setRegular] = useState([]);
-  const [guests, setGuests] = useState([]);
-  const [eventsOf2023, setEventsOf2023] = useState([]);
-  const [eventsDataOf2023, setEventsDataOf2023] = useState([]);
+  const [guests, setGuests] = useState({});
+  const [events, setEvents] = useState([]);
+
   useEffect(() => {
-    setMembers(membersData);
-    setEventsOf2023(events23);
-    setEventsDataOf2023(eventData23);
-    setGuests({
-      2015: guest15,
-      2016: guest16,
-      2017: guest17,
-      2018: guest18,
-      2019: guest19,
-      2020: guest20,
-      2021: guest21,
-    });
+    const fetchData = async () => {
+      try {
+        const [membersRes, guestsRes, eventsRes] = await Promise.all([
+          fetch(`${import.meta.env.VITE_BACKEND_SITE}/teams`),
+          fetch(`${import.meta.env.VITE_BACKEND_SITE}/guests`),
+          fetch(`${import.meta.env.VITE_BACKEND_SITE}/t_events`),
+        ]);
+
+        const membersData = await membersRes.json();
+        const guestsData = await guestsRes.json();
+        const eventsData = await eventsRes.json();
+
+        setMembers(membersData);
+
+        // Organize guests by year
+        const guestsByYear = guestsData.reduce((acc, guest) => {
+          const year = guest.YEAR;
+          if (!acc[year]) {
+            acc[year] = [];
+          }
+          acc[year].push(guest);
+          return acc;
+        }, {});
+
+        setGuests(guestsByYear);
+        setEvents(eventsData);
+      } catch (e) {
+        console.error("Error fetching data:", e);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -61,12 +74,14 @@ export const DataProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
+        isLoading,
+        setIsLoading,
         executive,
         founder,
         regular,
         guests,
-        eventsOf2023,
-        eventsDataOf2023,
+        events,
+        eventDescriptions,
       }}
     >
       {children}

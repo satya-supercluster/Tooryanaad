@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Loader from "../Loader/Loader";
 import { useData } from "../../Data/useData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,15 +8,23 @@ import {
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 
-function EventDetails({ index }) {
-  const { eventsDataOf2023 } = useData();
+function EventDetails({ title }) {
+  const { events } = useData();
+  const [event, setEvent] = useState(null);
 
-  if (!eventsDataOf2023 || !eventsDataOf2023[index]) {
-    return <Loader />;
+  useEffect(() => {
+    if (events && events.length > 0) {
+      const foundEvent = events.find((e) => e.alias == title);
+      setEvent(foundEvent);
+    }
+  });
+  if (!event) {
+    return (
+      <div className="bg-[rgb(29,32,38)] text-white text-center mt-28 px-5 min-h-screen">
+        Event not found
+      </div>
+    );
   }
-
-  const member = eventsDataOf2023[index];
-
   return (
     <div className="bg-[rgb(29,32,38)] text-white text-center mt-28 px-5">
       <motion.div
@@ -27,7 +34,7 @@ function EventDetails({ index }) {
         viewport={{ once: false }}
         className="font-bold text-yellow-500 text-xl sm:text-3xl mb-10"
       >
-        {member.title}
+        {event.title}
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -36,8 +43,8 @@ function EventDetails({ index }) {
         className="mx-auto p-4 text-center"
       >
         <img
-          src={`/events/${member.alias}.jpg`}
-          alt={member.title}
+          src={`/events/${event.alias}.jpg`}
+          alt={event.title}
           className="w-[70%] aspect-auto max-[400px]:w-[95%] max-w-[350px] mx-auto rounded-lg border-4 border-yellow-400"
         />
       </motion.div>
@@ -50,7 +57,7 @@ function EventDetails({ index }) {
           viewport={{ once: false }}
           className="my-8"
         >
-          {member.tagline && (
+          {event.tagline && (
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -60,17 +67,17 @@ function EventDetails({ index }) {
             >
               <blockquote
                 className="text-lg font-bold text-center bg-yellow-500 text-black p-4 rounded-xl mb-4"
-                dangerouslySetInnerHTML={{ __html: member.tagline }}
+                dangerouslySetInnerHTML={{ __html: event.tagline }}
               ></blockquote>
             </motion.div>
           )}
           <div
             className="text-center"
-            dangerouslySetInnerHTML={{ __html: member.description }}
+            dangerouslySetInnerHTML={{ __html: event.description }}
           ></div>
           <div
             className="text-center mt-4"
-            dangerouslySetInnerHTML={{ __html: member.other }}
+            dangerouslySetInnerHTML={{ __html: event.other }}
           ></div>
         </motion.div>
 
@@ -78,17 +85,17 @@ function EventDetails({ index }) {
           <EventCard
             title="दिनांक और समय"
             icon={<FontAwesomeIcon icon={faCalendarAlt} />}
-            content={member.timeline}
+            content={event.timeline}
           />
           <EventCard
             title="समन्वयक"
             icon={<FontAwesomeIcon icon={faPhone} />}
-            content={member.coordinators}
+            content={event.coordinators}
           />
           <EventCard
             title="कुल पुरस्कार राशि"
             icon={<FontAwesomeIcon icon={faTrophy} />}
-            content={member.prize}
+            content={event.prize}
           />
         </div>
       </div>

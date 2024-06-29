@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import EventCard from "./EventCard";
 import { useData } from "../../Data/useData";
 const Event = () => {
-  const { eventsOf2023 } = useData();
+  const { events } = useData();
 
   return (
     <div className="w-full flex justify-center items-center">
@@ -11,7 +11,7 @@ const Event = () => {
           प्रतियोगिता पृष्ठ
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {eventsOf2023.map((event, index) => (
+          {events.map((event, index) => (
             <EventCard event={event} key={index}></EventCard>
           ))}
         </div>
