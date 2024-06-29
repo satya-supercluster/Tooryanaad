@@ -59,7 +59,7 @@ function EventDetails({ index }) {
         <img
           src={`/events/${member.alias}.jpg`}
           alt={member.title}
-          className="w-[70%] max-[400px]:w-[95%] max-w-[350px] mx-auto rounded-lg border-4 border-yellow-400"
+          className="w-[70%] aspect-auto max-[400px]:w-[95%] max-w-[350px] mx-auto rounded-lg border-4 border-yellow-400"
         />
       </motion.div>
 
@@ -68,6 +68,7 @@ function EventDetails({ index }) {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
+          viewport={{ once: false }}
           className="my-8"
         >
           {member.tagline && (
@@ -129,6 +130,10 @@ function EventCard({ title, icon, content }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: false }}
       className="bg-gray-800 rounded-lg p-6 m-2 w-64 h-64 flex flex-col shadow-lg items-center justify-center text-center"
     >
       <h3 className="text-cyan-300 text-md mb-2">{title}</h3>
@@ -142,7 +147,6 @@ function EventCard({ title, icon, content }) {
     </motion.div>
   );
 }
-
 
 export default EventDetails;
 
