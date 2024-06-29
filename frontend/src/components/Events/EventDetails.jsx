@@ -46,7 +46,7 @@ function EventDetails({ index }) {
   const member = eventsDataOf2023[index];
 
   return (
-    <div className="bg-[rgb(29,32,38)] text-white text-center mt-24 px-5">
+    <div className="bg-[rgb(29,32,38)] text-white text-center mt-28 px-5">
       <div className="font-bold text-yellow-500 text-xl sm:text-3xl mb-10">
         {member.title}
       </div>
