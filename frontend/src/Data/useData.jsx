@@ -9,7 +9,7 @@ import {
   guest20,
   guest21,
 } from "./Guests";
-import events23 from "./Events23";
+import events23,{eventData23} from "./Events23";
 const DataContext = createContext();
 
 export const useData = () => useContext(DataContext);
@@ -21,9 +21,11 @@ export const DataProvider = ({ children }) => {
   const [regular, setRegular] = useState([]);
   const [guests, setGuests] = useState([]);
   const [eventsOf2023, setEventsOf2023] = useState([]);
+  const [eventsDataOf2023, setEventsDataOf2023] = useState([]);
   useEffect(() => {
     setMembers(membersData);
     setEventsOf2023(events23);
+    setEventsDataOf2023(eventData23);
     setGuests({
       2015: guest15,
       2016: guest16,
@@ -57,7 +59,16 @@ export const DataProvider = ({ children }) => {
   }, [members]);
 
   return (
-    <DataContext.Provider value={{ executive, founder, regular, guests,eventsOf2023 }}>
+    <DataContext.Provider
+      value={{
+        executive,
+        founder,
+        regular,
+        guests,
+        eventsOf2023,
+        eventsDataOf2023,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const EventCard = ({event}) => {
+import { Link } from "react-router-dom";
+const EventCard = ({ event }) => {
   const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const initialX = Math.random() < 0.5 ? -50 : 50;
 
@@ -25,7 +25,13 @@ const EventCard = ({event}) => {
         />
         <div className="w-full text-white p-1 text-center">
           <p className="text-lg font-semibold text-white">{event.title}</p>
-          <p className="text-sm text-yellow-500">अधिक जाने</p>
+          <Link
+            to={`/events/${event.alias}`}
+            onClick={(e) => e.stopPropagation()}
+            className="text-sm text-yellow-500"
+          >
+            अधिक जाने
+          </Link>
         </div>
       </motion.div>
 
@@ -40,9 +46,7 @@ const EventCard = ({event}) => {
             onClick={toggleDetails}
           >
             <h3 className="text-xl font-bold mb-1 text-yellow-500">उद्देश्य</h3>
-            <p className="text-sm font-semibold" >
-              {event.description}
-            </p>
+            <p className="text-sm font-semibold">{event.description}</p>
           </motion.div>
         )}
       </AnimatePresence>
