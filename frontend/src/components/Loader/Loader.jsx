@@ -22,9 +22,9 @@ const Loader = () => {
         >
           <motion.div
             initial={{ rotateZ:0 }}
-            animate={{ rotateZ: [10,-10] }}
+            animate={{ rotateZ: [5,-5,360,-360] }}
             transition={{
-              duration: 1.2,
+              duration: 4,
               repeat: Infinity,
               repeatType: "reverse",
               ease: "easeInOut",
