@@ -21,17 +21,18 @@ const Loader = () => {
           exit={{ opacity: 0, y: -500 }}
         >
           <motion.div
-            initial={{ scale:1 }}
-            animate={{ scale:1.1 }}
+            initial={{ rotateZ:0 }}
+            animate={{ rotateZ: 360 }}
+            exit={{rotateZ:0}}
             transition={{
               duration: 1,
               repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeIn",
+              // repeatType: "reverse",
+              ease: "easeInOut",
             }}
-            className="relative w-80 h-40 bottom-2 bg-contain bg-no-repeat"
+            className="relative w-80 h-40 bottom-2 bg-contain bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('/img/logo/imgTyW.png')`,
+              backgroundImage: `url('/img/logo/imgLogoXL.png')`,
             }}
           />
           <div className="relative flex space-x-1 mt-10">
