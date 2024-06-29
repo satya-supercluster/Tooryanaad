@@ -130,7 +130,7 @@ function EventCard({ title, icon, content }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: false }}
