@@ -18,7 +18,8 @@ const Loader = () => {
         <motion.div
           className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(29,32,38)]"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, y: -500 }}
+          exit={{ opacity: 0, y: -100 }}
+          transition={{duration:0.2}}
         >
           <motion.div
             initial={{ rotateZ: 0 }}
