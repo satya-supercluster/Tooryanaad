@@ -11,10 +11,10 @@ import {
 
 function EventDetails({ index }) {
   const { eventsDataOf2023 } = useData();
-  const [rules, setRules] = useState([]);
-  const [firstRoundRules, setFirstRoundRules] = useState([]);
-  const [secondRoundRules, setSecondRoundRules] = useState(null);
-  const [thirdRoundRules, setThirdRoundRules] = useState(null);
+  // const [rules, setRules] = useState([]);
+  // const [firstRoundRules, setFirstRoundRules] = useState([]);
+  // const [secondRoundRules, setSecondRoundRules] = useState(null);
+  // const [thirdRoundRules, setThirdRoundRules] = useState(null);
 
   useEffect(() => {
     if (eventsDataOf2023 && eventsDataOf2023[index]) {
@@ -47,9 +47,15 @@ function EventDetails({ index }) {
 
   return (
     <div className="bg-[rgb(29,32,38)] text-white text-center mt-28 px-5">
-      <div className="font-bold text-yellow-500 text-xl sm:text-3xl mb-10">
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        viewport={{ once: false }}
+        className="font-bold text-yellow-500 text-xl sm:text-3xl mb-10"
+      >
         {member.title}
-      </div>
+      </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -72,12 +78,18 @@ function EventDetails({ index }) {
           className="my-8"
         >
           {member.tagline && (
-            <div className="flex w-full justify-center items-center">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: false }}
+              className="flex w-full justify-center items-center"
+            >
               <blockquote
                 className="text-lg font-bold text-center bg-yellow-500 text-black p-4 rounded-xl mb-4"
                 dangerouslySetInnerHTML={{ __html: member.tagline }}
               ></blockquote>
-            </div>
+            </motion.div>
           )}
           <div
             className="text-center"
