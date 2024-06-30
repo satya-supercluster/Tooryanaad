@@ -18,33 +18,41 @@ const IconBar = () => {
             />
             {/* <i className="fa fa-facebook"></i> */}
           </a>
-          <a href="https://twitter.com/tooryanaad_nitb?t=W8w1LQTbJ5UI_iC-UwUYzw&s=08">
+          <a
+            href="https://twitter.com/tooryanaad_nitb?t=W8w1LQTbJ5UI_iC-UwUYzw&s=08"
+            target="_blank"
+          >
             <FontAwesomeIcon
               icon={faTwitter}
               className="w-full py-3 bg-black text-white rounded-lg"
             />
             {/* <i className="fa fa-twitter"></i> */}
           </a>
-          <a href="https://instagram.com/tooryanaad?igshid=YmMyMTA2M2Y=">
+          <a
+            href="https://instagram.com/tooryanaad?igshid=YmMyMTA2M2Y="
+            target="_blank"
+          >
             <FontAwesomeIcon
               icon={faInstagram}
               className="w-full py-3 bg-black text-white rounded-lg"
             />
             {/* <i className="fa fa-instagram"></i> */}
           </a>
-          <a href="https://www.linkedin.com/in/tooryanaad-nit-bhopal-66ab49151">
+          <a
+            href="https://www.linkedin.com/in/tooryanaad-nit-bhopal-66ab49151"
+            target="_blank"
+          >
             <FontAwesomeIcon
               icon={faLinkedin}
               className="w-full py-3 bg-black text-white rounded-lg"
             />
             {/* <i className="fa fa-linkedin"></i> */}
           </a>
-          <a href="https://youtube.com/@TooryanaadNITBHOPAL">
+          <a href="https://youtube.com/@TooryanaadNITBHOPAL" target="_blank">
             <FontAwesomeIcon
               icon={faYoutube}
               className="w-full py-3 bg-black text-white rounded-lg"
             />
-            {/* <i className="fa fa-youtube"></i> */}
           </a>
         </div>
       </div>
