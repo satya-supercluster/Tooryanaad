@@ -19,20 +19,6 @@ body > div {
   scrollbar-color: rgb(179, 117, 46) rgb(31 41 55);
 }
 
-body > div::-webkit-scrollbar {
-  width: 6px;
-}
-
-body > div::-webkit-scrollbar-track {
-  background: rgb(31 41 55);
-}
-
-body > div::-webkit-scrollbar-thumb {
-  background-color: rgb(31 41 55);
-  border-radius: 6px;
-  border: 3px solid rgb(31 41 55);
-}
-
 .paddings {
   padding: 1.5rem;
 }
