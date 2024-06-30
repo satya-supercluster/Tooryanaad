@@ -4,7 +4,7 @@ import "./about.css";
 import Counter from "./Counter";
 const About = () => {
   const backgroundStyle = {
-    backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/bg.jpg')`,
+    backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.75), url('/bg.jpg')`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -35,7 +35,7 @@ const About = () => {
             allowFullScreen="allowfullscreen"
             className="number4vid"
             poster="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/b242.png"
-            src="https://www.youtube.com/embed/KOSjwo4c67U"
+            src="https://www.youtube.com/embed/KOSjwo4c67U?&rel=0&start=3&fs=0&cc-load_policy=0&iv_load_policy=3"
           ></iframe>
           <img className="number7img" src="/about/5.jpg" />
           <img className="number6img" src="/about/6.jpg" />

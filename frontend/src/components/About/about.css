@@ -174,7 +174,7 @@
 }
 
 .number4vid {
-  width: 34%;
+  width: 45%;
   height: 33%;
   position: absolute;
   margin-top: 62%;
@@ -183,7 +183,7 @@
   margin-left: 39%;
   box-shadow: 10px 10px 15px black;
   border-radius:10px;
-  
+  z-index: 1;
 }
 
 .number5img {
