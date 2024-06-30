@@ -26,17 +26,7 @@ const IconBarSm = () => {
         >
           <FontAwesomeIcon
             icon={faFacebook}
-            className="px-3 py-3 text-lg bg-white text-black rounded-lg"
-          />
-        </a>
-        <a
-          href="https://twitter.com/tooryanaad_nitb?t=W8w1LQTbJ5UI_iC-UwUYzw&s=08"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon
-            icon={faTwitter}
-            className="px-3 py-3 text-lg bg-white text-black rounded-lg"
+            className="px-3 py-3 text-lg bg-white text-blue-500 hover:text-blue-600 rounded-lg"
           />
         </a>
         <a
@@ -46,17 +36,17 @@ const IconBarSm = () => {
         >
           <FontAwesomeIcon
             icon={faInstagram}
-            className="px-3 py-3 text-lg bg-white text-black rounded-lg"
+            className="px-3 py-3 text-lg bg-white text-pink-500 hover:text-pink-600 rounded-lg"
           />
         </a>
         <a
-          href="https://www.linkedin.com/in/tooryanaad-nit-bhopal-66ab49151"
+          href="https://twitter.com/tooryanaad_nitb?t=W8w1LQTbJ5UI_iC-UwUYzw&s=08"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FontAwesomeIcon
-            icon={faLinkedin}
-            className="px-3 py-3 text-lg bg-white text-black rounded-lg"
+            icon={faTwitter}
+            className="px-3 py-3 text-lg bg-white text-blue-500 hover:text-blue-600 rounded-lg"
           />
         </a>
         <a
@@ -66,7 +56,17 @@ const IconBarSm = () => {
         >
           <FontAwesomeIcon
             icon={faYoutube}
-            className="px-3 py-3 text-lg bg-white text-black rounded-lg"
+            className="px-3 py-3 text-lg bg-white text-red-500 hover:text-red-600 rounded-lg"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/tooryanaad-nit-bhopal-66ab49151"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon
+            icon={faLinkedin}
+            className="px-3 py-3 text-lg bg-white text-blue-500 hover:text-blue-600 rounded-lg"
           />
         </a>
       </div>
