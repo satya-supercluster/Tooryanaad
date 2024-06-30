@@ -16,7 +16,7 @@ body > div {
   overflow-y: auto;
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: rgb(179, 117, 46) #000;
+  scrollbar-color: rgb(179, 117, 46) transparent;
 }
 
 .paddings {
