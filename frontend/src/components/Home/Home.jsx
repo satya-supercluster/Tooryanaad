@@ -19,10 +19,7 @@ const Home = () => {
   }, []);
 
   const backgroundStyle = {
-    backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)),url('/hometry3.jpg')`,
-    // backgroundImage: isMobile
-    //   ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),url('/hometry3.jpg')`
-    //   : `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('/hometry3.jpg')`,
+    backgroundImage:`linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),url('/hometry3.jpg')`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -31,7 +28,7 @@ const Home = () => {
   return (
     <div className="">
       <div
-        className="relative -z-10 overflow-hidden pt-10 lg:pt-0 flex flex-col justify-center items-center w-full lg:rounded-lg max-sm:min-h-[100vh] min-h-[95vh] bg-[rgb(29,32,38)]"
+        className="relative z-1 overflow-hidden pt-10 lg:pt-0 flex flex-col justify-center items-center w-full lg:rounded-lg max-sm:min-h-[100vh] min-h-[95vh] bg-[rgb(29,32,38)]"
         style={backgroundStyle}
       >
         <div className="px-5 sm:px-10 max-sm:pt-10">
