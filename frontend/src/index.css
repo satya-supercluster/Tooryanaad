@@ -4,14 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  background-color: rgb(29,32,38);
+  background-color: rgb(29, 32, 38);
 }
-body>div{
+body > div {
   position: fixed;
   left: 0;
   right: 0;
-  top:0.5px;
-  bottom:0.5px;
+  top: 0.5px;
+  bottom: 0.5px;
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -28,12 +28,12 @@ body > div {
   overflow-y: auto;
   scroll-behavior: smooth;
   /* Scrollbar styles */
-  scrollbar-width: auto;
+  scrollbar-width: thin;
   scrollbar-color: rgb(179, 117, 46) rgb(31 41 55);
 }
 
 body > div::-webkit-scrollbar {
-  width: 20px;
+  width: 6px;
 }
 
 body > div::-webkit-scrollbar-track {
@@ -44,10 +44,6 @@ body > div::-webkit-scrollbar-thumb {
   background-color: rgb(31 41 55);
   border-radius: 6px;
   border: 3px solid rgb(31 41 55);
-}
-
-body > div::-webkit-scrollbar-thumb:hover {
-  background: rgb(31 41 55);
 }
 
 .paddings {

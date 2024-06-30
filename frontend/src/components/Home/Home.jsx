@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import Sponsor from "../Sponsor/Sponsor";
 import News from "../News/News";
 import Books from "../Books/Books"
+import { useData } from "../../Data/useData";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-
+  const { setShowMsg } = useData();
   useEffect(() => {
+    setShowMsg(true);
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640);
     };

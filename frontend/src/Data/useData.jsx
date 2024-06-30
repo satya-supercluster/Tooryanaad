@@ -12,7 +12,7 @@ export const DataProvider = ({ children }) => {
   const [regular, setRegular] = useState([]);
   const [guests, setGuests] = useState({});
   const [events, setEvents] = useState([]);
-
+  const [showMsg, setShowMsg] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -82,6 +82,8 @@ export const DataProvider = ({ children }) => {
         guests,
         events,
         eventDescriptions,
+        showMsg,
+        setShowMsg
       }}
     >
       {children}
