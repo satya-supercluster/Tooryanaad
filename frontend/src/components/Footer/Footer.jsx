@@ -27,30 +27,16 @@ export default function Footer() {
         >
           <img className="w-[200px]" src="/ty24.png" alt="ty24" />
           <div className="flex flex-wrap gap-2 text-sm xl:text-md">
-            <NavLink
-              className="border-r-2 border-white pr-2"
-              to="/"
-              
-            >
+            <NavLink className="border-r-2 border-white pr-2" to="/">
               मुख्य पृष्ठ
             </NavLink>
-            <NavLink
-              className="border-r-2 border-white pr-2"
-              to="/guests"
-              
-            >
+            <NavLink className="border-r-2 border-white pr-2" to="/guests">
               अतिथि
             </NavLink>
-            <NavLink
-              className="border-r-2 border-white pr-2"
-              to="/team"
-              
-            >
+            <NavLink className="border-r-2 border-white pr-2" to="/team">
               सदस्य
             </NavLink>
-            <NavLink to="/gallery" >
-              वीथिका
-            </NavLink>
+            <NavLink to="/gallery">वीथिका</NavLink>
           </div>
           <p className="footer-company-name text-sm text-center text-yellow-500">
             Tooryanaad © 2024
@@ -112,25 +98,34 @@ export default function Footer() {
                 className="px-3 py-3 text-lg bg-white text-black rounded-lg"
               />
             </a>
-            <a href="https://twitter.com/tooryanaad_nitb?t=W8w1LQTbJ5UI_iC-UwUYzw&s=08">
+            <a
+              href="https://twitter.com/tooryanaad_nitb?t=W8w1LQTbJ5UI_iC-UwUYzw&s=08"
+              target="_blank"
+            >
               <FontAwesomeIcon
                 icon={faTwitter}
                 className="px-3 py-3 text-lg bg-white text-black rounded-lg"
               />
             </a>
-            <a href="https://instagram.com/tooryanaad?igshid=YmMyMTA2M2Y=">
+            <a
+              href="https://instagram.com/tooryanaad?igshid=YmMyMTA2M2Y="
+              target="_blank"
+            >
               <FontAwesomeIcon
                 icon={faInstagram}
                 className="px-3 py-3 text-lg bg-white text-black rounded-lg"
               />
             </a>
-            <a href="https://www.linkedin.com/in/tooryanaad-nit-bhopal-66ab49151">
+            <a
+              href="https://www.linkedin.com/in/tooryanaad-nit-bhopal-66ab49151"
+              target="_blank"
+            >
               <FontAwesomeIcon
                 icon={faLinkedin}
                 className="px-3 py-3 text-lg bg-white text-black rounded-lg"
               />
             </a>
-            <a href="https://youtube.com/@TooryanaadNITBHOPAL">
+            <a href="https://youtube.com/@TooryanaadNITBHOPAL" target="_blank">
               <FontAwesomeIcon
                 icon={faYoutube}
                 className="px-3 py-3 text-lg bg-white text-black rounded-lg"
