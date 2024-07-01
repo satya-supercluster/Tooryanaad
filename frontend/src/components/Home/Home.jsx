@@ -37,7 +37,7 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ ease:"easeOut", duration: 0.6 }}
             viewport={{ once: true }}
             className="flex justify-center items-center lg:mb-10"
           >
@@ -50,7 +50,7 @@ const Home = () => {
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ ease:"easeOut", duration: 0.8 }}
             viewport={{ once: true }}
             className=" font-bold text-yellow-500 text-xl sm:text-3xl text-center mt-2"
           >
@@ -59,7 +59,7 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ ease:"easeOut", duration: 0.9 }}
             viewport={{ once: true }}
             className="flex justify-center items-center"
           >
@@ -74,7 +74,7 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85 }}
+            transition={{ ease:"easeOut", duration: 1  }}
             viewport={{ once: true }}
             className="w-screen"
           >

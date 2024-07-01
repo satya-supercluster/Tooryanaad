@@ -32,16 +32,17 @@ function News() {
   };
 
   return (
-    <div className=" my-20">
+    <motion.div
+      initial={{ y: 100 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className=" my-20"
+    >
       <div className="">
-        <motion.p
-          className="text-xl lg:text-3xl font-bold text-center text-yellow-500 mb-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
+        <p className="text-xl lg:text-3xl font-bold text-center text-yellow-500 mb-10">
           हमारी खबरें
-        </motion.p>
+        </p>
       </div>
       <div className="min-[400px]:mx-12 shadow-lg rounded-lg">
         <Carousel
@@ -72,7 +73,7 @@ function News() {
           ))}
         </Carousel>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

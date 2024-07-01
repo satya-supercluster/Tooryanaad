@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { motion } from "framer-motion";
 const CollegeAmbassador = () => {
   const [name, setName] = useState("");
   const [college, setCollege] = useState("");
@@ -108,7 +108,12 @@ const CollegeAmbassador = () => {
   };
 
   return (
-    <div className="w-full min-h-screen text-center flex flex-col justify-start items-center px-4 py-4 mt-20">
+    <motion.div
+      initial={{ y: 100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="w-full min-h-screen text-center flex flex-col justify-start items-center px-4 py-4 mt-20"
+    >
       <div className="font-bold text-yellow-500 text-xl sm:text-3xl">
         संस्थान प्रतिनिधि पंजीकरण
       </div>
@@ -222,7 +227,7 @@ const CollegeAmbassador = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

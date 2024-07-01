@@ -12,7 +12,7 @@ const MessageBox = () => {
         <motion.div
           initial={{ y: 500 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.3, ease: "easeIn" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="fixed top-24 right-0 sm:right-[10px] flex justify-center gap-1 items-center"
         >
           <Link

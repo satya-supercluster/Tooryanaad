@@ -4,9 +4,9 @@ const GuestCard = ({ member }) => {
   const initialX = Math.random() < 0.5 ? -50 : 50;
   return (
     <motion.div
-      initial={{ opacity: 0, x: initialX, y: initialX }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 50, x: initialX }}
+      whileInView={{ opacity: 1, y: 0, x: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
       className=" w-full flex flex-col gap-1 pt-5 pb-3 justify-center items-center overflow-hidden rounded-2xl shadow-[0_0px_60px_15px_rgba(0,0,0,0.3)] sm:hover:scale-[1.05] "
     >
