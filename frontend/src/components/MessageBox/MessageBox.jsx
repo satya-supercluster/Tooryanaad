@@ -28,7 +28,7 @@ const MessageBox = () => {
             onClick={() => {
               setShowMsg(false);
             }}
-            className="text-yellow-500 text-xl p-1 cursor-pointer"
+            className="text-yellow-500 text-2xl p-1 cursor-pointer"
           >
             <FontAwesomeIcon icon={faXmark} />
           </div>
