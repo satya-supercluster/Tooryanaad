@@ -7,9 +7,15 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { motion } from "framer-motion";
 const IconBar = () => {
     return (
-      <div className="max-sm:hidden fixed top-1/2 -translate-y-1/2 z-10 bg-[rgba(30,30,30)] shadow-[0_1px_5px_3px_rgba(0,0,0,0.6)] py-5 rounded-r-3xl">
+      <motion.div
+        initial={{ y: 100 }}
+        animate={{ y: -113 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="max-sm:hidden fixed top-1/2 -translate-y-1/2 z-10 bg-[rgba(30,30,30)] shadow-[0_1px_5px_3px_rgba(0,0,0,0.6)] py-5 rounded-r-3xl"
+      >
         <div className="grid grid-cols-1 gap-1 w-10">
           <a
             href="https://www.facebook.com/651896654877454"
@@ -62,7 +68,7 @@ const IconBar = () => {
             />
           </a>
         </div>
-      </div>
+      </motion.div>
     );
 };
 
