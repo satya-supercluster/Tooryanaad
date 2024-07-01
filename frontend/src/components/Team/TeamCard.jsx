@@ -10,6 +10,28 @@ import {
 
 const TeamCard = ({ member }) => {
   const initialX = Math.random() < 0.5 ? -50 : 50;
+
+  const SocialIcon = ({ link, icon, color }) => {
+    if (link && link !== "") {
+      return (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`text-${color}-500 hover:text-${color}-600 cursor-pointer`}
+        >
+          <FontAwesomeIcon icon={icon} />
+        </a>
+      );
+    } else {
+      return (
+        <span className={`text-white cursor-not-allowed`}>
+          <FontAwesomeIcon icon={icon} />
+        </span>
+      );
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: initialX, y: initialX }}
@@ -27,35 +49,10 @@ const TeamCard = ({ member }) => {
         <p className="text-lg font-semibold">{member.name}</p>
         <p className="text-sm ">{member.post}</p>
         <div className="flex justify-center space-x-4 mt-2">
-          <a
-            href={member.fb_}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-600"
-          >
-            <FontAwesomeIcon icon={faFacebookF} />
-          </a>
-          <a
-            href={member.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-pink-500 hover:text-pink-600"
-          >
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a
-            href={member.twitter_}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:text-blue-500"
-          >
-            <FontAwesomeIcon icon={faTwitter} />
-          </a>
-          <p
-            className="text-blue-400 hover:text-blue-500"
-          >
-            <FontAwesomeIcon icon={faLinkedinIn} />
-          </p>
+          <SocialIcon link={member.fb_} icon={faFacebookF} color="blue" />
+          <SocialIcon link={member.instagram} icon={faInstagram} color="pink" />
+          <SocialIcon link={member.twitter_} icon={faTwitter} color="blue" />
+          <SocialIcon link={member.linkedin} icon={faLinkedinIn} color="blue" />
         </div>
       </div>
     </motion.div>
