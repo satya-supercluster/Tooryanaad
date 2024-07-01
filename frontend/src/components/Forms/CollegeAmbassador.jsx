@@ -18,14 +18,14 @@ const CollegeAmbassador = () => {
 
   useEffect(() => {
     if (successMessage) {
-      const timer = setTimeout(() => setSuccessMessage(""), 3000);
+      const timer = setTimeout(() => setSuccessMessage(""), 5000);
       return () => clearTimeout(timer);
     }
   }, [successMessage]);
 
   useEffect(() => {
     if (errorMessage) {
-      const timer = setTimeout(() => setErrorMessage(""), 3000);
+      const timer = setTimeout(() => setErrorMessage(""), 5000);
       return () => clearTimeout(timer);
     }
   }, [errorMessage]);
@@ -192,11 +192,15 @@ const CollegeAmbassador = () => {
             </div>
           )}
           {errorMessage && (
-            <div className="text-red-500 font-semibold px-4 text-sm text-left mt-2 mb-2">
+            <div className="text-red-500 font-semibold px-4 text-sm text-left mt-2">
               {errorMessage}
             </div>
           )}
-          <div className="flex flex-row-reverse justify-right items-center mt-4">
+          <div className="flex max-[420px]:flex-col justify-between items-center">
+            <div className="text-blue-500 max-[420px]:w-full font-semibold text-sm text-left my-2">
+              <span className="text-red-500 font-bold text-xl">*</span> सभी
+              प्रविष्टियां अनिवार्य हैं
+            </div>
             <button
               className="px-4 py-1 rounded-md text-white font-semibold bg-yellow-500 hover:bg-yellow-600 disabled:bg-gray-400 disabled:cursor-not-allowed focus:border-yellow-500"
               onClick={handlePostMessage}
