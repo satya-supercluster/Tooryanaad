@@ -108,7 +108,7 @@ const CollegeAmbassador = () => {
   };
 
   return (
-    <div className="w-full min-h-screen text-center flex flex-col justify-center items-center px-4 py-4 max-sm:mt-5 max-md:10">
+    <div className="w-full text-center flex flex-col justify-center items-center px-4 py-4 mt-20">
       <div className="font-bold text-yellow-500 text-xl sm:text-3xl">
         संस्थान प्रतिनिधि पंजीकरण
       </div>
