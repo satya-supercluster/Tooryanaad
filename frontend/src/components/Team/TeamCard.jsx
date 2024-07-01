@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebookF,
+  faFacebook,
   faInstagram,
   faTwitter,
-  faLinkedinIn
+  faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 
 const TeamCard = ({ member }) => {
@@ -18,14 +18,14 @@ const TeamCard = ({ member }) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className={`text-${color}-500 hover:text-${color}-600 cursor-pointer`}
+          className={`text-${color}-500 px-2 hover:bg-[rgb(30,30,30)] hover:text-${color}-600 cursor-pointer`}
         >
           <FontAwesomeIcon icon={icon} />
         </a>
       );
     } else {
       return (
-        <span className={`text-white cursor-not-allowed`}>
+        <span className={`text-white px-2 hover:bg-[rgb(30,30,30)] cursor-not-allowed`}>
           <FontAwesomeIcon icon={icon} />
         </span>
       );
@@ -48,11 +48,11 @@ const TeamCard = ({ member }) => {
       <div className="w-full text-white p-1 text-center">
         <p className="text-lg font-semibold">{member.name}</p>
         <p className="text-sm ">{member.post}</p>
-        <div className="flex justify-center space-x-4 mt-2">
-          <SocialIcon link={member.fb_} icon={faFacebookF} color="blue" />
+        <div className="flex justify-center gap-1 mt-2">
+          <SocialIcon link={member.fb_} icon={faFacebook} color="blue" />
           <SocialIcon link={member.instagram} icon={faInstagram} color="pink" />
           <SocialIcon link={member.twitter_} icon={faTwitter} color="blue" />
-          <SocialIcon link={member.linkedin} icon={faLinkedinIn} color="blue" />
+          <SocialIcon link={member.linkedin} icon={faLinkedin} color="blue" />
         </div>
       </div>
     </motion.div>
