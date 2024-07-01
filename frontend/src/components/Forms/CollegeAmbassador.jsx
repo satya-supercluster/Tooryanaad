@@ -181,7 +181,7 @@ const CollegeAmbassador = () => {
               }}
             />
             {emailError && (
-              <div className="text-red-500 px-4 text-left text-sm mt-1">
+              <div className="text-red-500 font-semibold px-4 text-sm text-left mt-1">
                 {emailError}
               </div>
             )}
