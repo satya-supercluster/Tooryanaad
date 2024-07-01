@@ -1,7 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import "./about.css";
 import Counter from "./Counter";
+
+const LazyImage = lazy(() => import("../LazyLoader/Lazy"));
+
 const About = () => {
   const backgroundStyle = {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/bg.jpg')`,
@@ -9,7 +12,17 @@ const About = () => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
-  }; 
+  };
+
+  const images = [
+    { src: "/about/1.jpeg", className: "number1img" },
+    { src: "/about/2.jpeg", className: "number2img" },
+    { src: "/about/3.jpg", className: "number3img" },
+    { src: "/about/4.jpg", className: "number5img" },
+    { src: "/about/5.jpg", className: "number7img" },
+    { src: "/about/6.jpg", className: "number6img" },
+  ];
+
   return (
     <div
       className="py-10 flex flex-col max-sm:flex-col-reverse gap-5 justify-center items-center"
@@ -22,29 +35,37 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          exit={{opacity:0,x:-50}}
-          transition={{ duration: 0.5,delay:0.2 }}
+          exit={{ opacity: 0, x: -50 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: false }}
           className="responsive-container-block rightSide"
         >
-          <img className="number1img" src="/about/1.jpeg" />
-          <img className="number2img" src="/about/2.jpeg" />
-          <img className="number3img" src="/about/3.jpg" />
-          <img className="number5img" src="/about/4.jpg" />
+          {images.map((image, index) => (
+            <Suspense
+              key={index}
+              fallback={
+                <div className={`${image.className} bg-gray-200`}></div>
+              }
+            >
+              <LazyImage
+                src={image.src}
+                alt={`About image ${index + 1}`}
+                className={image.className}
+              />
+            </Suspense>
+          ))}
           <iframe
             allowFullScreen="allowfullscreen"
             className="number4vid"
             poster="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/b242.png"
-            src="https://www.youtube.com/embed/KOSjwo4c67U?&rel=0&start=3&fs=0&cc-load_policy=0&iv_load_policy=3"
+            src="https://www.youtube.com/embed/KOSjwo4c67U?&rel=0&fs=0&cc-load_policy=0&iv_load_policy=3"
           ></iframe>
-          <img className="number7img" src="/about/5.jpg" />
-          <img className="number6img" src="/about/6.jpg" />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          exit={{opacity:0,x:50}}
-          transition={{ duration: 0.5,delay:0.2 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: false }}
           className="responsive-container-block leftSide"
         >
@@ -66,5 +87,6 @@ const About = () => {
       </div>
     </div>
   );
-}
+};
+
 export default About;

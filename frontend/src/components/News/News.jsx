@@ -1,7 +1,9 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { motion } from "framer-motion";
+
+const LazyImage = lazy(() => import("../LazyLoader/Lazy"));
 
 const photos = [
   "/news/photo2.jpg",
@@ -37,9 +39,9 @@ function News() {
       whileInView={{ y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className=" my-20"
+      className="my-20"
     >
-      <div className="">
+      <div>
         <p className="text-xl lg:text-3xl font-bold text-center text-yellow-500 mb-10">
           हमारी खबरें
         </p>
@@ -63,11 +65,17 @@ function News() {
           {photos.map((photo, index) => (
             <div key={index} className="flex justify-center">
               <div className="min-[400px]:p-2">
-                <img
-                  className="w-[80vw] md:w-[45vw] lg:w-[30vw] h-80 object-stretch rounded-lg"
-                  src={`${photo}`}
-                  alt={`news clip ${index + 1}`}
-                />
+                <Suspense
+                  fallback={
+                    <div className="w-[80vw] md:w-[45vw] lg:w-[30vw] h-80 bg-gray-200 rounded-lg"></div>
+                  }
+                >
+                  <LazyImage
+                    className="w-[80vw] md:w-[45vw] lg:w-[30vw] h-80 object-stretch rounded-lg"
+                    src={`${photo}`}
+                    alt={`news clip ${index + 1}`}
+                  />
+                </Suspense>
               </div>
             </div>
           ))}

@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
+
+const LazyImage = lazy(() => import("../LazyLoader/Lazy"));
+
 const logos = [
   "/sponsor/logo1.png",
   "/sponsor/logo2.jpeg",
@@ -15,17 +18,17 @@ const Sponsor = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    const animationDuration = 50000; 
+    const animationDuration = 50000;
     const totalWidth = 250 * logos.length * 2;
 
     const animate = () => {
       setScrollPosition((prevPosition) => {
-        const newPosition = prevPosition - 0.5; 
+        const newPosition = prevPosition - 0.5;
         return newPosition <= -totalWidth / 2 ? 0 : newPosition;
       });
     };
 
-    const intervalId = setInterval(animate, 10); 
+    const intervalId = setInterval(animate, 10);
 
     return () => clearInterval(intervalId);
   }, []);
@@ -48,11 +51,15 @@ const Sponsor = () => {
         >
           {[...logos, ...logos].map((logo, index) => (
             <div key={index} className="flex-shrink-0 w-[250px] h-28 px-6 py-4">
-              <img
-                src={logo}
-                alt={`Sponsor ${index + 1}`}
-                className="w-[250px] h-full object-contain"
-              />
+              <Suspense
+                fallback={<div className="w-[250px] h-full bg-gray-200"></div>}
+              >
+                <LazyImage
+                  src={logo}
+                  alt={`Sponsor ${index + 1}`}
+                  className="w-[250px] h-full object-contain"
+                />
+              </Suspense>
             </div>
           ))}
         </div>

@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
+
+const LazyImage = lazy(() => import("../LazyLoader/Lazy"));
 
 const Gallery = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -67,7 +69,7 @@ const Gallery = () => {
       <div className="font-bold text-yellow-500 text-xl sm:text-3xl mb-10">
         वीथिका
       </div>
-      <div className=" max-w-[80%] 2xl:max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-sm:gap-7 mx-auto">
+      <div className="max-w-[80%] 2xl:max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 max-sm:gap-7 mx-auto">
         {images.map((image, index) => (
           <motion.div
             key={image}
@@ -77,14 +79,20 @@ const Gallery = () => {
             }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <motion.img
-              src={`/gallery/${image}`}
-              alt={`Gallery image ${index + 1}`}
-              className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            />
+            <Suspense
+              fallback={
+                <div className="absolute inset-0 w-full h-full bg-gray-200 rounded-lg"></div>
+              }
+            >
+              <LazyImage
+                src={`/gallery/${image}`}
+                alt={`Gallery image ${index + 1}`}
+                className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              />
+            </Suspense>
           </motion.div>
         ))}
       </div>
