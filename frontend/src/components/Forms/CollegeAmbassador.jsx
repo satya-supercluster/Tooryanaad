@@ -150,7 +150,7 @@ const CollegeAmbassador = () => {
             />
             {postFocused && (
               <div className="text-blue-500 font-semibold px-4 text-sm text-left mt-1">
-                उदा.- वेब अभिकल्पक, तूर्यनाद, मैनिट
+                उदा.- सह-प्रमुख, वेब अभिकल्पक, तूर्यनाद, मैनिट
               </div>
             )}
           </div>
