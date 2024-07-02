@@ -58,32 +58,35 @@ const CollegeAmbassador = () => {
     degree,
     email
   ) => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_SITE}/A_Reg`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            collegeName: college,
-            post,
-            number,
-            year,
-            degree,
-            email,
-          }),
-        }
-      );
+    const response = await fetch(`${import.meta.env.VITE_BACKEND}/A_Reg`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        collegeName: college,
+        post,
+        number,
+        year,
+        degree,
+        email,
+      }),
+    });
 
-      if (!response.ok) {
-        throw new Error(`${response}`);
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error("यह ईमेल पता पहले ही पंजीकृत है।");
+      } else if (response.status === 402) {
+        throw new Error("ईमेल भेजने में त्रुटि!");
+      } else if (response.status === 500) {
+        throw new Error("आंतरिक सर्वर त्रुटि");
+      } else {
+        throw new Error("पंजीकरण विफल रहा।");
       }
-    } catch (error) {
-      throw error;
     }
+
+    return response.json();
   };
 
   const handlePostMessage = async () => {
@@ -103,7 +106,7 @@ const CollegeAmbassador = () => {
       setSuccessMessage("पंजीकरण सफल रहा!");
       setErrorMessage("");
     } catch (error) {
-      setErrorMessage("पंजीकरण विफल रहा।");
+      setErrorMessage(error.message);
       setSuccessMessage("");
     }
     setIsFetching(false);
