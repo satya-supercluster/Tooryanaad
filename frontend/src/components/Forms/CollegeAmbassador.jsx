@@ -16,6 +16,8 @@ const CollegeAmbassador = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [postFocused, setPostFocused] = useState(false);
+
   useEffect(() => {
     if (successMessage) {
       const timer = setTimeout(() => setSuccessMessage(""), 5000);
@@ -118,7 +120,7 @@ const CollegeAmbassador = () => {
         संस्थान प्रतिनिधि पंजीकरण
       </div>
       <div>
-        <div className="bg-[rgb(30,30,30)] w-[70%] max-sm:w-[90%] mx-auto rounded-lg shadow-md shadow-gray-300 p-4 my-5">
+        <div className="bg-[rgb(30,30,30)] max-sm:w-[90%] mx-auto rounded-lg shadow-md shadow-gray-300 p-4 my-5">
           <div className="pb-2 text-lg text-center text-yellow-500 font-semibold">
             कृपया निम्न प्रविष्टियां भरें
           </div>
@@ -136,13 +138,22 @@ const CollegeAmbassador = () => {
             value={college}
             onChange={(e) => setCollege(e.target.value)}
           />
-          <input
-            type="text"
-            className="w-full text-yellow-500 mb-2 px-4 py-1 bg-[rgb(30,30,30)] rounded-md border-b-2 focus:outline-none focus:border-yellow-500"
-            placeholder="पद"
-            value={post}
-            onChange={(e) => setPost(e.target.value)}
-          />
+          <div className="mb-2">
+            <input
+              type="text"
+              className="w-full text-yellow-500 px-4 py-1 bg-[rgb(30,30,30)] rounded-md border-b-2 focus:outline-none focus:border-yellow-500"
+              placeholder="पद"
+              value={post}
+              onChange={(e) => setPost(e.target.value)}
+              onFocus={() => setPostFocused(true)}
+              onBlur={() => setPostFocused(false)}
+            />
+            {postFocused && (
+              <div className="text-blue-500 font-semibold px-4 text-sm text-left mt-1">
+                उदा.- वेब अभिकल्पक, तूर्यनाद, मैनिट
+              </div>
+            )}
+          </div>
           <div className="mb-2">
             <input
               type="tel"
