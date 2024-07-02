@@ -58,7 +58,7 @@ const CollegeAmbassador = () => {
     degree,
     email
   ) => {
-    const response = await fetch(`${import.meta.env.VITE_BACKEND}/A_Reg`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_SITE}/A_Reg`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
