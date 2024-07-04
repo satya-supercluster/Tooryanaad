@@ -161,7 +161,7 @@ const CollegeAmbassador = () => {
             <input
               type="tel"
               className={`w-full text-yellow-500 px-4 py-1 bg-[rgb(30,30,30)] rounded-md border-b-2 focus:outline-none focus:border-yellow-500`}
-              placeholder="संपर्क संख्या"
+              placeholder="संपर्क सूत्र"
               value={number}
               onChange={(e) => {
                 setNumber(e.target.value);
