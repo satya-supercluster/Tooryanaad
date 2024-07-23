@@ -22,7 +22,7 @@ const GuestCard = ({ member }) => {
         <LazyImage
           src={`/guest/${member.YEAR}/${member.UNAME}.jpg`}
           alt={member.UNAME}
-          className="w-[70%] aspect-square object-cover rounded-tl-3xl rounded-tr-md rounded-bl-md rounded-br-3xl border-[3px] border-yellow-500 shadow-[rgba(0,0,15,0.5)_10px_5px_4px_0px]"
+          className="w-[70%] aspect-square object-cover rounded-tl-3xl rounded-tr-md rounded-bl-md rounded-br-3xl border-[3px] border-yellow-500 shadow-[rgba(0,0,15,0.5)_0px_0px_5px_5px]"
         />
       </Suspense>
       <div className="w-full text-white p-1 text-center">
