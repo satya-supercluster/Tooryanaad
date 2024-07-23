@@ -23,7 +23,7 @@ app.use(
 const teamRouter = require("./routers/teams");
 const guestRouter = require("./routers/guests");
 // const registrationRouter = require("./routers/registration");
-const A_registrationRouter = require("./routers/a_registration");
+// const A_registrationRouter = require("./routers/a_registration");
 // const T_registrationRouter = require("./routers/T_registration");
 // const TG_registrationRouter = require("./routers/Tg_registration");
 const T_events23Router = require("./routers/t_events23");

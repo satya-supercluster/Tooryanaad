@@ -12,7 +12,7 @@ const GuestCard = ({ member }) => {
       whileInView={{ opacity: 1, y: 0, x: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="w-full flex flex-col gap-1 pt-5 pb-3 justify-center items-center overflow-hidden rounded-2xl shadow-[0_0px_60px_15px_rgba(0,0,0,0.3)] sm:hover:scale-[1.05]"
+      className="w-full flex flex-col gap-1 pt-5 pb-3 justify-center items-center overflow-hidden rounded-2xl shadow-[0_0px_5px_5px_rgba(0,0,0,0.3)] sm:hover:scale-[1.05]"
     >
       <Suspense
         fallback={

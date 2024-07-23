@@ -12,7 +12,7 @@ import Events from "./components/Events/Events";
 import Gallery from "./components/Gallery/Gallery";
 import EventDetails from "./components/Events/EventDetails";
 import { useData } from "./Data/useData";
-import CollegeAmbassador from "./components/Forms/CollegeAmbassador";
+// import CollegeAmbassador from "./components/Forms/CollegeAmbassador";
 const App = () => {
   const { isLoading } = useData();
   return (
