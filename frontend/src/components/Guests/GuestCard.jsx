@@ -16,7 +16,7 @@ const GuestCard = ({ member }) => {
     >
       <Suspense
         fallback={
-          <div className="w-[70%] aspect-square bg-gray-200 rounded-tl-3xl rounded-tr-md rounded-bl-md rounded-br-3xl"></div>
+          <div className="w-full aspect-square bg-gray-200 rounded-tl-3xl rounded-tr-md rounded-bl-md rounded-br-3xl"></div>
         }
       >
         <LazyImage

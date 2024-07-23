@@ -23,7 +23,7 @@ const EventCard = ({ event }) => {
         <img
           src={`/events/${event.alias}.jpg`}
           alt={event.alias}
-          className="w-[70%] aspect-square object-cover rounded-b-lg rounded-t-3xl border-[3px] border-yellow-500 shadow-[rgba(0,0,15,0.5)_10px_5px_4px_0px]"
+          className="w-full aspect-square object-cover rounded-b-lg rounded-t-3xl border-[3px] border-yellow-500 shadow-[rgba(0,0,15,0.5)_10px_5px_4px_0px]"
         />
         <div className="w-full text-white p-1 text-center">
           <p className="text-lg font-semibold text-white">{event.title}</p>
