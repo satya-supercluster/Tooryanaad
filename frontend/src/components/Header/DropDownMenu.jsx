@@ -255,7 +255,7 @@ const DropDownMenu = () => {
                   setDropDown(!dropDown);
                   setSecondaryDropDown(false);
                 }}
-                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 "
               >
                 सदस्य
               </NavLink>
