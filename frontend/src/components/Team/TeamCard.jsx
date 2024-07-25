@@ -27,7 +27,9 @@ const TeamCard = ({ member }) => {
       );
     } else {
       return (
-        <span className={`text-white px-2 hover:bg-[rgb(30,30,30)] cursor-not-allowed`}>
+        <span
+          className={`text-${color}-500 px-2 hover:bg-[rgb(30,30,30)] hover:text-${color}-600 cursor-not-allowed`}
+        >
           <FontAwesomeIcon icon={icon} />
         </span>
       );
@@ -49,7 +51,7 @@ const TeamCard = ({ member }) => {
       >
         <LazyImage
           src={`/team/${member.member_type}/${member.alias}.jpg`}
-          alt={member.alias}
+          alt={member.name}
           className="w-[70%] aspect-square object-cover rounded-tl-3xl rounded-tr-md rounded-bl-md rounded-br-3xl border-[3px] border-yellow-500 shadow-[rgba(0,0,15,0.5)_0px_0px_5px_5px]"
         />
       </Suspense>

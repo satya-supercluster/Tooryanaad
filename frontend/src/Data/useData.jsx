@@ -13,6 +13,8 @@ export const DataProvider = ({ children }) => {
   const [guests, setGuests] = useState({});
   const [events, setEvents] = useState([]);
   const [showMsg, setShowMsg] = useState(true);
+  const [tooryanaad22Members, setTooryanaad22Members] = useState([]);
+  const [tooryanaad23Members, setTooryanaad23Members] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,18 +56,28 @@ export const DataProvider = ({ children }) => {
     if (members.length > 0) {
       const sortedMembers = [...members].sort((a, b) => a.order - b.order);
 
-      const foundingMembers = sortedMembers.filter((member) =>
-        [1, 2, 9].includes(member.member_type)
+      const foundingMembers = sortedMembers.filter(
+        (member) => member.member_type === 1
       );
       setFounder(foundingMembers);
 
       const executiveMembers = sortedMembers.filter(
-        (member) => member.member_type === 10
+        (member) => member.member_type === 11
       );
       setExecutive(executiveMembers);
 
+      const tooryanaad22Members = sortedMembers.filter(
+        (member) => member.member_type === 9
+      );
+      setTooryanaad22Members(tooryanaad22Members);
+
+      const tooryanaad23Members = sortedMembers.filter(
+        (member) => member.member_type === 10
+      );
+      setTooryanaad23Members(tooryanaad23Members);
+
       const regularMembers = sortedMembers.filter(
-        (member) => member.member_type === 11
+        (member) => member.member_type === 12
       );
       setRegular(regularMembers);
     }
@@ -83,7 +95,9 @@ export const DataProvider = ({ children }) => {
         events,
         eventDescriptions,
         showMsg,
-        setShowMsg
+        setShowMsg,
+        tooryanaad22Members,
+        tooryanaad23Members
       }}
     >
       {children}

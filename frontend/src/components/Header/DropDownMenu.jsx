@@ -232,7 +232,7 @@ const DropDownMenu = () => {
                 }}
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 "
               >
-                कार्यकारिणी सदस्य
+                कार्यकारिणी समिति
               </NavLink>
             </motion.div>
           )}
@@ -258,6 +258,31 @@ const DropDownMenu = () => {
                 className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
               >
                 सदस्य
+              </NavLink>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <AnimatePresence>
+          {dropDown === true && secondaryDropDown === true && (
+            <motion.div
+              className="w-full"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50, transition: { duration: "0" } }}
+              transition={{
+                duration: "0.10",
+                delay: "0.45",
+              }}
+            >
+              <NavLink
+                to="/PastMembers"
+                onClick={() => {
+                  setDropDown(!dropDown);
+                  setSecondaryDropDown(false);
+                }}
+                className="bg-[rgba(30,30,30)] w-full flex justify-center items-center text-center py-2 rounded-b-lg "
+              >
+                पूर्व सदस्य
               </NavLink>
             </motion.div>
           )}

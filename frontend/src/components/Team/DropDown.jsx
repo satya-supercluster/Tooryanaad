@@ -2,7 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const DropDown = ({setSelectedOption,selectedOption}) => {
-  const options = ["सभी सदस्य", "संस्थापक सदस्य", "कार्यकारिणी सदस्य", "सदस्य"];
+  const options = [
+    "सभी सदस्य",
+    "संस्थापक सदस्य",
+    "वर्तमान कार्यकारिणी समिति",
+    "सदस्य",
+    "पूर्व सदस्य",
+  ];
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const toggleDropdown = () => setIsOpen(!isOpen);

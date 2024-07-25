@@ -3,6 +3,7 @@ import DropDown from "./DropDown";
 import Executive from "./Executive";
 import Regular from "./Regular";
 import Founder from "./Founder";
+import PastMembers from "./PastMembers";
 const Team = () => {
   const [selectedOption, setSelectedOption] = useState(0);
   return (
@@ -10,13 +11,18 @@ const Team = () => {
       <div className="font-bold text-yellow-500 text-xl sm:text-3xl">
         समिति सदस्य
       </div>
-      <DropDown setSelectedOption={setSelectedOption} selectedOption={selectedOption}></DropDown>
-      {(selectedOption==0 || selectedOption==1)?
-      <Founder/>:<div></div>}
-      {(selectedOption==0 || selectedOption==2)?
-      <Executive/>:<div></div>}
-      {(selectedOption==0 || selectedOption==3)?
-      <Regular/>:<div></div>}
+      <DropDown
+        setSelectedOption={setSelectedOption}
+        selectedOption={selectedOption}
+      ></DropDown>
+      {selectedOption == 0 || selectedOption == 1 ? <Founder /> : <div className="absolute"></div>}
+      {selectedOption == 0 || selectedOption == 2 ? <Executive /> : <div className="absolute"></div>}
+      {selectedOption == 0 || selectedOption == 3 ? <Regular /> : <div className="absolute"></div>}
+      {selectedOption == 0 || selectedOption == 4 ? (
+        <PastMembers />
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 };
