@@ -7,7 +7,7 @@ const Loader = () => {
       <div className="fixed inset-0 flex flex-col items-center justify-center bg-[rgb(29,32,38)]">
         <motion.div
           initial={{ rotateZ: 0 }}
-          animate={{ rotateZ: [60, 0, 0, -360, 0, 0, -60, 0, 0, 360] }}
+          animate={{ rotateZ: [-360, 0, 0,60,0,0, 360] }}
           transition={{
             duration: 4,
             repeat: Infinity,
