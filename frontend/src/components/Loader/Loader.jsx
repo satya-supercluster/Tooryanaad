@@ -9,7 +9,7 @@ const Loader = () => {
           initial={{ rotateZ: 0 }}
           animate={{ rotateZ: [-360, 0, 0,60,0,0, 360] }}
           transition={{
-            duration: 4,
+            duration: 3,
             repeat: Infinity,
             repeatType: "reverse",
             ease: "easeInOut",
