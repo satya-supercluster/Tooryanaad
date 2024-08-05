@@ -2,7 +2,22 @@ import React, { useState } from "react";
 import EventCard from "./EventCard";
 import { useData } from "../../Data/useData";
 const Event = () => {
-  const { events } = useData();
+  const { eventCardValue } = useData();
+  const eventsList = [
+    "कवि सम्मेलन",
+    "अभिव्यक्ति गायन",
+    "चक्रव्यूह",
+    "सृजन",
+    "डिजिटल सृजन",
+    "अभिव्यक्ति मंच",
+    "अभिव्यक्ति नृत्य",
+    "परिधानिका",
+    "भाषा संगमम्",
+    "छात्र संसद",
+    "खिचड़ी",
+    "लेखन",
+    "नुक्कड़ नाटक",
+  ];
 
   return (
     <div className="w-full flex justify-center items-center">
@@ -11,8 +26,8 @@ const Event = () => {
           प्रतियोगिता पृष्ठ
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {events.map((event, index) => (
-            <EventCard event={event} key={index}></EventCard>
+          {eventsList.map((event, index) => (
+            <EventCard event={eventCardValue[event]} title={event} key={index}></EventCard>
           ))}
         </div>
       </div>

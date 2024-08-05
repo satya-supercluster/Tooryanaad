@@ -10,12 +10,13 @@ import Regular from "./components/Team/Regular";
 import Guest from "./components/Guests/Guest";
 import Events from "./components/Events/Events";
 import Gallery from "./components/Gallery/Gallery";
-import EventDetails from "./components/Events/EventDetails";
+// import EventDetails from "./components/Events/EventDetails";
 import { useData } from "./Data/useData";
 import PastMembers from "./components/Team/PastMembers";
+import NewEventDetails from "./components/Events/NewEventDetails";
 // import CollegeAmbassador from "./components/Forms/CollegeAmbassador";
 const App = () => {
-  const { isLoading } = useData();
+  const { isLoading,newEvents } = useData();
   return (
     <BrowserRouter>
       <Routes>
@@ -32,49 +33,119 @@ const App = () => {
           {/* <Route path="/ambassador" element={<CollegeAmbassador />} /> */}
 
           <Route
-            path="/events/khichdi"
-            element={<EventDetails title="khichdi" />}
+            path="/events/Khichdi"
+            element={
+              <NewEventDetails
+                title={"खिचड़ी"}
+                eventData={newEvents["खिचड़ी"]}
+              />
+            }
           />
           <Route
-            path="/events/chakravyuh"
-            element={<EventDetails title={"chakravyuh"} />}
+            path="/events/Chakravyuh"
+            element={
+              <NewEventDetails
+                title={"चक्रव्यूह"}
+                eventData={newEvents["चक्रव्यूह"]}
+              />
+            }
           />
           <Route
-            path="/events/kavi"
-            element={<EventDetails title={"kavi"} />}
+            path="/events/KaviSammelan"
+            element={
+              <NewEventDetails
+                title={"कवि सम्मेलन"}
+                eventData={newEvents["कवि सम्मेलन"]}
+              />
+            }
           />
           <Route
-            path="/events/srijan"
-            element={<EventDetails title={"srijan"} />}
+            path="/events/Srijan"
+            element={
+              <NewEventDetails title={"सृजन"} eventData={newEvents["सृजन"]} />
+            }
           />
           <Route
-            path="/events/vaad-vivad"
-            element={<EventDetails title={"vaad-vivad"} />}
+            path="/events/AbhivyaktiDance"
+            element={
+              <NewEventDetails
+                title={"अभिव्यक्ति नृत्य"}
+                eventData={newEvents["अभिव्यक्ति नृत्य"]}
+              />
+            }
           />
           <Route
-            path="/events/abhivyakti_nritya"
-            element={<EventDetails title={"abhivyakti_nritya"} />}
+            path="/events/AbhivyaktiSinging"
+            element={
+              <NewEventDetails
+                title={"अभिव्यक्ति गायन"}
+                eventData={newEvents["अभिव्यक्ति गायन"]}
+              />
+            }
           />
           <Route
-            path="/events/abhivyakti_gayan"
-            element={<EventDetails title={"abhivyakti_gayan"} />}
+            path="/events/AbhivyaktiStage"
+            element={
+              <NewEventDetails
+                title={"अभिव्यक्ति मंच"}
+                eventData={newEvents["अभिव्यक्ति मंच"]}
+              />
+            }
           />
           <Route
-            path="/events/nukkad"
-            element={<EventDetails title={"nukkad"} />}
+            path="/events/NukkadNatak"
+            element={
+              <NewEventDetails
+                title={"नुक्कड़ नाटक"}
+                eventData={newEvents["नुक्कड़ नाटक"]}
+              />
+            }
           />
           <Route
-            path="/events/paridhanika"
-            element={<EventDetails title={"paridhanika"} />}
+            path="/events/Paridhanika"
+            element={
+              <NewEventDetails
+                title={"परिधानिका"}
+                eventData={newEvents["परिधानिका"]}
+              />
+            }
           />
           <Route
-            path="/events/digital_srijan"
-            element={<EventDetails title={"digital_srijan"} />}
+            path="/events/DigitalSrijan"
+            element={
+              <NewEventDetails
+                title={"डिजिटल सृजन"}
+                eventData={newEvents["डिजिटल सृजन"]}
+              />
+            }
+          />
+          <Route
+            path="/events/StudentParliament"
+            element={
+              <NewEventDetails
+                title={"छात्र संसद"}
+                eventData={newEvents["छात्र संसद"]}
+              />
+            }
+          />
+          <Route
+            path="/events/BhashaSangamam"
+            element={
+              <NewEventDetails
+                title={"भाषा संगमम्"}
+                eventData={newEvents["भाषा संगमम्"]}
+              />
+            }
+          />
+          <Route
+            path="/events/Lekhan"
+            element={
+              <NewEventDetails title={"लेखन"} eventData={newEvents["लेखन"]} />
+            }
           />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 };
-
 export default App;

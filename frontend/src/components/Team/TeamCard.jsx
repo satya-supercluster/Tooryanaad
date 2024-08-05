@@ -57,7 +57,11 @@ const TeamCard = ({ member }) => {
       </Suspense>
       <div className="w-full text-white p-1 text-center">
         <p className="text-lg font-semibold">{member.name}</p>
-        <p className="text-sm ">{member.post}</p>
+        {member.member_type == "11" ? (
+          <p className="text-sm">{member.member_extra}</p>
+        ) : (
+          <p className="text-sm">{member.post}</p>
+        )}
         <div className="flex justify-center gap-1 mt-2">
           <SocialIcon link={member.fb_} icon={faFacebook} color="blue" />
           <SocialIcon link={member.instagram} icon={faInstagram} color="pink" />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useData } from "../../Data/useData";
-const EventCard = ({ event }) => {
+const EventCard = ({ event,title }) => {
   const { eventDescriptions } = useData();
   const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const initialX = Math.random() < 0.5 ? -50 : 50;
@@ -26,7 +26,7 @@ const EventCard = ({ event }) => {
           className="w-[70%] aspect-square object-cover rounded-b-lg rounded-t-3xl border-[3px] border-yellow-500 shadow-[rgba(0,0,15,0.5)_0px_0px_5px_5px]"
         />
         <div className="w-full text-white p-1 text-center">
-          <p className="text-lg font-semibold text-white">{event.title}</p>
+          <p className="text-lg font-semibold text-white">{title}</p>
           <Link
             to={`/events/${event.alias}`}
             onClick={(e) => e.stopPropagation()}
@@ -49,7 +49,7 @@ const EventCard = ({ event }) => {
           >
             <h3 className="text-xl font-bold mb-1 text-yellow-500">उद्देश्य</h3>
             <p className="text-sm font-semibold">
-              {eventDescriptions[event.alias]}
+              {event.aim}
             </p>
           </motion.div>
         )}

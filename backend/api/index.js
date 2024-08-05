@@ -37,7 +37,7 @@ app.use(express.json());
 app.use(teamRouter);
 app.use(guestRouter);
 // app.use(registrationRouter);
-app.use(A_registrationRouter);
+// app.use(A_registrationRouter);
 // app.use(T_registrationRouter);
 // app.use(TG_registrationRouter);
 app.use(T_events23Router);

@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import eventDescriptions from "./Events23";
+import newEvents24 from "./data";
+import events24 from "./newEvents";
 const DataContext = createContext();
 
 export const useData = () => useContext(DataContext);
@@ -15,6 +17,8 @@ export const DataProvider = ({ children }) => {
   const [showMsg, setShowMsg] = useState(true);
   const [tooryanaad22Members, setTooryanaad22Members] = useState([]);
   const [tooryanaad23Members, setTooryanaad23Members] = useState([]);
+  const [newEvents, setNewEvents] = useState(newEvents24);
+  const [eventCardValue, setEventCardValue] = useState(events24);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -54,7 +58,11 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     if (members.length > 0) {
-      const sortedMembers = [...members].sort((a, b) => a.order - b.order);
+      const sortedMembers = [...members].sort((a, b) => {
+        const orderA = parseInt(a.order) || 100;
+        const orderB = parseInt(b.order) || 100;
+        return orderA - orderB;
+      });
 
       const foundingMembers = sortedMembers.filter(
         (member) => member.member_type === 1
@@ -97,7 +105,9 @@ export const DataProvider = ({ children }) => {
         showMsg,
         setShowMsg,
         tooryanaad22Members,
-        tooryanaad23Members
+        tooryanaad23Members,
+        newEvents,
+        eventCardValue
       }}
     >
       {children}
