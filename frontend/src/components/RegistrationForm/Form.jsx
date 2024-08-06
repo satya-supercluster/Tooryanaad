@@ -140,7 +140,7 @@ const RegForm = () => {
   };
 
   const renderInput = (field, label) => (
-    <div key={field} className="relative mb-5 md:mb-4">
+    <div key={field} className="relative mb-2">
       <input
         id={field}
         name={field}
