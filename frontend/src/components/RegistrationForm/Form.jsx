@@ -70,7 +70,7 @@ const RegForm = () => {
     });
     setTimeout(() => {
       if (p) {
-        alert("Successfully registered!")
+        alert("पंजीकरण सफल हुआ!")
       }
     }, 3000);
     try {
@@ -87,10 +87,10 @@ const RegForm = () => {
       );
     } catch (err) {
       if (res.status === 403) {
-        alert("Email already exists");
+        alert("यह ईमेल पता पहले से पंजीकृत है");
         setP(false);
       } else if (res.status ===401) {
-        alert("Invalid Number");
+        alert("कृपया 10 अंकों का मान्य संपर्क दर्ज करें");
         setP(false);
       } else if (res.status !== 200) {
         alert("Something went wrong.");
@@ -149,7 +149,7 @@ const RegForm = () => {
         onChange={changeHandler}
         onFocus={() => setFocusedField(field)}
         onBlur={() => setFocusedField(null)}
-        className="w-full p-2.5 pt-4 rounded-full text-xl mb-5 border-2 border-[#D7B3D7] text-black bg-[rgba(999,999,999,0.9)] focus:outline-none focus:border-[#D726D9] md:text-sm md:p-2 md:mb-4"
+        className="w-full px-2 py-2 rounded-full text-xl max-md:text-sm mb-5 border-2 border-[#D7B3D7] text-black bg-[rgba(999,999,999,0.9)] focus:outline-none focus:border-[#D726D9] md:text-sm md:p-2 md:mb-4"
       />
       <motion.label
         htmlFor={field}
