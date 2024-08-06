@@ -58,17 +58,6 @@ const RegForm = () => {
       ...(response.type === "group" && { teamName: response.teamName }),
     };
     // console.log(newResponse);
-    setResponse({
-      name: "",
-      college: "",
-      email: "",
-      contact: "",
-      teamName: "",
-      compete: Object.fromEntries(
-        Object.values(eventsMap).map((event) => [event, false])
-      ),
-      type: "",
-    });
     // setTimeout(() => {
     //   if (p) {
     //     alert("पंजीकरण सफल हुआ!")
@@ -105,6 +94,17 @@ const RegForm = () => {
       setP(false);
     }
     setP(false);
+    setResponse({
+      name: "",
+      college: "",
+      email: "",
+      contact: "",
+      teamName: "",
+      compete: Object.fromEntries(
+        Object.values(eventsMap).map((event) => [event, false])
+      ),
+      type: "",
+    });
   }
 
   function changeHandler(event) {
