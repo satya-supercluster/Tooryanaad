@@ -88,20 +88,23 @@ const RegForm = () => {
       ).then(() => {
         alert("पंजीकरण सफल हुआ!");
         setP(false);
-      }).finally(() => {
+      }).catch(
+        (res) => {
+          if (res.status === 403) {
+            alert("यह ईमेल पता पहले से पंजीकृत है");
+            setP(false);
+          } else if (res.status === 401) {
+            alert("कृपया 10 अंकों का मान्य संपर्क दर्ज करें");
+            setP(false);
+          } else if (res.status !== 200) {
+            alert("Something went wrong.");
+            setP(false);
+          }
+        }
+      ).finally(() => {
         setP(false);
       });
     } catch (err) {
-      if (res.status === 403) {
-        alert("यह ईमेल पता पहले से पंजीकृत है");
-        setP(false);
-      } else if (res.status ===401) {
-        alert("कृपया 10 अंकों का मान्य संपर्क दर्ज करें");
-        setP(false);
-      } else if (res.status !== 200) {
-        alert("Something went wrong.");
-        setP(false);
-      }
     }
     setP(false);
   }
