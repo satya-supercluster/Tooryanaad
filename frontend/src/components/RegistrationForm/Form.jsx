@@ -88,23 +88,23 @@ const RegForm = () => {
       else {
         alert("पंजीकरण सफल हुआ!");
         setP(false);
+        setResponse({
+          name: "",
+          college: "",
+          email: "",
+          contact: "",
+          teamName: "",
+          compete: Object.fromEntries(
+            Object.values(eventsMap).map((event) => [event, false])
+          ),
+          type: "",
+        });
       }
     } catch (err) {
       alert("Something went wrong.");
       setP(false);
     }
     setP(false);
-    setResponse({
-      name: "",
-      college: "",
-      email: "",
-      contact: "",
-      teamName: "",
-      compete: Object.fromEntries(
-        Object.values(eventsMap).map((event) => [event, false])
-      ),
-      type: "",
-    });
   }
 
   function changeHandler(event) {
