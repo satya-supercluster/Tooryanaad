@@ -186,7 +186,7 @@ const RegForm = () => {
       <div className=" md:w-1/2 w-full h-auto">
         <form
           onSubmit={submitHandler}
-          className="w-full max-md:mt-24 bg-[rgba(73,158,184,0.6)] p-5 rounded-lg box-border overflow-scroll scrollbar-hide md:p-4 md:h-auto md:bg-[rgba(73,158,184,0.8)] max-md:bg-[url('/utils/theme-logo.png'),0.9] bg-no-repeat bg-center bg-contain"
+          className="w-full max-md:mt-24 bg-[rgba(73,158,184,0.6)] p-5 rounded-lg box-border overflow-auto scrollbar-hide md:p-4 md:h-auto md:bg-[rgba(73,158,184,0.8)] max-md:bg-[url('/utils/theme-logo.png'),0.9] bg-no-repeat bg-center bg-contain"
         >
           <div className="flex flex-col w-full pr-5 md:hidden">
             <div className="flex flex-row items-center justify-around md:flex-wrap">
@@ -218,7 +218,7 @@ const RegForm = () => {
           {renderInput("email", "ईमेल-पता(Email)")}
           {renderInput("contact", "संपर्क सूत्र(Contact)")}
 
-          <h2 className="text-2xl">प्रतियोगिताएं</h2>
+          <h2 className="text-2xl text-center">प्रतियोगिताएं</h2>
           <div className="flex justify-around my-10 mx-5 md:my-12 md:mx-2.5">
             {["solo", "group"].map((type) => (
               <label
