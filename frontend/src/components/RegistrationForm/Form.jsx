@@ -329,7 +329,7 @@ const SubmitButton = styled.button`
   }
 `;
 
-const Form = () => {
+const RegForm = () => {
   const [response, setResponse] = useState({
     name: "",
     college: "",
@@ -380,7 +380,7 @@ const Form = () => {
       }
       // console.log(newResponse);
 
-      let getRes = await fetch("http://localhost:8080/T_Reg24", {
+      await fetch("http://localhost:8080/T_Reg24", {
         method: "POST",
         body: JSON.stringify(newResponse),
         headers: {
@@ -466,7 +466,7 @@ const Form = () => {
   return (
     <Container>
       <LogoSection>
-        <UpperLogos>
+        <UpperLogos className='max-sm:mt-20'>
           <TnLogo src='/utils/logo-tn.png' alt='TN Logo' />
           <LogoBlack src='/utils/toorynaad-24.png' alt='Toorynaad Logo' />
           <ManitLogo src='/utils/logo-manit.png' alt='MANIT Logo' />
@@ -628,4 +628,4 @@ const Form = () => {
   );
 }
 
-export default Form;
+export default RegForm;

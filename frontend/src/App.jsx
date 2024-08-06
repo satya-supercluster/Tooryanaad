@@ -13,6 +13,7 @@ import Gallery from "./components/Gallery/Gallery";
 // import EventDetails from "./components/Events/EventDetails";
 import { useData } from "./Data/useData";
 import PastMembers from "./components/Team/PastMembers";
+import RegForm from "./components/RegistrationForm/Form";
 import NewEventDetails from "./components/Events/NewEventDetails";
 // import CollegeAmbassador from "./components/Forms/CollegeAmbassador";
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/PastMembers" element={<PastMembers />} />
+          <Route path="/T_Reg24" element={<RegForm />} />
           {/* <Route path="/ambassador" element={<CollegeAmbassador />} /> */}
 
           <Route
