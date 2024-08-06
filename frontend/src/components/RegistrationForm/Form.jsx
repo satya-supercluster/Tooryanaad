@@ -57,6 +57,7 @@ const RegForm = () => {
       ...(response.type === "group" && { teamName: response.teamName }),
     };
     // console.log(newResponse);
+    red
     setResponse({
       name: "",
       college: "",
@@ -149,7 +150,7 @@ const RegForm = () => {
         onChange={changeHandler}
         onFocus={() => setFocusedField(field)}
         onBlur={() => setFocusedField(null)}
-        className="w-full p-2.5 pt-4 rounded-full text-xl mb-5 border-2 border-[#D7B3D7] text-red-500 bg-[rgba(999,999,999,0.9)] focus:outline-none focus:border-[#D726D9] md:text-sm md:p-2 md:mb-4"
+        className="w-full p-2.5 pt-4 rounded-full text-xl mb-5 border-2 border-[#D7B3D7] text-black bg-[rgba(999,999,999,0.9)] focus:outline-none focus:border-[#D726D9] md:text-sm md:p-2 md:mb-4"
       />
       <motion.label
         htmlFor={field}
