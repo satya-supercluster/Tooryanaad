@@ -341,7 +341,7 @@ const RegForm = () => {
           <div className="flex justify-center items-center">
             <motion.button
               type="submit"
-              className="bg-[#D726D9] text-white py-5 px-5 border-none rounded cursor-pointer text-lg md:py-2 md:px-4"
+              className="bg-[#D726D9] text-white px-5 border-none rounded cursor-pointer text-lg py-2 md:px-4"
               whileHover={{ scale: 1.05, backgroundColor: "#FFD700" }}
               transition={{ duration: 0.3 }}
             >
