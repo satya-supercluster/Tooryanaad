@@ -24,7 +24,7 @@ const Layout = () => {
       </div>
       <ScrollToTop/>
       <Footer />
-      {/* <MessageBox/> */}
+      <MessageBox/>
     </div>
   );
 };
