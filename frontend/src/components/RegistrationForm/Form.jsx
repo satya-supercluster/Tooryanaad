@@ -57,7 +57,6 @@ const RegForm = () => {
       ...(response.type === "group" && { teamName: response.teamName }),
     };
     // console.log(newResponse);
-    red
     setResponse({
       name: "",
       college: "",
