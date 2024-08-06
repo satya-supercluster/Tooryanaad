@@ -18,7 +18,7 @@ const eventsMap = {
 };
 
 const RegForm = () => {
-  const [p, setP] = useState(true);
+  const [p, setP] = useState(false);
   const [response, setResponse] = useState({
     name: "",
     college: "",
@@ -33,6 +33,7 @@ const RegForm = () => {
 
   async function submitHandler(event) {
     event.preventDefault();
+    setP(true);
     // console.log("Logging the form response: ");
     // console.log(response);
     let comps = [];
@@ -68,11 +69,11 @@ const RegForm = () => {
       ),
       type: "",
     });
-    setTimeout(() => {
-      if (p) {
-        alert("पंजीकरण सफल हुआ!")
-      }
-    }, 3000);
+    // setTimeout(() => {
+    //   if (p) {
+    //     alert("पंजीकरण सफल हुआ!")
+    //   }
+    // }, 3000);
     try {
       await fetch(
         `${import.meta.env.VITE_BACKEND_SITE}/${response.type === "solo" ? "T_Reg24" : "TG24_Reg"
@@ -84,7 +85,12 @@ const RegForm = () => {
             "Content-type": "application/json; charset=UTF-8",
           },
         }
-      );
+      ).then(() => {
+        alert("पंजीकरण सफल हुआ!");
+        setP(false);
+      }).finally(() => {
+        setP(false);
+      });
     } catch (err) {
       if (res.status === 403) {
         alert("यह ईमेल पता पहले से पंजीकृत है");
@@ -97,6 +103,7 @@ const RegForm = () => {
         setP(false);
       }
     }
+    setP(false);
   }
 
   function changeHandler(event) {
@@ -344,7 +351,7 @@ const RegForm = () => {
               whileHover={{ scale: 1.05, backgroundColor: "#FFD700" }}
               transition={{ duration: 0.3 }}
             >
-              पंजीयन करें
+             {(p)?"पंजीयन हो रहा है..": "पंजीयन करें"}
             </motion.button>
           </div>
         </form>
