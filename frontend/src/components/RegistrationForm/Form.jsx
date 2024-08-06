@@ -75,7 +75,7 @@ const RegForm = () => {
     //   }
     // }, 3000);
     try {
-      await fetch(
+      const res = await fetch(
         `${import.meta.env.VITE_BACKEND_SITE}/${response.type === "solo" ? "T_Reg24" : "TG24_Reg"
         }`,
         {
@@ -85,26 +85,24 @@ const RegForm = () => {
             "Content-type": "application/json; charset=UTF-8",
           },
         }
-      ).then(() => {
+      );
+      if (res.status === 403) {
+        alert("यह ईमेल पता पहले से पंजीकृत है");
+        setP(false);
+      } else if (res.status === 401) {
+        alert("कृपया 10 अंकों का मान्य संपर्क दर्ज करें");
+        setP(false);
+      } else if (res.status !== 200) {
+        alert("Something went wrong.");
+        setP(false);
+      }
+      else {
         alert("पंजीकरण सफल हुआ!");
         setP(false);
-      }).catch(
-        (res) => {
-          if (res.status === 403) {
-            alert("यह ईमेल पता पहले से पंजीकृत है");
-            setP(false);
-          } else if (res.status === 401) {
-            alert("कृपया 10 अंकों का मान्य संपर्क दर्ज करें");
-            setP(false);
-          } else if (res.status !== 200) {
-            alert("Something went wrong.");
-            setP(false);
-          }
-        }
-      ).finally(() => {
-        setP(false);
-      });
+      }
     } catch (err) {
+      alert("Something went wrong.");
+      setP(false);
     }
     setP(false);
   }
