@@ -18,6 +18,7 @@ const eventsMap = {
 };
 
 const RegForm = () => {
+  const [p, setP] = useState(true);
   const [response, setResponse] = useState({
     name: "",
     college: "",
@@ -55,11 +56,26 @@ const RegForm = () => {
       competitions: comps,
       ...(response.type === "group" && { teamName: response.teamName }),
     };
-    console.log(newResponse);
+    // console.log(newResponse);
+    setResponse({
+      name: "",
+      college: "",
+      email: "",
+      contact: "",
+      teamName: "",
+      compete: Object.fromEntries(
+        Object.values(eventsMap).map((event) => [event, false])
+      ),
+      type: "",
+    });
+    setTimeout(() => {
+      if (p) {
+        alert("Successfully registered!")
+      }
+    }, 3000);
     try {
       await fetch(
-        `${import.meta.env.VITE_BACKEND_SITE}/${
-          response.type === "solo" ? "T_Reg24" : "TG24_Reg"
+        `${import.meta.env.VITE_BACKEND_SITE}/${response.type === "solo" ? "T_Reg24" : "TG24_Reg"
         }`,
         {
           method: "POST",
@@ -68,20 +84,18 @@ const RegForm = () => {
             "Content-type": "application/json; charset=UTF-8",
           },
         }
-      ).then(async(data) => {
-        // console.log(await data.json());
-      });
-
-      if (res.status === 403) {
-        alert("User already exists");
-      } else if(res.status==200){
-        alert("Form Submitted Successfully");
-      }
-      else {
-        alert("Something went wrong.")
-      }
+      );
     } catch (err) {
-      // console.error(err);
+      if (res.status === 403) {
+        alert("Email already exists");
+        setP(false);
+      } else if (res.status ===401) {
+        alert("Invalid Number");
+        setP(false);
+      } else if (res.status !== 200) {
+        alert("Something went wrong.");
+        setP(false);
+      }
     }
   }
 
