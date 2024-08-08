@@ -39,7 +39,7 @@ const Sponsor = () => {
       whileInView={{ y: 0 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
-      className="my-20"
+      className="my-20 z-0"
     >
       <h1 className="text-xl lg:text-3xl font-bold text-center text-yellow-500 mb-10">
         हमारे प्रायोजक
@@ -63,8 +63,8 @@ const Sponsor = () => {
             </div>
           ))}
         </div>
-        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-white to-transparent z-10"></div>
+        <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-0"></div>
+        <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-white to-transparent z-0"></div>
       </div>
     </motion.div>
   );
