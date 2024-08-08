@@ -15,6 +15,7 @@ export const DataProvider = ({ children }) => {
   const [guests, setGuests] = useState({});
   const [events, setEvents] = useState([]);
   const [showMsg, setShowMsg] = useState(true);
+  const [showVid, setShowVid] = useState(true);
   const [tooryanaad22Members, setTooryanaad22Members] = useState([]);
   const [tooryanaad23Members, setTooryanaad23Members] = useState([]);
   const [newEvents, setNewEvents] = useState(newEvents24);
@@ -90,7 +91,7 @@ export const DataProvider = ({ children }) => {
       setRegular(regularMembers);
     }
   }, [members]);
-
+  
   return (
     <DataContext.Provider
       value={{
@@ -107,7 +108,9 @@ export const DataProvider = ({ children }) => {
         tooryanaad22Members,
         tooryanaad23Members,
         newEvents,
-        eventCardValue
+        eventCardValue,
+        setShowVid,
+        showVid
       }}
     >
       {children}

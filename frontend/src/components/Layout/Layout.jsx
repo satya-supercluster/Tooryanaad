@@ -6,7 +6,7 @@ import Footer from "../Footer/Footer";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import MessageBox from "../MessageBox/MessageBox";
 import VideoPlayer from "./Vid";
-
+import { useData } from "../../Data/useData";
 const Layout = () => {
   const { pathname } = useLocation();
 
@@ -19,6 +19,7 @@ const Layout = () => {
 
   useEffect(scrollUp, [pathname]);
 
+  const { showVid,showMsg } = useData();
   return (
     <div>
       <IconBar />
@@ -26,10 +27,10 @@ const Layout = () => {
       <div className="md:mt-14">
         <Outlet />
       </div>
-      {pathname === "/" && <VideoPlayer />}
+      {pathname === "/" && showVid === true && <VideoPlayer />}
       <ScrollToTop />
       <Footer className="z-20" />
-      <MessageBox />
+      {pathname === "/" && showMsg === true && <MessageBox />}
     </div>
   );
 };

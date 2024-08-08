@@ -8,9 +8,10 @@ import Books from "../Books/Books"
 import { useData } from "../../Data/useData";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-  const { setShowMsg } = useData();
+  const { setShowMsg,setShowVid } = useData();
   useEffect(() => {
     setShowMsg(true);
+    setShowVid(true);
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640);
     };
