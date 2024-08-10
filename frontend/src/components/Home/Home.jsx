@@ -55,7 +55,7 @@ const Home = () => {
             viewport={{ once: true }}
             className=" font-bold text-yellow-500 text-xl sm:text-3xl text-center mt-2"
           >
-            हिन्दी है हम
+            हिन्दी हैं हम
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 50 }}

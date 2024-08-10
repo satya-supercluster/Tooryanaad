@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useData } from "../../Data/useData";
 const VideoPlayer = () => {
   const { setShowVid } = useData();
