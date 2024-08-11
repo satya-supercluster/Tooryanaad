@@ -46,7 +46,7 @@ const TeamCard = ({ member }) => {
     >
       <Suspense
         fallback={
-          <div className="w-full aspect-square bg-gray-200 rounded-tl-3xl rounded-tr-md rounded-bl-md rounded-br-3xl"></div>
+          <div className="w-[70%] aspect-square object-cover bg-gray-200 rounded-tl-3xl rounded-tr-md rounded-bl-md rounded-br-3xl border-[3px] border-yellow-500"></div>
         }
       >
         <LazyImage
