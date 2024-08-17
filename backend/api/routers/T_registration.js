@@ -134,7 +134,7 @@ for (const competition of req.body.competitions) {
       await transporter.sendMail({
         from: process.env.REACT_APP_EMAIL_,
         to: `${email}`,
-        subject: "तूर्यनाद'23 पंजीयन हेतु",
+        subject: "तूर्यनाद'24 पंजीयन हेतु",
         text: "Thankyou for registration",
         html: emailTemplate,
         attachments: attachments
