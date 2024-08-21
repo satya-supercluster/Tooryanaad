@@ -282,7 +282,7 @@ const newEvents24 = {
       "भ्रांश बोहरे": "6266186038",
     },
     अणुडाक: "chhatrasansadtooryanaad24@gmail.com",
-    "पंजीयन लिंक": "https://tooryanad.org",
+    "पंजीयन लिंक": "https://tooryanaad.org",
   },
   खिचड़ी: {
     tag: "खिचड़ी 2024: शब्दों का मेल, दिल का खेल।",
