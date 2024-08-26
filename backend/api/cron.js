@@ -3,7 +3,7 @@ const cron = require('cron');
 const https = require('https');
 
 // Replace with your actual backend API endpoint
-const backendUrl = 'https://tooryanaad-backend.onrender.com';
+const backendUrl = "https://tooryanaad-backend-muz0.onrender.com";
 const job = new cron.CronJob('*/2 * * * *', function () {
   // This function will be executed every 5 minutes.
   // console.log(Hitting backend endpoint to keep server alive...);
