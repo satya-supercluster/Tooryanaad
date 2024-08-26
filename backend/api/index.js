@@ -15,6 +15,7 @@ app.use(
       "https://www.tooryanaad.org",
       "https://tooryanaad.netlify.app",
       "https://tooryanaad-info.netlify.app",
+      "https://tooryanaad-backend-muz0.onrender.com",
     ],
     credentials: true, //access-control-allow-credentials:true
   })
