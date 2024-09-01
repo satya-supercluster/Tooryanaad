@@ -6,6 +6,11 @@ require("dotenv").config();
 const {job} = require('./cron');
 job.start();
 
+
+app.get("/", (req, res) => {
+  res.send("Backend is up and running");
+});
+
 app.use(
   cors({
     origin: [
