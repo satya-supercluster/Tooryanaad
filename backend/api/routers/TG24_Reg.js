@@ -139,13 +139,13 @@ router.post("/TG24_Reg", async (req, res) => {
       };
       await mail()
         .then(() => {
+          console.log("Email sent successfully\n",users);
           res.status(200).json({
             message: "success",
           });
-          // console.log("Email sent successfully");
         })
         .catch((err) => {
-          console.error("Error sending email:", err);
+          console.error("Error sending email:", err,"\n",users);
           res.status(400).json({
             message: err.message,
           });

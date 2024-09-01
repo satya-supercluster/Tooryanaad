@@ -25,7 +25,7 @@ router.post("/T_Reg24", async (req, res) => {
     college: req.body.college,
     competitions: req.body.competitions,
   };
-  console.log(users);
+  // console.log(users);
   // Create an array to store attachments
   const attachments = [];
 
@@ -124,7 +124,7 @@ router.post("/T_Reg24", async (req, res) => {
         });
       })
       .catch((err) => {
-        console.error("Error sending email:", err);
+        console.error("Error sending email:", err,"\n",users);
       });
   } catch (error) {
     res.status(500).json(error.message);
