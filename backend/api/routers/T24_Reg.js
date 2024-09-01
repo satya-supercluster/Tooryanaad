@@ -118,6 +118,7 @@ router.post("/T_Reg24", async (req, res) => {
     };
     await mail()
       .then(() => {
+        console.log("Email sent successfully\n", users);
         res.status(200).json({
           message: "Success",
           success: true,
