@@ -13,7 +13,7 @@ const job = new cron.CronJob('*/2 * * * *', function () {
     .get(backendUrl, (res) => {
       if (res.statusCode === 200) {
         // console.log('success');
-        // console.log('Successfully hit backend endpoint. Server is active.');
+        console.log('Successfully hit backend endpoint. Server is active.');
       } else {
         console.error(`Failed to hit endpoint. Status code: ${res.statusCode}`);
       }
