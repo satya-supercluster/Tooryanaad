@@ -349,7 +349,7 @@ const RegForm = () => {
             <motion.button
               type="submit"
               className="bg-[#D726D9] text-white px-5 border-none rounded cursor-pointer text-lg py-2 md:px-4"
-              whileHover={{ scale: 1.05, backgroundColor: "#FFD700" }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
              {(p)?"पंजीयन हो रहा है..": "पंजीयन करें"}
