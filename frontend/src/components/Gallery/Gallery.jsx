@@ -132,7 +132,7 @@ const Gallery = () => {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
-              className="relative max-w-4xl max-h-[90vh] w-[90vw] bg-white rounded-3xl border-2 border-yellow-500"
+              className="relative max-w-4xl max-h-[90vh] w-[90vw] bg-white rounded-3xl border-2"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="rounded-3xl overflow-hidden">
@@ -144,7 +144,7 @@ const Gallery = () => {
               </div>
               <button
                 onClick={closeModal}
-                className="absolute top-0 right-0 text-white bg-black bg-opacity-70 border-l-2 border-b-2 border-yellow-500 rounded-tr-3xl rounded-bl-3xl h-[7vh] w-[7vh]"
+                className="absolute top-0 right-0 text-white bg-black bg-opacity-70 border-l-2 border-b-2 rounded-tr-3xl rounded-bl-3xl h-[7vh] w-[7vh]"
               >
                 <FontAwesomeIcon icon={faTimes} size="xl" />
               </button>
