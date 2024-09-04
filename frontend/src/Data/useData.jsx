@@ -35,8 +35,14 @@ export const DataProvider = ({ children }) => {
 
         setMembers(membersData);
 
+        const sortedGuests = [...guestsData].sort((a, b) => {
+          const orderA = parseInt(a.SNo) || 100;
+          const orderB = parseInt(b.SNo) || 100;
+          return orderA - orderB;
+        });
+
         // Organize guests by year
-        const guestsByYear = guestsData.reduce((acc, guest) => {
+        const guestsByYear = sortedGuests.reduce((acc, guest) => {
           const year = guest.YEAR;
           if (!acc[year]) {
             acc[year] = [];

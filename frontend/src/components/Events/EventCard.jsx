@@ -32,7 +32,7 @@ const EventCard = ({ event,title }) => {
             onClick={(e) => e.stopPropagation()}
             className="text-sm text-yellow-500"
           >
-            अधिक जाने
+            अधिक जानें
           </Link>
         </div>
       </motion.div>
@@ -48,9 +48,7 @@ const EventCard = ({ event,title }) => {
             onClick={toggleDetails}
           >
             <h3 className="text-xl font-bold mb-1 text-yellow-500">उद्देश्य</h3>
-            <p className="text-sm font-semibold">
-              {event.aim}
-            </p>
+            <p className="text-sm font-semibold">{event.aim}</p>
           </motion.div>
         )}
       </AnimatePresence>
