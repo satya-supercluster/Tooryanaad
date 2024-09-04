@@ -64,14 +64,14 @@ function News() {
         >
           {photos.map((photo, index) => (
             <div key={index} className="flex justify-center">
-              <div className="min-[400px]:p-2">
+              <div className="min-[400px]:p-2 ">
                 <Suspense
                   fallback={
                     <div className="w-[80vw] md:w-[45vw] lg:w-[30vw] h-80 bg-gray-200 rounded-lg"></div>
                   }
                 >
                   <LazyImage
-                    className="w-[80vw] md:w-[45vw] lg:w-[30vw] h-80 object-stretch rounded-lg"
+                    className="w-[80vw] md:w-[45vw] lg:w-[30vw] h-80 object-contain bg-white rounded-lg"
                     src={`${photo}`}
                     alt={`news clip ${index + 1}`}
                   />
