@@ -43,7 +43,7 @@ function News() {
     >
       <div>
         <p className="text-xl lg:text-3xl font-bold text-center text-yellow-500 mb-10">
-          हमारी खबरें
+          तूर्यनाद मीडिया में
         </p>
       </div>
       <div className="min-[400px]:mx-12 shadow-lg rounded-lg">
