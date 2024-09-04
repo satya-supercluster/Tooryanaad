@@ -52,7 +52,7 @@ const NewEventDetails = ({ eventData, title }) => {
         <img
           src={`/events/${eventCardValue[title].alias}.jpg`}
           alt={title}
-          className="max-h-[30vh] aspect-square object-cover mx-auto rounded-lg border-4 border-yellow-400"
+          className="sm:max-h-[30vh] max-sm:w-full aspect-square object-cover mx-auto rounded-lg border-4 border-yellow-400"
         />
       </motion.div>
       {eventData.tag && (
