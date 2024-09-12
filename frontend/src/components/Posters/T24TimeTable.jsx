@@ -8,7 +8,7 @@ const T24TimeTable = () => {
           तूर्यनाद'24 समय-सारणी
         </div>
         <div className="p-5 flex justify-center items-start">
-          <div className="border-2 border-red-500 rounded-xl">
+          <div className="border-2 border-red-500 rounded-xl min-h-[50vh]">
             <img
               src="/timetable24.jpg"
               alt="TimeTable24"
