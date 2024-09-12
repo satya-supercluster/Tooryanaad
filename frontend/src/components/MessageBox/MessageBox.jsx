@@ -16,19 +16,19 @@ const MessageBox = () => {
           className="fixed top-24 right-0 sm:right-[10px] flex justify-center gap-1 items-center"
         >
           <Link
-            to="/T_Reg24"
+            to="/TimeTable"
             onClick={() => {
               setShowMsg(false);
             }}
-            className="text-black text-sm bg-yellow-500 p-2 rounded-2xl shadow-[0_1px_2px_1px_rgba(0,0,0,0.6)] cursor-pointer"
+            className="text-white font-bold text-sm bg-red-500 p-2 rounded-2xl shadow-[0_1px_2px_1px_rgba(0,0,0,0.6)] cursor-pointer"
           >
-            तूर्यनाद'24 हेतु पंजीयन करें
+            तूर्यनाद'24 समय-सारणी
           </Link>
           <div
             onClick={() => {
               setShowMsg(false);
             }}
-            className="text-yellow-500 text-2xl p-1 cursor-pointer"
+            className="text-red-500 text-2xl p-1 cursor-pointer"
           >
             <FontAwesomeIcon icon={faXmark} />
           </div>
