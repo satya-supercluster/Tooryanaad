@@ -4,7 +4,7 @@ const T24TimeTable = () => {
   return (
     <div className="min-h-screen">
       <div className="max-sm:mt-16">
-        <div className="font-semibold text-red-500 pb-5 pt-8 text-xl text-center sm:text-3xl">
+        <div className="font-semibold text-yellow-500 pb-5 pt-8 text-xl text-center sm:text-3xl">
           तूर्यनाद'24 समय-सारणी
         </div>
         <div className="p-5 flex justify-center items-start">
