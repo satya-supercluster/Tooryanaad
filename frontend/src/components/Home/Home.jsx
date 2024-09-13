@@ -4,7 +4,7 @@ import About from "../About/About";
 import { motion } from "framer-motion";
 import Sponsor from "../Sponsor/Sponsor";
 import News from "../News/News";
-import Books from "../Books/Books"
+// import Books from "../Books/Books";
 import { useData } from "../../Data/useData";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div className="">
       <div
-        className="relative z-1 overflow-hidden pt-10 lg:pt-0 flex flex-col justify-center items-center w-full lg:rounded-lg max-sm:min-h-[100vh] min-h-[95vh] bg-[rgb(29,32,38)]"
+        className="relative z-1 overflow-hidden pt-10 lg:pt-0 flex flex-col justify-center items-center w-full max-sm:min-h-[100vh] min-h-[95vh] bg-[rgb(29,32,38)]"
         style={backgroundStyle}
       >
         <div className="px-5 sm:px-10 max-sm:pt-10">

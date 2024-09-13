@@ -1,25 +1,75 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useData } from "../../Data/useData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
 const VideoPlayer = () => {
   const { setShowVid } = useData();
+  const [isScaled, setIsScaled] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (videoRef.current && !videoRef.current.contains(event.target)) {
+        setIsScaled(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleVideoClick = () => {
+    if (window.innerWidth <= 640) {
+      // Check if it's mobile view (adjust the breakpoint as needed)
+      setIsScaled(!isScaled);
+    }
+  };
+  useEffect(() => {
+    if (isScaled) {
+      console.log("yes")
+    }
+  }, [isScaled]);
   return (
-    <div className="w-full h-full overflow-hidden shadow-[0_1px_2px_1px_rgba(0,0,0,0.6)] cursor-not-allowed">
-      <motion.video
-        autoPlay
-        muted
-        loop
-        className="fixed bottom-2 left-2 transform rounded-lg shadow-lg max-sm:w-[20%] z-[10]"
-        style={{ width: "20%", minWidth:"170px" }}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2 }}
-        onClick={()=>{setShowVid(false)}}
-      >
-        <source src="/vid.mp4" type="video/mp4" />
-        {/* Add additional source tags for different formats if needed */}
-        {/* Your browser does not support the video tag. */}
-      </motion.video>
+    <div
+      className="fixed max-sm:w-[45%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10]"
+      onClick={handleVideoClick}
+      ref={videoRef}
+      style={{
+        transform: `scale(${isScaled ? 2 : 1})`,
+        transformOrigin: "bottom left",
+        transition: "transform 0.3s ease-in-out",
+      }}
+    >
+      <div className="relative flex">
+        <motion.video
+          autoPlay
+          muted
+          loop
+          controls
+          className="rounded-lg"
+          style={{ width: "100%" }}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2 }}
+        >
+          <source src="/vid.mp4" type="video/mp4" />
+        </motion.video>
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5,delay:2 }}
+          onClick={() => {
+            setShowVid(false);
+          }}
+          className="absolute right-[0px] top-[0px] leading-none py-1 px-2 sm:py-2 sm:px-3 bg-red-500 font-bold z-[20] text-white rounded-tr-lg rounded-bl-lg cursor-pointer"
+        >
+          <FontAwesomeIcon icon={faXmark} />
+        </motion.div>
+      </div>
     </div>
   );
 };

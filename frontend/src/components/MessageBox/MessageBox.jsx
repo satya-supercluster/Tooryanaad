@@ -20,7 +20,7 @@ const MessageBox = () => {
             onClick={() => {
               setShowMsg(false);
             }}
-            className="text-white font-bold text-sm bg-red-500 p-2 rounded-2xl shadow-[0_1px_2px_1px_rgba(0,0,0,0.6)] cursor-pointer"
+            className="text-black text-sm lg:text-lg bg-yellow-500 p-2 rounded-2xl shadow-[0_1px_2px_1px_rgba(0,0,0,0.6)] cursor-pointer"
           >
             तूर्यनाद'24 समय-सारणी
           </Link>
@@ -28,7 +28,7 @@ const MessageBox = () => {
             onClick={() => {
               setShowMsg(false);
             }}
-            className="text-red-500 text-2xl p-1 cursor-pointer"
+            className="text-yellow-500 text-2xl p-1 cursor-pointer"
           >
             <FontAwesomeIcon icon={faXmark} />
           </div>
