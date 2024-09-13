@@ -24,7 +24,6 @@ const VideoPlayer = () => {
 
   const handleVideoClick = () => {
     if (window.innerWidth <= 640) {
-      // Check if it's mobile view (adjust the breakpoint as needed)
       setIsScaled(!isScaled);
     }
   };
@@ -35,7 +34,7 @@ const VideoPlayer = () => {
   }, [isScaled]);
   return (
     <div
-      className="fixed max-sm:w-[50%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10]"
+      className="fixed max-sm:w-[70%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10]"
       onClick={handleVideoClick}
       ref={videoRef}
       style={{
