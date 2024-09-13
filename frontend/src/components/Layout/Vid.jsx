@@ -25,7 +25,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     setTimeout(() => {
       setShowBorder(true);
-    }, 2500);
+    }, 2000);
   }, []);
   const handleVideoClick = () => {
     if (window.innerWidth <= 500) {
@@ -55,14 +55,14 @@ const VideoPlayer = () => {
           style={{ width: "100%" }}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2 }}
+          transition={{ duration: 1.5 }}
         >
           <source src="/vid.mp4" type="video/mp4" />
         </motion.video>
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 2 }}
+          transition={{ duration: 0.5, delay: 1.5 }}
           onClick={() => {
             setShowVid(false);
           }}
