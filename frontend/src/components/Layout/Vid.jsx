@@ -34,13 +34,13 @@ const VideoPlayer = () => {
   };
   return (
     <div
-      className={`fixed max-sm:w-[47%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10] rounded-lg ${
+      className={`fixed max-sm:w-[70%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10] rounded-lg ${
         showBorder ? "border-2 border-red-500" : ""
       }`}
       onTouchEndCapture={handleVideoClick}
       ref={videoRef}
       style={{
-        transform: `scale(${isScaled ? 1.5 : 1})`,
+        transform: `scale(${isScaled ? 1 : 0.7})`,
         transformOrigin: "bottom left",
         transition: "transform 0.3s ease-in-out",
       }}
