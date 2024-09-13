@@ -7,6 +7,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 const VideoPlayer = () => {
   const { setShowVid } = useData();
   const [isScaled, setIsScaled] = useState(false);
+  const [showBorder, setShowBorder] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -21,24 +22,25 @@ const VideoPlayer = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
+  useEffect(() => {
+    setTimeout(() => {
+      setShowBorder(true);
+    }, 2500);
+  }, []);
   const handleVideoClick = () => {
-    if (window.innerWidth <= 640) {
+    if (window.innerWidth <= 500) {
       setIsScaled(!isScaled);
     }
   };
-  useEffect(() => {
-    if (isScaled) {
-      console.log("yes")
-    }
-  }, [isScaled]);
   return (
     <div
-      className="fixed max-sm:w-[70%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10] border-2 border-red-500 rounded-lg"
-      onClick={handleVideoClick}
+      className={`fixed max-sm:w-[47%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10] rounded-lg ${
+        showBorder ? "border-2 border-red-500" : ""
+      }`}
+      onTouchEndCapture={handleVideoClick}
       ref={videoRef}
       style={{
-        transform: `scale(${isScaled ? 2 : 1})`,
+        transform: `scale(${isScaled ? 1.5 : 1})`,
         transformOrigin: "bottom left",
         transition: "transform 0.3s ease-in-out",
       }}
@@ -60,7 +62,7 @@ const VideoPlayer = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5,delay:2 }}
+          transition={{ duration: 0.5, delay: 2 }}
           onClick={() => {
             setShowVid(false);
           }}
