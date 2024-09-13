@@ -7,6 +7,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 const VideoPlayer = () => {
   const { setShowVid } = useData();
   const [isScaled, setIsScaled] = useState(false);
+  const [isLarge, setIsLarge] = useState(false);
   const [showBorder, setShowBorder] = useState(false);
   const videoRef = useRef(null);
 
@@ -29,18 +30,28 @@ const VideoPlayer = () => {
   }, []);
   const handleVideoClick = () => {
     if (window.innerWidth <= 500) {
-      setIsScaled(!isScaled);
+      setIsScaled(true);
+      setIsLarge(false);
+    } else {
+      setIsLarge(true);
     }
   };
+  useEffect(() => {
+    if (window.innerWidth > 500) {
+      setIsLarge(true);
+    }
+  })
   return (
     <div
-      className={`fixed max-sm:w-[70%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10] rounded-lg ${
+      className={`fixed max-sm:w-[70%] sm:w-[40%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10] rounded-lg ${
         showBorder ? "border-2 border-red-500" : ""
       }`}
-      onTouchEndCapture={handleVideoClick}
+      onTouchEndCapture={() => {
+        handleVideoClick();
+      }}
       ref={videoRef}
       style={{
-        transform: `scale(${isScaled ? 1 : 0.7})`,
+        transform: `scale(${isLarge ? 1 : isScaled ? 1 : 0.7})`,
         transformOrigin: "bottom left",
         transition: "transform 0.3s ease-in-out",
       }}
