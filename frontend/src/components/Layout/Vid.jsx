@@ -34,7 +34,7 @@ const VideoPlayer = () => {
   }, [isScaled]);
   return (
     <div
-      className="fixed max-sm:w-[70%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10]"
+      className="fixed max-sm:w-[70%] sm:w-[35%] lg:w-[25%] bottom-2 left-2 overflow-hidden shadow-lg z-[10] border-2 border-red-500 rounded-lg"
       onClick={handleVideoClick}
       ref={videoRef}
       style={{
@@ -64,7 +64,7 @@ const VideoPlayer = () => {
           onClick={() => {
             setShowVid(false);
           }}
-          className="absolute right-[0px] top-[0px] leading-none py-1 px-2 sm:py-2 sm:px-3 bg-red-500 font-bold z-[20] text-white rounded-tr-lg rounded-bl-lg cursor-pointer"
+          className="absolute right-[0px] top-[0px] leading-none py-1 px-2 sm:py-2 sm:px-3 bg-red-500 font-bold z-[20] text-white rounded-tr-lg rounded-bl-lg cursor-pointer outline outline-red-500"
         >
           <FontAwesomeIcon icon={faXmark} />
         </motion.div>
