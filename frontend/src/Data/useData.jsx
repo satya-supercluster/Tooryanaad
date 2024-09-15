@@ -15,6 +15,7 @@ export const DataProvider = ({ children }) => {
   const [guests, setGuests] = useState({});
   const [events, setEvents] = useState([]);
   const [showMsg, setShowMsg] = useState(true);
+  const [showMsg1, setShowMsg1] = useState(true);
   const [showVid, setShowVid] = useState(true);
   const [tooryanaad22Members, setTooryanaad22Members] = useState([]);
   const [tooryanaad23Members, setTooryanaad23Members] = useState([]);
@@ -111,6 +112,8 @@ export const DataProvider = ({ children }) => {
         eventDescriptions,
         showMsg,
         setShowMsg,
+        showMsg1,
+        setShowMsg1,
         tooryanaad22Members,
         tooryanaad23Members,
         newEvents,

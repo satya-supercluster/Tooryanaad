@@ -8,9 +8,10 @@ import News from "../News/News";
 import { useData } from "../../Data/useData";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-  const { setShowMsg,setShowVid } = useData();
+  const { setShowMsg,setShowVid,setShowMsg1 } = useData();
   useEffect(() => {
     setShowMsg(true);
+    setShowMsg1(true);
     setShowVid(true);
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640);
