@@ -22,18 +22,21 @@ const DropDownMenu = () => {
   }, []);
   return (
     <div
-      className="w-[90%] justify-center items-between sm:hidden flex flex-col gap-0.5"
+      className="w-[90%] justify-center items-between sm:hidden flex flex-col gap-1"
       ref={dropdownRef}
     >
       {/* Dropdown Menu for short Screens */}
 
       <motion.div
+        initial={{ scale: 2 }}
+        animate={{ scale: 1 }}
+        transition={{duration:1,bounce:0.5,type:"spring"}}
         whileTap={{ scale: 0.95 }}
         onClick={() => {
           setDropDown(!dropDown);
           setSecondaryDropDown(false);
         }}
-        className="flex justify-between items-center bg-[rgba(30,30,30)] p-2 rounded-lg shadow-sm shadow-slate-400 "
+        className="flex justify-between items-center bg-[rgba(30,30,30)] p-2 rounded-lg shadow-sm shadow-yellow-600 "
       >
         <div className="pl-4 font-semibold text-lg">तूर्यनाद समिति</div>
         <Hamburger
