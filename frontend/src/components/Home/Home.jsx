@@ -65,7 +65,7 @@ const Home = () => {
             viewport={{ once: true }}
             className="flex justify-center items-center"
           >
-            <p className=" text-gray-300 py-5 text-lg sm:text-2xl font-semibold min-[500px]:w-3/4 lg:w-1/2 leading-10 text-center xl:leading-loose">
+            <p className=" text-gray-300 py-5 text-lg sm:text-2xl font-semibold min-[500px]:w-3/4 lg:w-1/2 leading-10 text-justify xl:leading-loose">
               <span className="text-yellow-500"> उद्देश्य -</span>
               राजभाषा हिन्दी व भारतीय संस्कृति के प्रचार-प्रसार द्वारा
               देशवासियों में राष्ट्रगौरव व आत्मगौरव की भावना का विकास करना।
