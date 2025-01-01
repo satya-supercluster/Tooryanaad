@@ -70,7 +70,7 @@ const About = () => {
           className="responsive-container-block leftSide"
         >
           <p className="text-blk heading">तूर्यनाद</p>
-          <p className="text-md min-[400px]:text-lg max-sm:p-7 max-sm:text-center md:text-xl text-white ">
+          <p className="text-md min-[400px]:text-lg max-sm:p-7 max-sm:text-justify md:text-xl text-white ">
             तूर्यनाद भारत का सबसे बड़ा अन्तर-महाविद्यालयीन हिन्दी महोत्सव है,
             जिसका आयोजन प्रतिवर्ष मौलाना आज़ाद राष्ट्रीय प्रौद्योगिकी संस्थान की
             तूर्यनाद समिति द्वारा किया जाता है। इसके अन्तर्गत महाविद्यालयीन
