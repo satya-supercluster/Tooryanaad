@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const guestSchema = {
   SNo: {
     type: Number,

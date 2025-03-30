@@ -1,9 +1,9 @@
-
 const mongoose = require("mongoose");
 
-const regSchema = {
+const registrationSchema = {
   token: {
     type: String,
+    unique: true,
     required: true
   },
   name: {
@@ -12,6 +12,7 @@ const regSchema = {
   },
   email: {
     type: String,
+    unique:true,
     required: true
   },
   year: {
@@ -36,5 +37,5 @@ const regSchema = {
   }
 };
 
-const Registration = mongoose.model('Ahvaan24', regSchema);
+const Registration = mongoose.model('Ahvaan25', registrationSchema);
 module.exports = Registration;

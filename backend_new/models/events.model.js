@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const t_events23Schema = {
+const eventSchema = {
     title:{
         type :String,
         required:true,
@@ -84,5 +84,5 @@ const t_events23Schema = {
     },
 }
 
-const T_events23 = mongoose.model("T_events23",t_events23Schema);
-module.exports= T_events23;
+const Events = mongoose.model("Events25",eventSchema);
+module.exports= Events;
