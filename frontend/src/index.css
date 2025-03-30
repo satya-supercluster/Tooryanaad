@@ -5,6 +5,9 @@
 @tailwind utilities;
 body {
   background-color: rgb(29, 32, 38);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body > div {
   position: absolute;

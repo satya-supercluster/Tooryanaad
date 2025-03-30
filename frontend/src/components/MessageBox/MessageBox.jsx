@@ -16,13 +16,13 @@ const MessageBox = () => {
           className="fixed top-24 right-0 sm:right-[10px] flex justify-center gap-1 items-center"
         >
           <Link
-            to="/TimeTable"
+            to="/T_Reg25"
             onClick={() => {
               setShowMsg(false);
             }}
             className="text-black text-sm lg:text-lg bg-yellow-500 p-2 rounded-2xl shadow-[0_1px_2px_1px_rgba(0,0,0,0.6)] cursor-pointer"
           >
-            तूर्यनाद'24 समय-सारणी
+            तूर्यनाद'25 हेतु पंजीयन करें
           </Link>
           <div
             onClick={() => {
