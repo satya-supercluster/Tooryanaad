@@ -22,7 +22,7 @@ export default function CollegeRegistration25() {
       id: "प्रबंधक",
       translatedName: "Executive",
       description:
-        "प्रबंधक संचालन, प्रबंधन और निर्णय लेने का कार्य करता है।",
+        "संचालन, प्रबंधन और निर्णय लेने का कार्य करता है।",
     },
     {
       id: "अभिकल्पक",
