@@ -20,42 +20,42 @@ export default function CollegeRegistration25() {
   const verticals = [
     {
       id: "प्रबंधक",
-      translatedName: "एक्जीक्यूटिव",
+      translatedName: "Executive",
       description:
-        "प्रबंधक संगठन का संचालन, प्रबंधन और निर्णय लेने का कार्य करता है।",
+        "प्रबंधक संचालन, प्रबंधन और निर्णय लेने का कार्य करता है।",
     },
     {
       id: "अभिकल्पक",
-      translatedName: "डिज़ाइनर",
+      translatedName: "Designer",
       description:
         "पोस्टर आदि तैयार कर उन्हें आकर्षक और प्रभावी बनाने का कार्य करता है।",
     },
     {
       id: "वेब अभिकल्पक",
-      translatedName: "वेब अभिकल्पक",
+      translatedName: "Web Developer",
       description:
         "वेबसाइट बनाने, विकसित करने और कार्यशील बनाने का कार्य करता है।",
     },
     {
       id: "छायाकार",
-      translatedName: "फोटोग्राफर",
+      translatedName: "Photographer",
       description:
         "तस्वीरें खींचने और उन्हें सुंदर व प्रभावी बनाने का कार्य करता है।",
     },
     {
       id: "सम्पादक",
-      translatedName: "कंटेंट राइटर",
+      translatedName: "Content Writer",
       description:
         "लेख, ब्लॉग या अन्य सामग्री लिखने, संशोधित करने और उसे प्रभावी बनाने का कार्य करता है।",
     },
     {
       id: "हिन्दीतर भाषी",
-      translatedName: "हिन्दीतर भाषी",
+      translatedName: "Non-Hindi Speakers",
       description: "वह व्यक्ति होता है जिसकी मातृभाषा हिंदी नहीं होती।",
     },
     {
       id: "वीडियो सम्पादक",
-      translatedName: "वीडियो एडिटर",
+      translatedName: "Video Editor",
       description:
         "वीडियो को काटने, जोड़ने, सुधारने और उसे आकर्षक व प्रभावी बनाने का कार्य करता है।",
     },
