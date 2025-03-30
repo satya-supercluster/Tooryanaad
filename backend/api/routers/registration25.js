@@ -171,7 +171,7 @@ router.post("/Reg25", async (req, res) => {
     await transporter.sendMail({
       from: process.env.REACT_APP_EMAIL_,
       to: email,
-      subject: "टीम तूर्यनाद से सूचना (Message from Team Tooryanaad)",
+      subject: "तूर्यनाद परिवार की ओर से पंजीकरण पुष्टि",
       text: `प्रिय ${name},\n\nआपका पंजीकरण सफलतापूर्वक पूरा हो गया है। \n\nआपकी जानकारी निम्नलिखित है:\n\nनाम (Name): ${name}\nवर्ष (Year): ${year}\nसंपर्क (Contact): ${contact}\nस्कॉलर नंबर (Scholar Number): ${scholar}\nशाखा (Branch): ${branch}\nकार्यक्षेत्र (Vertical): ${vertical}\nदिनांक (Date): ${currentDate}\n\nतूर्यनाद`,
       html: `<b>प्रिय ${name},</b><br><br>
              <b>आपका पंजीकरण सफलतापूर्वक पूरा हो गया है। </b><br><br>
