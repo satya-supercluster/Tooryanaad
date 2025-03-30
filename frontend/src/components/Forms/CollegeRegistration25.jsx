@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 export default function CollegeRegistration25() {
   const [formData, setFormData] = useState({
     name: "",
@@ -483,7 +485,7 @@ export default function CollegeRegistration25() {
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-2  text-yellow-500 border border-yellow-500 rounded-lg font-semibold"
               >
-                पिछला
+                <FontAwesomeIcon icon={faArrowLeft} />
               </motion.button>
             ) : (
               <div></div>
@@ -497,7 +499,7 @@ export default function CollegeRegistration25() {
                 whileTap={{ scale: 0.95 }}
                 className="px-6 py-2 bg-yellow-500 text-slate-800 font-semibold rounded-lg ml-auto"
               >
-                अगला
+                <FontAwesomeIcon icon={faArrowRight} />
               </motion.button>
             ) : (
               <motion.button
