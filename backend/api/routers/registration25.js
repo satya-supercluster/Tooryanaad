@@ -14,29 +14,122 @@ function generateUniqueID() {
   const uniqueID = randomNum.toString() + timestamp; // Combine the random number and timestamp
   return "AVH" + uniqueID.substr(0, 6); // Return the first 6 digits of the combined ID
 }
-const generatePDF = (users) => {
-  const templatePath = path.join(__dirname, "../public/reportpdf.pug");
-  const compiledFunction = pug.compileFile(templatePath, { encoding: "utf-8" });
-  const html = compiledFunction({ users });
-  const options = {
-    format: "Letter",
-    base: "file:///" + path.join(__dirname, "../public/"), // Use this if you have any CSS or image files in the "public" folder.
-    childProcessOptions: {
-      env: {
-        OPENSSL_CONF: "/dev/null",
-      },
-    },
-  };
-  return new Promise((resolve, reject) => {
-    pdf.create(html, options).toBuffer((err, buffer) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(buffer);
-      }
-    });
-  });
-};
+// const generatePDF = (users) => {
+//   const templatePath = path.join(__dirname, "../public/reportpdf.pug");
+//   const compiledFunction = pug.compileFile(templatePath, { encoding: "utf-8" });
+//   const html = compiledFunction({ users });
+//   const options = {
+//     format: "Letter",
+//     base: "file:///" + path.join(__dirname, "../public/"), // Use this if you have any CSS or image files in the "public" folder.
+//     childProcessOptions: {
+//       env: {
+//         OPENSSL_CONF: "/dev/null",
+//       },
+//     },
+//   };
+//   return new Promise((resolve, reject) => {
+//     pdf.create(html, options).toBuffer((err, buffer) => {
+//       if (err) {
+//         reject(err);
+//       } else {
+//         resolve(buffer);
+//       }
+//     });
+//   });
+// };
+
+// const puppeteer = require("puppeteer");
+
+// async function generatePDF(users) {
+//   const html = `
+//   <!DOCTYPE html>
+//   <html lang="hi">
+//   <head>
+//     <meta charset="UTF-8">
+//     <title>आह्वान'25 (Aahvaan'25)</title>
+//     <style>
+//       body { font-family: 'Noto Sans', sans-serif; margin: 26px; }
+//       .avhh { text-align: center; margin-top: 20px; }
+//       .data { margin: 20px; }
+//       .data ul { list-style-type: none; padding: 0; }
+//       .section1 { font-weight: bold; }
+//       hr { border: 1px solid #ccc; margin: 10px 0; }
+//     </style>
+//   </head>
+//   <body>
+//     <div class="avhh">
+//       <h1>आह्वान'25 (Aahvaan'25)</h1>
+//     </div>
+//     <div class="data">
+//       <ul>
+//         <li>
+//           <span class="section1">आह्वान पहचान (Aahvaan ID): </span>
+//           <span class="section">${users.token}</span>
+//         </li>
+//         <br>
+//         <li>
+//           <span class="section1">नाम (Name): </span>
+//           <span class="section">${users.name}</span>
+//         </li>
+//         <br>
+//         <li>
+//           <span class="section1">स्कॉलर नंबर (Scholar Number): </span>
+//           <span class="section">${users.scholar}</span>
+//         </li>
+//         <br>
+//         <li>
+//           <span class="section1">साल (Year): </span>
+//           <span class="section">${users.year}</span>
+//         </li>
+//         <br>
+//         <li>
+//           <span class="section1">ईमेल (Email): </span>
+//           <span class="section">${users.email}</span>
+//         </li>
+//         <br>
+//         <li>
+//           <span class="section1">संपर्क (Contact): </span>
+//           <span class="section">${users.contact}</span>
+//         </li>
+//         <br>
+//         <li>
+//           <span class="section1">शाखा (Branch): </span>
+//           <span class="section">${users.branch}</span>
+//         </li>
+//         <br>
+//         <hr>
+//         <li>
+//           <span class="section1">कार्यक्षेत्र (Vertical): </span>
+//           <span class="section">${users.vertical}</span>
+//         </li>
+//         <br>
+//       </ul>
+//     </div>
+//     <div class="avahan">${new Date().toLocaleDateString()}</div>
+//     <div class="avah">टूर्यनाड (Tooryanaad)</div>
+//   </body>
+//   </html>
+//   `;
+
+//   // Launch a headless browser and create a new page
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
+
+//   // Set the HTML content of the page and wait until the network is idle
+//   await page.setContent(html, { waitUntil: "networkidle0" });
+
+//   // Generate a PDF buffer from the page content in A4 format
+//   const pdfBuffer = await page.pdf({ format: "A4" });
+
+//   // Close the browser instance
+//   await browser.close();
+
+//   // Return the generated PDF buffer
+//   return pdfBuffer;
+// }
+
+// const generatePDF=require("../public/regPdfGenerator")
+
 router.post("/Reg25", async (req, res) => {
   try {
     // Destructure the request body for cleaner code
@@ -60,12 +153,8 @@ router.post("/Reg25", async (req, res) => {
       return res.status(400).json({ msg: "exists" });
     }
 
-    // Save the new user to the database
-    const newUser = new Register(users);
-    await newUser.save();
-
-    // Generate PDF buffer from user data
-    const pdfBuffer = await generatePDF(users);
+    // Get current date in DD-MM-YYYY format
+    const currentDate = new Date().toLocaleDateString("hi-IN");
 
     // Configure the nodemailer transporter
     const transporter = nodemailer.createTransport({
@@ -78,20 +167,23 @@ router.post("/Reg25", async (req, res) => {
       },
     });
 
-    // Send the email with the PDF attachment
+    // Send the email with the registration details
     await transporter.sendMail({
       from: process.env.REACT_APP_EMAIL_,
       to: email,
-      subject: "From Team Tooryanaad",
-      text: "Thank you for registration",
-      html: `<b>${name}, your registration details are attached.</b>`,
-      attachments: [
-        {
-          filename: "report.pdf",
-          content: pdfBuffer,
-          encoding: "utf-8",
-        },
-      ],
+      subject: "टीम तूर्यनाद से सूचना (Message from Team Tooryanaad)",
+      text: `प्रिय ${name},\n\nआपका पंजीकरण सफलतापूर्वक पूरा हो गया है। \n\nआपकी जानकारी निम्नलिखित है:\n\nनाम (Name): ${name}\nवर्ष (Year): ${year}\nसंपर्क (Contact): ${contact}\nस्कॉलर नंबर (Scholar Number): ${scholar}\nशाखा (Branch): ${branch}\nकार्यक्षेत्र (Vertical): ${vertical}\nदिनांक (Date): ${currentDate}\n\nतूर्यनाद`,
+      html: `<b>प्रिय ${name},</b><br><br>
+             <b>आपका पंजीकरण सफलतापूर्वक पूरा हो गया है। </b><br><br>
+             <b>आपकी जानकारी निम्नलिखित है:</b><br><br>
+             <b>नाम (Name):</b> ${name}<br>
+             <b>वर्ष (Year):</b> ${year}<br>
+             <b>संपर्क (Contact):</b> ${contact}<br>
+             <b>स्कॉलर नंबर (Scholar Number):</b> ${scholar}<br>
+             <b>शाखा (Branch):</b> ${branch}<br>
+             <b>कार्यक्षेत्र (Vertical):</b> ${vertical}<br>
+             <b>दिनांक (Date):</b> ${currentDate}<br><br>
+             <b>तूर्यनाद</b>`,
     });
 
     console.log("Email sent successfully");
@@ -111,6 +203,5 @@ router.get("/countReg25", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
 
 module.exports = router;
