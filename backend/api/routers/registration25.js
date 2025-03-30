@@ -102,4 +102,15 @@ router.post("/Reg25", async (req, res) => {
   }
 });
 
+router.get("/countReg25", async (req, res) => {
+  try {
+    const data = await Register.find();
+    res.status(200).json({ data: data });
+  } catch (error) {
+    console.error("Error counting documents:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+
 module.exports = router;

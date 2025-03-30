@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Loader from "../Loader/Loader";
 export default function CollegeRegistration25() {
   const [formData, setFormData] = useState({
     name: "",
