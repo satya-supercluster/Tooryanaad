@@ -147,14 +147,17 @@ router.post("/Reg25", async (req, res) => {
     //   vertical,
     // };
 
-    const token=generateUniqueID();
-
+    const token = generateUniqueID();
 
     // Check if user already exists
     const existingUser = await Register.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ msg: "exists" });
     }
+
+    // Save the new user to the database
+    const newUser = new Register(users);
+    await newUser.save();
 
     // Get current date in DD-MM-YYYY format
     const currentDate = new Date().toLocaleDateString("hi-IN");
