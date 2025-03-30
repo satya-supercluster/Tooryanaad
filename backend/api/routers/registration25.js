@@ -57,7 +57,7 @@ router.post("/Reg25", async (req, res) => {
     // Check if user already exists
     const existingUser = await Register.findOne({ email });
     if (existingUser) {
-      return res.json({ status: 400, msg: "exists" });
+      return res.status(400).json({ msg: "exists" });
     }
 
     // Save the new user to the database
@@ -95,10 +95,10 @@ router.post("/Reg25", async (req, res) => {
     });
 
     console.log("Email sent successfully");
-    res.json({ status: 200, msg: "success" });
+    res.status(200).json({ msg: "success" });
   } catch (error) {
     console.error("Error occurred:", error);
-    res.json({ status: 500, error: error.message });
+    res.status(500).json({ error: error.message });
   }
 });
 
