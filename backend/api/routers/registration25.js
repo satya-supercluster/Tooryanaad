@@ -136,16 +136,19 @@ router.post("/Reg25", async (req, res) => {
     const { name, email, year, contact, scholar, branch, vertical } = req.body;
 
     // Create the user object with a unique token
-    const users = {
-      token: generateUniqueID(),
-      name,
-      email,
-      year,
-      contact,
-      scholar,
-      branch,
-      vertical,
-    };
+    // const users = {
+    //   token: generateUniqueID(),
+    //   name,
+    //   email,
+    //   year,
+    //   contact,
+    //   scholar,
+    //   branch,
+    //   vertical,
+    // };
+
+    const token=generateUniqueID();
+
 
     // Check if user already exists
     const existingUser = await Register.findOne({ email });
@@ -172,18 +175,19 @@ router.post("/Reg25", async (req, res) => {
       from: process.env.REACT_APP_EMAIL_,
       to: email,
       subject: "तूर्यनाद परिवार की ओर से पंजीकरण पुष्टि",
-      text: `प्रिय ${name},\n\nआपका पंजीकरण सफलतापूर्वक पूरा हो गया है। \n\nआपकी जानकारी निम्नलिखित है:\n\nनाम (Name): ${name}\nवर्ष (Year): ${year}\nसंपर्क (Contact): ${contact}\nस्कॉलर नंबर (Scholar Number): ${scholar}\nशाखा (Branch): ${branch}\nकार्यक्षेत्र (Vertical): ${vertical}\nदिनांक (Date): ${currentDate}\n\nतूर्यनाद`,
+      text: `प्रिय ${name},\n\nआपका पंजीकरण सफलतापूर्वक पूरा हो गया है। \n\nआपकी जानकारी निम्नलिखित है:\n\nआह्वान पहचान (Aahvaan ID): ${token}\nनाम (Name): ${name}\nवर्ष (Year): ${year}\nसंपर्क (Contact): ${contact}\nस्कॉलर नंबर (Scholar Number): ${scholar}\nशाखा (Branch): ${branch}\nकार्यक्षेत्र (Vertical): ${vertical}\nदिनांक (Date): ${currentDate}\n\nतूर्यनाद`,
       html: `<b>प्रिय ${name},</b><br><br>
-             <b>आपका पंजीकरण सफलतापूर्वक पूरा हो गया है। </b><br><br>
-             <b>आपकी जानकारी निम्नलिखित है:</b><br><br>
-             <b>नाम (Name):</b> ${name}<br>
-             <b>वर्ष (Year):</b> ${year}<br>
-             <b>संपर्क (Contact):</b> ${contact}<br>
-             <b>स्कॉलर नंबर (Scholar Number):</b> ${scholar}<br>
-             <b>शाखा (Branch):</b> ${branch}<br>
-             <b>कार्यक्षेत्र (Vertical):</b> ${vertical}<br>
-             <b>दिनांक (Date):</b> ${currentDate}<br><br>
-             <b>तूर्यनाद</b>`,
+         <b>आपका पंजीकरण सफलतापूर्वक पूरा हो गया है। </b><br><br>
+         <b>आपकी जानकारी निम्नलिखित है:</b><br><br>
+         <b>आह्वान पहचान (Aahvaan ID): ${token}</b><br>
+         <b>नाम (Name):</b> ${name}<br>
+         <b>वर्ष (Year):</b> ${year}<br>
+         <b>संपर्क (Contact):</b> ${contact}<br>
+         <b>स्कॉलर नंबर (Scholar Number):</b> ${scholar}<br>
+         <b>शाखा (Branch):</b> ${branch}<br>
+         <b>कार्यक्षेत्र (Vertical):</b> ${vertical}<br>
+         <b>दिनांक (Date):</b> ${currentDate}<br><br>
+         <b>तूर्यनाद</b>`,
     });
 
     console.log("Email sent successfully");
