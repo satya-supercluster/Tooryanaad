@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function CollegeRegistration25() {
   const [formData, setFormData] = useState({
     name: "",
-    scholar:"",
+    scholar: "",
     branch: "",
     year: "",
     vertical: [],
@@ -142,11 +142,14 @@ export default function CollegeRegistration25() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_SITE}/REG25`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_SITE}/REG25`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.status === 400) {
         // Email exists already
@@ -156,7 +159,9 @@ export default function CollegeRegistration25() {
         alert("Something went wrong.\nPlease try again.");
       } else if (response.status === 200) {
         // Success
-        alert("पंजीकरण सफल रहा। हमने आपको एक ईमेल भेजा है। कृपया अपना ईमेल जांचें।");
+        alert(
+          "पंजीकरण सफल रहा। हमने आपको एक ईमेल भेजा है। कृपया अपना ईमेल जांचें।"
+        );
         // Reset form
         setFormData({
           name: "",
@@ -239,7 +244,7 @@ export default function CollegeRegistration25() {
                       htmlFor="name"
                       className="block text-sm font-semibold text-yellow-400 mb-1"
                     >
-                      नाम <span className="text-red-500">*</span>
+                      नाम (Name) <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="name"
@@ -432,7 +437,7 @@ export default function CollegeRegistration25() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-2  text-yellow-400 border border-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all"
+                      className="w-full px-4 py-2  text-slate-800 font-semibold border rounded-lg"
                     />
                     {errors.email && (
                       <p className="mt-1 text-xs text-red-500 font-semibold">
@@ -455,7 +460,7 @@ export default function CollegeRegistration25() {
                       value={formData.contact}
                       onChange={handleChange}
                       placeholder="1234567890"
-                      className="w-full px-4 py-2  text-yellow-400 border border-yellow-500 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all"
+                      className="w-full px-4 py-2  text-slate-800 font-semibold border rounded-lg"
                     />
                     {errors.contact && (
                       <p className="mt-1 text-xs text-red-500 font-semibold">
@@ -489,7 +494,7 @@ export default function CollegeRegistration25() {
                 onClick={handleNext}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-yellow-500 text-slate-800 font-semibold rounded-lg font-semibold ml-auto"
+                className="px-6 py-2 bg-yellow-500 text-slate-800 font-semibold rounded-lg ml-auto"
               >
                 अगला
               </motion.button>
