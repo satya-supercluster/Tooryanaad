@@ -309,7 +309,7 @@ export default function CollegeRegistration25() {
 
                   <div>
                     <label className="block text-sm font-semibold text-yellow-400 mb-1">
-                      वर्ष <span className="text-red-500">*</span>
+                      वर्ष (Year) <span className="text-red-500">*</span>
                     </label>
                     <div className="flex space-x-6">
                       <label className="flex items-center space-x-2 cursor-pointer">
@@ -429,7 +429,7 @@ export default function CollegeRegistration25() {
                       htmlFor="email"
                       className="block text-sm font-semibold text-yellow-400 mb-1"
                     >
-                      ईमेल <span className="text-red-500">*</span>
+                      ईमेल (Email) <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="email"
@@ -451,7 +451,8 @@ export default function CollegeRegistration25() {
                       htmlFor="contact"
                       className="block text-sm font-semibold text-yellow-400 mb-1"
                     >
-                      फ़ोन नंबर <span className="text-red-500">*</span>
+                      फ़ोन नंबर (Phone Number){" "}
+                      <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="contact"
