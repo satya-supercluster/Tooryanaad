@@ -21,8 +21,7 @@ export default function CollegeRegistration25() {
     {
       id: "प्रबंधक",
       translatedName: "Executive",
-      description:
-        "संचालन, प्रबंधन और निर्णय लेने का कार्य करता है।",
+      description: "संचालन, प्रबंधन और निर्णय लेने का कार्य करता है।",
     },
     {
       id: "अभिकल्पक",
@@ -57,7 +56,7 @@ export default function CollegeRegistration25() {
       id: "वीडियो सम्पादक",
       translatedName: "Video Editor",
       description:
-        "वीडियो को काटने, जोड़ने, सुधारने और उसे आकर्षक व प्रभावी बनाने का कार्य करता है।",
+        "समिति के कार्यक्रमों का वीडियो बनाना व उन्हें आकर्षक रूप से प्रस्तुत करना।",
     },
   ];
 
@@ -101,7 +100,7 @@ export default function CollegeRegistration25() {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const phoneRegex = /^\d{10}$/;
       if (!emailRegex.test(formData.email)) {
-        newErrors.email = "कृपया मान्य ईमेल दर्ज करें";
+        newErrors.email = "कृपया मान्य अणुडाक दर्ज करें";
       }
       if (!phoneRegex.test(formData.contact)) {
         newErrors.contact = "कृपया 10 अंकों का मान्य फ़ोन नंबर दर्ज करें";
@@ -155,14 +154,14 @@ export default function CollegeRegistration25() {
 
       if (response.status === 400) {
         // Email exists already
-        setErrors({ email: "ईमेल पहले से मौजूद है" });
+        setErrors({ email: "अणुडाक पहले ही पंजीकृत है" });
       } else if (response.status === 500) {
         // Server error
         alert("Something went wrong.\nPlease try again.");
       } else if (response.status === 200) {
         // Success
         alert(
-          "पंजीकरण सफल रहा। हमने आपको एक ईमेल भेजा है। कृपया अपना ईमेल जांचें।"
+          "पंजीकरण सफल रहा। हमने आपको एक ईमेल भेजा है।\nकृपया अपना ईमेल जांचें।\nअगर आपको मेल प्राप्त नहीं होता है तो स्पैम(spam) सेक्शन जरूर जांचे।"
         );
         // Reset form
         setFormData({
@@ -178,7 +177,7 @@ export default function CollegeRegistration25() {
         setActiveSection("details");
       }
     } catch (error) {
-      alert("कुछ गलत हुआ");
+      alert("कुछ गलत हुआ\nSomething went wrong.\nPlease try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -431,7 +430,7 @@ export default function CollegeRegistration25() {
                       htmlFor="email"
                       className="block text-sm font-semibold text-yellow-400 mb-1"
                     >
-                      ईमेल (Email) <span className="text-red-500">*</span>
+                      अणुडाक (Email) <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="email"
