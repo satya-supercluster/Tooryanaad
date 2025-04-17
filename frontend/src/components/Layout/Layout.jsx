@@ -31,7 +31,7 @@ const Layout = () => {
       {pathname === "/" && showVid === true && <VideoPlayer />}
       <ScrollToTop />
       <Footer className="z-20" />
-      {pathname === "/" && showMsg === true && <MessageBox />}
+      {/* {pathname === "/" && showMsg === true && <MessageBox />} */}
       {/* {pathname === "/" && showMsg1 === true && <MessageBox1 />} */}
     </div>
   );
