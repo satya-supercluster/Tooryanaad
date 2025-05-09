@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const eventIndividualRegistration = {
   token: {
@@ -35,4 +35,4 @@ const eventIndividualRegistration = {
 };
 
 const EventIndividualRegistrations = mongoose.model('EventIndividualRegistrations25', eventIndividualRegistration);
-module.exports = EventIndividualRegistrations;
+export default EventIndividualRegistrations;

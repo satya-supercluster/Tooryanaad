@@ -1,8 +1,8 @@
-const generatePDF = require("./ambassador.generatePdf");
-const AmbassadorRegistration = require("../../models/ambassador.registration.model");
-const nodemailer = require("nodemailer");
+import generatePDF from "./ambassadorGeneratePdf.js";
+import AmbassadorRegistration from "../../models/ambassadorRegistration.model.js";
+import nodemailer from "nodemailer";
 
-const AmbassadorRegistrationController = async (req, res) => {
+export default async function AmbassadorRegistrationController (req, res) {
   try {
     const user = {
       token: req.body.token,
@@ -64,4 +64,3 @@ const AmbassadorRegistrationController = async (req, res) => {
   }
 };
 
-module.exports = AmbassadorRegistrationController;

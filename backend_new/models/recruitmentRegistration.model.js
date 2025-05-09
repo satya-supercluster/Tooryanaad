@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const registrationSchema = {
   token: {
@@ -38,4 +38,4 @@ const registrationSchema = {
 };
 
 const Registration = mongoose.model('Ahvaan25', registrationSchema);
-module.exports = Registration;
+export default Registration;

@@ -1,8 +1,9 @@
-const express = require("express");
-require("dotenv").config();
-require("./database");
+import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
+import "./database/index.js";
 const app = express();
-const cors = require("cors");
+import cors from "cors";
 app.use(express.json());
 app.use(
   // cors({
@@ -19,7 +20,7 @@ app.use(
   cors()
 );
 
-const ambassadorRegistrationRouter=require("./routes/ambassador.registration.routes");
+import ambassadorRegistrationRouter from "./routes/ambassadorRegistration.routes.js";
 app.use("/api",ambassadorRegistrationRouter);
 
 const port = process.env.PORT || 8000;

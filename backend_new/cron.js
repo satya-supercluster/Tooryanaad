@@ -1,5 +1,5 @@
-const cron = require('cron');
-const https = require('https');
+import cron from 'cron';
+import https from 'https';
 const backendUrl = "https://tooryanaad-backend-muz0.onrender.com";
 const job = new cron.CronJob('*/5 * * * *', function () {
   https
@@ -15,4 +15,4 @@ const job = new cron.CronJob('*/5 * * * *', function () {
     });
 });
 job.start();
-module.exports = { job };
+export default job;

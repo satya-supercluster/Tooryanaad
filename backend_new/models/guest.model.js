@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const guestSchema = {
   SNo: {
@@ -18,4 +18,4 @@ const guestSchema = {
   },
 };
 const Guests= mongoose.model('Guest',guestSchema);
-module.exports = Guests;
+export default Guests;

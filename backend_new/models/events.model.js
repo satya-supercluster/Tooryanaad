@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 const eventSchema = {
     title:{
         type :String,
@@ -85,4 +85,4 @@ const eventSchema = {
 }
 
 const Events = mongoose.model("Events25",eventSchema);
-module.exports= Events;
+export default Events;

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ambassadorRegistrationSchema = {
   token: {
@@ -39,4 +39,4 @@ const ambassadorRegistrationSchema = {
 };
 
 const AmbassadorRegistration = mongoose.model('AmbassadorRegistration25', ambassadorRegistrationSchema);
-module.exports = AmbassadorRegistration;
+export default AmbassadorRegistration;

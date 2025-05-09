@@ -1,7 +1,7 @@
-const PDFDocument = require("pdfkit");
-const path = require("path");
+import PDFDocument from "pdfkit";
+import path from "path";
 
-async function generatePDF(userData) {
+export default async function generatePDF(userData) {
   const doc = new PDFDocument({
     size: "A4",
     margins: { top: 50, bottom: 50, left: 50, right: 50 },
@@ -77,5 +77,3 @@ async function generatePDF(userData) {
   const pdfBuffer = await pdfPromise;
   return pdfBuffer;
 }
-
-module.exports = generatePDF;

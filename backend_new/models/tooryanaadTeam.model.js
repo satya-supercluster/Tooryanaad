@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const teamSchema={
     alias:{
@@ -38,4 +38,4 @@ const teamSchema={
 }
 
 const Team = mongoose.model("Team",teamSchema);
-module.exports= Team;
+export default Team;

@@ -1,5 +1,4 @@
-
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const eventTeamRegistrationSchema = {
   token: {
     type: String,
@@ -42,5 +41,5 @@ const eventTeamRegistrationSchema = {
 };
 
 const EventTeamRegistrations= mongoose.model('EventTeamRegistrationSchema', eventTeamRegistrationSchema);
-module.exports = EventTeamRegistrations;
+export default EventTeamRegistrations;
 
