@@ -16,13 +16,13 @@ const MessageBox = () => {
           className="fixed top-24 right-0 sm:right-[10px] flex justify-center gap-1 items-center"
         >
           <Link
-            to="/T_Reg25"
+            to="/ambassador"
             onClick={() => {
               setShowMsg(false);
             }}
             className="text-black text-sm lg:text-lg bg-yellow-500 p-2 rounded-2xl shadow-[0_1px_2px_1px_rgba(0,0,0,0.6)] cursor-pointer"
           >
-            आह्वान'25 हेतु पंजीयन करें
+            संस्थान प्रतिनिधि पंजीयन 
           </Link>
           <div
             onClick={() => {

@@ -4,6 +4,7 @@ import About from "../About/About";
 import { motion } from "framer-motion";
 import Sponsor from "../Sponsor/Sponsor";
 import News from "../News/News";
+import MessageBox from "../MessageBox/MessageBox";
 // import Books from "../Books/Books";
 import { useData } from "../../Data/useData";
 const Home = () => {
@@ -71,6 +72,9 @@ const Home = () => {
               देशवासियों में राष्ट्रगौरव व आत्मगौरव की भावना का विकास करना।
             </p>
           </motion.div>
+          <div>
+            <MessageBox/>
+          </div>
         </div>
         {isMobile ? (
           <motion.div
