@@ -14,10 +14,10 @@ import Gallery from "./components/Gallery/Gallery";
 import { useData } from "./Data/useData";
 import PastMembers from "./components/Team/PastMembers";
 // import RegForm from "./components/RegistrationForm/Form";
-import CollegeRegistration25 from "./components/Forms/CollegeRegistration25";
+// import CollegeRegistration25 from "./components/Forms/CollegeRegistration25";
 import NewEventDetails from "./components/Events/NewEventDetails";
-import T24TimeTable from "./components/Posters/T24TimeTable";
-// import CollegeAmbassador from "./components/Forms/CollegeAmbassador";
+// import T24TimeTable from "./components/Posters/T24TimeTable";
+import CollegeAmbassador from "./components/Forms/CollegeAmbassador";
 const App = () => {
   const { isLoading,newEvents } = useData();
   return (
