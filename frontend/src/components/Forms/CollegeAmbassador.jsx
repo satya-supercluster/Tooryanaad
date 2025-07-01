@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 const CollegeAmbassador = () => {
   const [name, setName] = useState("");
   const [college, setCollege] = useState("");
-  const [post, setPost] = useState("");
   const [number, setNumber] = useState("");
   const [year, setYear] = useState("");
   const [degree, setDegree] = useState("");
@@ -15,8 +14,6 @@ const CollegeAmbassador = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const [postFocused, setPostFocused] = useState(false);
 
   useEffect(() => {
     if (successMessage) {
@@ -52,7 +49,6 @@ const CollegeAmbassador = () => {
   const createPost = async (
     name,
     college,
-    post,
     number,
     year,
     degree,
@@ -66,7 +62,6 @@ const CollegeAmbassador = () => {
       body: JSON.stringify({
         name,
         collegeName: college,
-        post,
         number,
         year,
         degree,
@@ -95,10 +90,9 @@ const CollegeAmbassador = () => {
     }
     try {
       setIsFetching(true);
-      await createPost(name, college, post, number, year, degree, email);
+      await createPost(name, college, number, year, degree, email);
       setName("");
       setCollege("");
-      setPost("");
       setNumber("");
       setYear("");
       setDegree("");
@@ -141,22 +135,6 @@ const CollegeAmbassador = () => {
             value={college}
             onChange={(e) => setCollege(e.target.value)}
           />
-          <div className="mb-2">
-            <input
-              type="text"
-              className="w-full text-yellow-500 px-4 py-1 bg-[rgb(30,30,30)] rounded-md border-b-2 focus:outline-none focus:border-yellow-500"
-              placeholder="पद"
-              value={post}
-              onChange={(e) => setPost(e.target.value)}
-              onFocus={() => setPostFocused(true)}
-              onBlur={() => setPostFocused(false)}
-            />
-            {postFocused && (
-              <div className="text-blue-500 font-semibold px-4 text-sm text-left mt-1">
-                उदा.- सह-प्रमुख, वेब अभिकल्पक, तूर्यनाद, मैनिट
-              </div>
-            )}
-          </div>
           <div className="mb-2">
             <input
               type="tel"
@@ -226,7 +204,6 @@ const CollegeAmbassador = () => {
               disabled={
                 !name ||
                 !college ||
-                !post ||
                 !number ||
                 !year ||
                 !degree ||
