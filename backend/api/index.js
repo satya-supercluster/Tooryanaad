@@ -17,8 +17,8 @@ app.use(
     origin: [
       "http://localhost:3000",
       "https://tooryanaad-85me.onrender.com",
-      "https://tooryanaad.org",
-      "https://www.tooryanaad.org",
+      "https://tooryanaad.com",
+      "https://www.tooryanaad.com",
       "https://tooryanaad.netlify.app",
       "https://tooryanaad-info.netlify.app",
       "https://tooryanaad-backend-muz0.onrender.com",
