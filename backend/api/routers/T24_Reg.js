@@ -11,7 +11,7 @@ const path = require("path");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 //schema model
-const Register = require("../model/T24_Reg");
+const Register = require("../model/T_reg25");
 //middleware
 router.use(express.static(path.join(__dirname, "public")));
 
@@ -74,14 +74,14 @@ router.post("/T_Reg24", async (req, res) => {
 <body style="margin: 0; font-family: Arial, sans-serif; background-color: #f0f0f0; padding: 20px;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
         <div style="background-color: #4a148c; padding: 20px; text-align: center;">
-            <div style="color: #ffd700; font-weight: bold; font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">तूर्यनाद'24</div>
+            <div style="color: #ffd700; font-weight: bold; font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">तूर्यनाद'25</div>
         </div>
         <div style="padding: 30px; background-color: #ffffff;">
             <div style="color: #4a148c; margin-bottom: 20px; font-size: 30px; text-align: center;">
                 <b>नमस्कार,</b> ${req.body.name}
             </div>
             <div style="color: #333333; font-size: 18px; text-align: center; margin-bottom: 20px;">
-                तूर्यनाद'24 में पंजीयन करने के लिए धन्यवाद।
+                तूर्यनाद'25 में पंजीयन करने के लिए धन्यवाद।
             </div>
             <div style="background-color: #f3e5f5; border-radius: 5px; padding: 15px; text-align: center; margin-bottom: 20px;">
                 <div style="color: #4a148c; font-size: 20px; font-weight: bold;">
@@ -97,6 +97,7 @@ router.post("/T_Reg24", async (req, res) => {
 </body>
 </html>
 `;
+    // console.log(process.env.REACT_APP_PASSKEY_);
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
@@ -110,7 +111,7 @@ router.post("/T_Reg24", async (req, res) => {
       await transporter.sendMail({
         from: process.env.REACT_APP_EMAIL_,
         to: `${email}`,
-        subject: "तूर्यनाद'24 पंजीयन हेतु",
+        subject: "तूर्यनाद'25 पंजीयन हेतु",
         text: "Thankyou for registration",
         html: emailTemplate,
         attachments: attachments,
@@ -162,14 +163,14 @@ const generateEmailTemplate = (name, token) => `
 <body style="margin: 0; font-family: Arial, sans-serif; background-color: #f0f0f0; padding: 20px;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
         <div style="background-color: #4a148c; padding: 20px; text-align: center;">
-            <div style="color: #ffd700; font-weight: bold; font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">तूर्यनाद'24</div>
+            <div style="color: #ffd700; font-weight: bold; font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">तूर्यनाद'25</div>
         </div>
         <div style="padding: 30px; background-color: #ffffff;">
             <div style="color: #4a148c; margin-bottom: 20px; font-size: 30px; text-align: center;">
                 <b>नमस्कार,</b> ${name}
             </div>
             <div style="color: #333333; font-size: 18px; text-align: center; margin-bottom: 20px;">
-                तूर्यनाद'24 में पंजीयन करने के लिए धन्यवाद।
+                तूर्यनाद'25 में पंजीयन करने के लिए धन्यवाद।
             </div>
             <div style="background-color: #f3e5f5; border-radius: 5px; padding: 15px; text-align: center; margin-bottom: 20px;">
                 <div style="color: #4a148c; font-size: 20px; font-weight: bold;">
@@ -204,7 +205,7 @@ const sendEmail = async (email, name, token, competitions) => {
   await transporter.sendMail({
     from: process.env.REACT_APP_EMAIL_,
     to: email,
-    subject: "तूर्यनाद'24 पंजीयन हेतु",
+    subject: "तूर्यनाद'25 पंजीयन हेतु",
     html: generateEmailTemplate(name, token),
     attachments: attachments,
   });

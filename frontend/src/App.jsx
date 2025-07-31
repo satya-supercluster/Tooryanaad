@@ -13,7 +13,7 @@ import Gallery from "./components/Gallery/Gallery";
 // import EventDetails from "./components/Events/EventDetails";
 import { useData } from "./Data/useData";
 import PastMembers from "./components/Team/PastMembers";
-// import RegForm from "./components/RegistrationForm/Form";
+import RegForm from "./components/RegistrationForm/Form";
 // import CollegeRegistration25 from "./components/Forms/CollegeRegistration25";
 import NewEventDetails from "./components/Events/NewEventDetails";
 // import T24TimeTable from "./components/Posters/T24TimeTable";
@@ -33,7 +33,7 @@ const App = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/PastMembers" element={<PastMembers />} />
-          {/* <Route path="/T_Reg25" element={<CollegeRegistration25 />} /> */}
+          <Route path="/reg" element={<RegForm />} />
           <Route path="/ambassador" element={<CollegeAmbassador />} />
           {/* <Route path="TimeTable" element={<T24TimeTable/>} /> */}
           <Route

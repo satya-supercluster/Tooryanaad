@@ -39,8 +39,8 @@ const registrationRouter = require("./routers/registration25");
 // const TG_registrationRouter = require("./routers/Tg_registration");
 const T_events23Router = require("./routers/t_events23");
 // const PdfRouter= require("./routers/pdf")
-// const T24Router = require('./routers/T24_Reg');
-// const TG24Router = require('./routers/TG24_Reg');
+const T24Router = require('./routers/T24_Reg');
+const TG24Router = require('./routers/TG24_Reg');
 const port = process.env.PORT || 8000;
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -55,8 +55,8 @@ app.use(registrationRouter);
 // app.use(TG_registrationRouter);
 app.use(T_events23Router);
 // app.use(PdfRouter);
-// app.use(T24Router);
-// app.use(TG24Router);
+app.use(T24Router);
+app.use(TG24Router);
 
 
 app.listen(port, () => {
