@@ -65,7 +65,8 @@ const RegForm = () => {
     // }, 3000);
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_BACKEND_SITE}/${response.type === "solo" ? "T_Reg24" : "TG24_Reg"
+        `${import.meta.env.VITE_BACKEND_SITE}/${
+          response.type === "solo" ? "T_Reg24" : "TG24_Reg"
         }`,
         {
           method: "POST",
@@ -84,8 +85,7 @@ const RegForm = () => {
       } else if (res.status !== 200) {
         alert("Something went wrong.");
         setP(false);
-      }
-      else {
+      } else {
         alert("पंजीकरण सफल हुआ!");
         setP(false);
         setResponse({
@@ -157,7 +157,7 @@ const RegForm = () => {
         onChange={changeHandler}
         onFocus={() => setFocusedField(field)}
         onBlur={() => setFocusedField(null)}
-        className="w-full px-2 py-2 rounded-full text-xl max-md:text-sm mb-5 border-2 border-[#D7B3D7] text-black bg-[rgba(999,999,999,0.9)] focus:outline-none focus:border-[#D726D9] md:text-sm md:p-2 md:mb-4"
+        className="w-full px-2 py-2 rounded-full text-xl max-md:text-sm mb-5 border-2 border-[#D7B3D7] text-black bg-[rgba(999,999,999,0.9)] focus:outline-none focus:border-[#cea930] md:text-sm md:p-2 md:mb-4"
       />
       <motion.label
         htmlFor={field}
@@ -178,59 +178,67 @@ const RegForm = () => {
     <div className="flex bg-cover min-h-screen w-screen p-5 max-[350px]:p-0 box-border font-bold text-purple-700 bg-[url('/utils/background-form.jpg')]">
       <div className="w-1/2 pr-5 max-md:hidden md:pr-0 md:mb-5">
         <div className="flex flex-col">
-          <div className="flex flex-row items-center mb-5 justify-around md:flex-wrap mt-10">
-            <img
-              src="/utils/logo-tn.png"
-              alt="TN Logo"
-              className="w-[140px] max-lg:w-[115px]"
-            />
-            <img
-              src="/utils/toorynaad-24.png"
-              alt="Toorynaad Logo"
-              className="w-[145px]"
-            />
-            <img
-              src="/utils/logo-manit.png"
-              alt="MANIT Logo"
-              className="w-[130px] max-lg:w-[100px]"
-            />
-          </div>
-          <motion.img
+         <div className="relative flex items-center justify-center mt-20 mb-5 h-[400px]">
+  {/* TN Logo on the left, shifted closer to center */}
+  <img
+    src="/utils/logo-tn.png"
+    alt="TN Logo"
+    className="absolute left-[10%] w-[140px] max-lg:w-[115px]"
+  />
+
+  {/* Toorynaad Logo in center */}
+  <img
+    src="/utils/toorynaad-25.png"
+    alt="Toorynaad Logo"
+    className="sm:w-10 md:w-48 lg:w-56"
+  />
+
+  {/* MANIT Logo on the right, shifted closer to center */}
+  <img
+    src="/utils/logo-manit.png"
+    alt="MANIT Logo"
+    className="absolute right-[10%] w-[130px] max-lg:w-[100px]"
+  />
+</div>
+
+
+          {/* <motion.img
             src="/utils/theme-logo.png"
             alt="Theme Logo"
             className="max-w-[500px] h-auto mx-auto my-5 md:max-w-[375px] max-md:hidden"
             animate={{ rotate: 360 }}
             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          />
+          /> */}
         </div>
       </div>
 
       <div className=" md:w-1/2 w-full h-auto">
         <form
           onSubmit={submitHandler}
-          className="w-full max-md:mt-24 bg-[rgba(73,158,184,0.6)] p-5 rounded-lg box-border overflow-auto scrollbar-hide md:p-4 md:h-auto md:bg-[rgba(73,158,184,0.8)] max-md:bg-[url('/utils/theme-logo.png'),0.9] bg-no-repeat bg-center bg-contain"
+          className="w-full max-md:mt-24 bg-[rgba(227,226,226,0.23)] p-5 rounded-lg box-border overflow-auto scrollbar-hide md:p-4 md:h-auto md:bg-[rgba(154,153,153,0.6)] max-md:bg-[url('/utils/theme-logo.png'),0.9] bg-no-repeat bg-center bg-contain"
+          // isme logo change karna hai utils me replace karna hai
         >
           <div className="flex flex-col w-full pr-5 md:hidden">
             <div className="flex flex-row items-center justify-around md:flex-wrap">
               <img
                 src="/utils/logo-tn.png"
                 alt="TN Logo"
-                className="w-[175px] max-sm:w-[120px] max-[440px]:w-[100px] max-[376px]:w-[80px]"
+                className="w-[175px] max-sm:w-[100px] max-[440px]:w-[100px] max-[376px]:w-[80px]"
               />
               <img
-                src="/utils/toorynaad-24.png"
+                src="/utils/toorynaad-25.png"
                 alt="Toorynaad Logo"
                 className="w-[250px] max-sm:w-[150px] max-[440px]:w-[120px] max-[376px]:w-[100px]"
               />
               <img
                 src="/utils/logo-manit.png"
                 alt="MANIT Logo"
-                className="w-[160px] max-sm:w-[110px] max-[440px]:w-[90px] max-[376px]:w-[75px]"
+                className="w-[160px] max-sm:w-[90px] max-[440px]:w-[90px] max-[376px]:w-[75px]"
               />
             </div>
           </div>
           <div className=" w-full flex justify-center items-center">
-            <p className="font-extrabold text-xl my-8 opacity-90 bg-[#D726D9] rounded-lg text-white p-2.5 text-center md:text-3xl ">
+            <p className="font-bold text-xl my-8 w-2/5 bg-gray-800 rounded-lg text-white p-4 text-center md:text-3xl">
               पंजीकरण
             </p>
           </div>
@@ -240,7 +248,10 @@ const RegForm = () => {
           {renderInput("email", "ईमेल-पता(Email)")}
           {renderInput("contact", "संपर्क सूत्र(Contact)")}
 
-          <h2 className="text-2xl text-center">प्रतियोगिताएं</h2>
+          <div className="bg-gray-800 p-4 rounded-md w-2/5 mx-auto">
+            <h2 className="text-2xl text-center text-white">प्रतियोगिताएं</h2>
+          </div>
+
           <div className="flex justify-around my-10 mx-5 md:my-12 md:mx-2.5">
             {["solo", "group"].map((type) => (
               <label
@@ -256,8 +267,8 @@ const RegForm = () => {
                   className="hidden"
                 />
                 <span
-                  className={`inline-block w-5 h-5 mr-2.5 rounded-full border-2 border-[#D726D9] ${
-                    response.type === type ? "bg-[#D726D9]" : "bg-white"
+                  className={`inline-block w-5 h-5 mr-2.5 rounded-full border-2 border-gray-800 ${
+                    response.type === type ? "bg-[#cea930]" : "bg-white"
                   }`}
                 ></span>
                 {type === "solo" ? "एकल" : "सामूहिक"}
@@ -348,11 +359,11 @@ const RegForm = () => {
           <div className="flex justify-center items-center">
             <motion.button
               type="submit"
-              className="bg-[#D726D9] text-white px-5 border-none rounded cursor-pointer text-lg py-2 md:px-4"
+              className="bg-gray-800 text-white px-5 border-none rounded cursor-pointer text-lg py-2 md:px-4 w-1/5"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-             {(p)?"पंजीयन हो रहा है..": "पंजीयन करें"}
+              {p ? "पंजीयन हो रहा है.." : "पंजीयन करें"}
             </motion.button>
           </div>
         </form>
