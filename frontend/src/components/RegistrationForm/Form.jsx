@@ -226,7 +226,7 @@ const RegForm = () => {
                 className="w-[175px] max-sm:w-[100px] max-[440px]:w-[100px] max-[376px]:w-[80px]"
               />
               <img
-                src="/utils/toorynaad-25.png"
+                src="/utils/TOORYNAAD_25_VECTO.png" //tooryanaad 25 logo mobile view
                 alt="Toorynaad Logo"
                 className="w-[250px] max-sm:w-[150px] max-[440px]:w-[120px] max-[376px]:w-[100px]"
               />
@@ -238,7 +238,7 @@ const RegForm = () => {
             </div>
           </div>
           <div className=" w-full flex justify-center items-center">
-            <p className="font-bold text-xl my-8 w-2/5 bg-gray-800 rounded-lg text-white p-4 text-center md:text-3xl">
+            <p className="font-bold text-xl my-8 w-3/5 bg-gray-800 rounded-lg text-white p-4 text-center md:text-3xl">
               पंजीकरण
             </p>
           </div>
@@ -248,8 +248,8 @@ const RegForm = () => {
           {renderInput("email", "ईमेल-पता(Email)")}
           {renderInput("contact", "संपर्क सूत्र(Contact)")}
 
-          <div className="bg-gray-800 p-4 rounded-md w-2/5 mx-auto">
-            <h2 className="text-2xl text-center text-white">प्रतियोगिताएं</h2>
+          <div className="bg-gray-800 p-4 rounded-md w-3/5 mx-auto">
+            <h2 className="text-2xl text-center text-white sm:text-xl">प्रतियोगिताएं</h2>
           </div>
 
           <div className="flex justify-around my-10 mx-5 md:my-12 md:mx-2.5">
@@ -359,7 +359,7 @@ const RegForm = () => {
           <div className="flex justify-center items-center">
             <motion.button
               type="submit"
-              className="bg-gray-800 text-white px-5 border-none rounded cursor-pointer text-lg py-2 md:px-4 w-1/5"
+              className="bg-gray-800 text-white px-5 border-none rounded cursor-pointer text-lg py-2 md:px-4 w-2/5"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
