@@ -19,16 +19,18 @@ const { v4: uuidv4 } = require("uuid");
 const G_Register = require("../model/TG_reg25");
 //middleware
 router.use(express.static(path.join(__dirname, "public")));
-function generateUniqueID() {
-  const timestamp = Date.now().toString(); // Get the current timestamp
-  const randomNum = Math.floor(Math.random() * 900000) + 100000; // Generate a random 6-digit number
-  const uniqueID = randomNum.toString() + timestamp; // Combine the random number and timestamp
-  return "TRY" + uniqueID.substr(0, 6); // Return the first 6 digits of the combined ID
-}
+// function generateUniqueID() {
+//   const timestamp = Date.now().toString(); // Get the current timestamp
+//   const randomNum = Math.floor(Math.random() * 900000) + 100000; // Generate a random 6-digit number
+//   const uniqueID = randomNum.toString() + timestamp; // Combine the random number and timestamp
+//   return "TRY" + uniqueID.substr(0, 6); // Return the first 6 digits of the combined ID
+// }
 
 router.post("/TG24_Reg", async (req, res) => {
   try {
     // ... existing code ..
+
+   
     let users = {
       token: req.body.token,
       teamName: req.body.teamName,
@@ -39,6 +41,7 @@ router.post("/TG24_Reg", async (req, res) => {
       competitions: req.body.competitions,
     };
     // console.log(users);
+     console.log(users);
 
     // Create an array to store attachments
     const attachments = [];
@@ -111,7 +114,7 @@ router.post("/TG24_Reg", async (req, res) => {
         </div>
         <div style="background-color: #4a148c; color: #ffffff; text-align: center; padding: 15px; font-size: 16px;">
             प्रतियोगिता संबंधित कोई संदेह हो तो हमसे संपर्क कर सकते हैं, 
-            <a href="http://tooryanaad.org" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
+            <a href="https://www.tooryanaad.com" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
         </div>
     </div>
 </body>
@@ -210,7 +213,7 @@ const generateEmailTemplate = (teamName, token) => `
         </div>
         <div style="background-color: #4a148c; color: #ffffff; text-align: center; padding: 15px; font-size: 16px;">
             प्रतियोगिता संबंधित कोई संदेह हो तो हमसे संपर्क कर सकते हैं, 
-            <a href="http://tooryanaad.org" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
+            <a href="https://www.tooryanaad.com" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
         </div>
     </div>
 </body>

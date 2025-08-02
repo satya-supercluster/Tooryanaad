@@ -25,7 +25,8 @@ router.post("/T_Reg24", async (req, res) => {
     college: req.body.college,
     competitions: req.body.competitions,
   };
-  // console.log(users);
+  
+  
   // Create an array to store attachments
   const attachments = [];
 
@@ -91,7 +92,7 @@ router.post("/T_Reg24", async (req, res) => {
         </div>
         <div style="background-color: #4a148c; color: #ffffff; text-align: center; padding: 15px; font-size: 16px;">
             प्रतियोगिता संबंधित कोई संदेह हो तो हमसे संपर्क कर सकते हैं, 
-            <a href="http://tooryanaad.org" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
+            <a href="https://www.tooryanaad.com" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
         </div>
     </div>
 </body>
@@ -180,7 +181,7 @@ const generateEmailTemplate = (name, token) => `
         </div>
         <div style="background-color: #4a148c; color: #ffffff; text-align: center; padding: 15px; font-size: 16px;">
             प्रतियोगिता संबंधित कोई संदेह हो तो हमसे संपर्क कर सकते हैं, 
-            <a href="http://tooryanaad.org" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
+            <a href="https://www.tooryanaad.com" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
         </div>
     </div>
 </body>

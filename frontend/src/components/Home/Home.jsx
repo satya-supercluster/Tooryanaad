@@ -76,7 +76,7 @@ const Home = () => {
           </motion.div>
           <div>
             {/* <MessageBox/> */}
-            <RegistrationCountdown />
+            {/* <RegistrationCountdown /> */}
 
           </div>
         </div>

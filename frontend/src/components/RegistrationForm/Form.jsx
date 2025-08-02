@@ -6,7 +6,7 @@ const eventsMap = {
   "अभिव्यक्ति गायन": "abhivyaktiGayan",
   चक्रव्यूह: "chakravyuh",
   सृजन: "srijan",
-  "डिजिटल सृजन": "digitalSrijan",
+  // "डिजिटल सृजन": "digitalSrijan",
   "अभिव्यक्ति मंच": "abhivyaktiManch",
   "अभिव्यक्ति नृत्य": "abhivyaktiNritya",
   परिधानिका: "paridhanika",
@@ -46,7 +46,7 @@ const RegForm = () => {
     }
     const generateUniqueToken = () => {
       const randomDigits = Math.floor(10000 + Math.random() * 90000); // Generates a random 5-digit number
-      return `T24${randomDigits}`;
+      return `T25${randomDigits}`;
     };
     let newResponse = {
       token: generateUniqueToken(),
@@ -188,7 +188,7 @@ const RegForm = () => {
 
   {/* Toorynaad Logo in center */}
   <img
-    src="/utils/toorynaad-25.png"
+    src="/utils/TOORYNAAD_25_VECTO.png"
     alt="Toorynaad Logo"
     className="sm:w-10 md:w-48 lg:w-56"
   />
