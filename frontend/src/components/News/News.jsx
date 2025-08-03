@@ -9,8 +9,8 @@ const photos = [
   "/news/photo2.jpg",
   "/news/photo1.jpg",
   "/news/photo4.jpg",
-  "/news/photo3.jpeg",
-  "/news/photo5.jpeg",
+  "/news/photo3.jpg",
+  "/news/photo5.jpg",
 ];
 
 function News() {
