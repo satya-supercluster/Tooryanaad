@@ -4,10 +4,10 @@ import { useInView } from "react-intersection-observer";
 
 const Counter = () => {
   const counters = [
-    { label: "इंस्टाग्राम", value: 3900 },
+    { label: "इंस्टाग्राम", value: 4800 },
     { label: "फेसबुक", value: 20000 },
-    { label: "यूट्यूब", value: 3500 },
-    { label: "ट्विटर", value: 800 },
+    { label: "यूट्यूब", value: 3600 },
+    { label: "ट्विटर", value: 830 },
   ];
 
   const [ref, inView] = useInView({
