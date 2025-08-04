@@ -15,12 +15,12 @@ const About = () => {
   };
 
   const images = [
-    { src: "/about/1.jpeg", className: "number1img" },
-    { src: "/about/2.jpeg", className: "number2img" },
-    { src: "/about/3.jpg", className: "number3img" },
-    { src: "/about/4.jpg", className: "number5img" },
-    { src: "/about/5.jpg", className: "number7img" },
-    { src: "/about/6.jpg", className: "number6img" },
+    { src: "/about/1.JPG", className: "number1img" },
+    { src: "/about/2.JPG", className: "number2img" },
+    { src: "/about/3.JPG", className: "number3img" },
+    { src: "/about/4.JPG", className: "number5img" },
+    { src: "/about/5.JPG", className: "number7img" },
+    { src: "/about/6.JPG", className: "number6img" },
   ];
 
   return (

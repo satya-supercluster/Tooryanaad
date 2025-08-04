@@ -574,3 +574,12 @@ body {
   }
 }
           
+.number1img,
+.number2img,
+.number3img,
+.number5img,
+.number6img,
+.number7img {
+  object-fit: cover;
+  object-position: center;
+}
