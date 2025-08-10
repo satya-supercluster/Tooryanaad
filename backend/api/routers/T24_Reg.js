@@ -12,6 +12,7 @@ const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
 //schema model
 const Register = require("../model/T_reg25");
+const G_Register = require("../model/TG_reg25");
 //middleware
 router.use(express.static(path.join(__dirname, "public")));
 
@@ -25,8 +26,7 @@ router.post("/T_Reg24", async (req, res) => {
     college: req.body.college,
     competitions: req.body.competitions,
   };
-  
-  
+  console.log(users)
   // Create an array to store attachments
   const attachments = [];
 
@@ -127,7 +127,7 @@ router.post("/T_Reg24", async (req, res) => {
         });
       })
       .catch((err) => {
-        console.error("Error sending email:", err,"\n",users);
+        console.error("Error sending email:", err, "\n", users);
       });
   } catch (error) {
     res.status(500).json(error.message);
@@ -253,5 +253,138 @@ router.post("/T/bulk-insert", async (req, res) => {
     res.status(500).json({ error: "Internal server error during operation" });
   }
 });
+
+
+
+
+
+
+
+router.post("/sendEmail", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Check both models for the email
+    const [regularUser, groupUser] = await Promise.all([
+      Register.findOne({ email: email }),
+      G_Register.findOne({ email: email }),
+    ]);
+
+    // If user doesn't exist in either model
+    if (!regularUser && !groupUser) {
+      return res.status(403).json({
+        message: "Email not found in any registration",
+        success: false,
+      });
+    }
+
+    // Helper function to generate attachments
+    const generateAttachments = (competitions) => {
+      const attachments = [];
+      for (const competition of competitions) {
+        const pdfPath = path.join(
+          __dirname,
+          "../public/",
+          `${competition}.pdf`
+        );
+        if (fs.existsSync(pdfPath)) {
+          attachments.push({
+            filename: `${competition}.pdf`,
+            path: pdfPath,
+          });
+        } else {
+          console.error(`PDF file for competition '${competition}' not found.`);
+        }
+      }
+      return attachments;
+    };
+
+    // Helper function to create email template
+    const createEmailTemplate = (user, isGroupUser = false) => {
+      const displayName = isGroupUser ? user.teamName : user.name;
+
+      return `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Registration Confirmation</title>
+        </head>
+        <body style="margin: 0; font-family: Arial, sans-serif; background-color: #f0f0f0; padding: 20px;">
+            <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+                <div style="background-color: #4a148c; padding: 20px; text-align: center;">
+                    <div style="color: #ffd700; font-weight: bold; font-size: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">तूर्यनाद'25</div>
+                </div>
+                <div style="padding: 30px; background-color: #ffffff;">
+                    <div style="color: #4a148c; margin-bottom: 20px; font-size: 30px; text-align: center;">
+                        <b>नमस्कार,</b> ${displayName}
+                    </div>
+                    <div style="color: #333333; font-size: 18px; text-align: center; margin-bottom: 20px;">
+                        तूर्यनाद'25 में पंजीयन करने के लिए धन्यवाद।
+                    </div>
+                    <div style="background-color: #f3e5f5; border-radius: 5px; padding: 15px; text-align: center; margin-bottom: 20px;">
+                        <div style="color: #4a148c; font-size: 20px; font-weight: bold;">
+                            आपका पंजीयन क्रमांक <span style="color: #ff4081;">${user.token}</span> है।
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color: #4a148c; color: #ffffff; text-align: center; padding: 15px; font-size: 16px;">
+                    प्रतियोगिता संबंधित कोई संदेह हो तो हमसे संपर्क कर सकते हैं, 
+                    <a href="https://www.tooryanaad.com" style="color: #ffd700; text-decoration: none; font-weight: bold;">संपर्क करें</a>।
+                </div>
+            </div>
+        </body>
+        </html>
+      `;
+    };
+
+    // Helper function to send email
+    const sendEmail = async (user, isGroupUser = false) => {
+      const attachments = generateAttachments(user.competitions || []);
+      const emailTemplate = createEmailTemplate(user, isGroupUser);
+      return transporter.sendMail({
+        from: process.env.REACT_APP_EMAIL_,
+        to: email,
+        subject: "तूर्यनाद'25 पंजीयन हेतु",
+        text: "Thank you for registration",
+        html: emailTemplate,
+        attachments: attachments,
+      });
+    };
+
+    // Send emails based on which users exist
+    const emailPromises = [];
+
+    if (regularUser) {
+      console.log("Sending email to regular user:", regularUser.name);
+      emailPromises.push(sendEmail(regularUser, false));
+    }
+
+    if (groupUser) {
+      console.log("Sending email to group user:", groupUser.teamName);
+      emailPromises.push(sendEmail(groupUser, true));
+    }
+
+    // Send all emails concurrently
+    await Promise.all(emailPromises);
+
+    console.log("All emails sent successfully");
+    res.status(200).json({
+      message: "Emails sent successfully",
+      success: true,
+      sentTo: {
+        regular: !!regularUser,
+        group: !!groupUser,
+      },
+    });
+  } catch (error) {
+    console.error("Error in sendEmail route:", error);
+    res.status(500).json({
+      message: error.message,
+      success: false,
+    });
+  }
+});
+
 
 module.exports = router;

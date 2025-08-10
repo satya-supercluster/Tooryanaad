@@ -30,7 +30,6 @@ router.post("/TG24_Reg", async (req, res) => {
   try {
     // ... existing code ..
 
-   
     let users = {
       token: req.body.token,
       teamName: req.body.teamName,
@@ -41,7 +40,7 @@ router.post("/TG24_Reg", async (req, res) => {
       competitions: req.body.competitions,
     };
     // console.log(users);
-     console.log(users);
+    console.log(users);
 
     // Create an array to store attachments
     const attachments = [];
@@ -142,13 +141,13 @@ router.post("/TG24_Reg", async (req, res) => {
       };
       await mail()
         .then(() => {
-          console.log("Email sent successfully\n",users);
+          console.log("Email sent successfully\n", users);
           res.status(200).json({
             message: "success",
           });
         })
         .catch((err) => {
-          console.error("Error sending email:", err,"\n",users);
+          console.error("Error sending email:", err, "\n", users);
           res.status(400).json({
             message: err.message,
           });

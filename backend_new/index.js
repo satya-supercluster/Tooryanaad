@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
-import "./database/index.js";
+import "./database/connection.js";
 const app = express();
 import cors from "cors";
 app.use(express.json());
@@ -20,8 +20,6 @@ app.use(
   cors()
 );
 
-import ambassadorRegistrationRouter from "./routes/ambassadorRegistration.routes.js";
-app.use("/api",ambassadorRegistrationRouter);
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
