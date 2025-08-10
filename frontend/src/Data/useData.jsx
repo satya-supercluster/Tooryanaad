@@ -19,6 +19,7 @@ export const DataProvider = ({ children }) => {
   const [showVid, setShowVid] = useState(true);
   const [tooryanaad22Members, setTooryanaad22Members] = useState([]);
   const [tooryanaad23Members, setTooryanaad23Members] = useState([]);
+  const [tooryanaad24Members, setTooryanaad24Members] = useState([]);
   const [newEvents, setNewEvents] = useState(newEvents24);
   const [eventCardValue, setEventCardValue] = useState(events24);
   useEffect(() => {
@@ -78,7 +79,7 @@ export const DataProvider = ({ children }) => {
       setFounder(foundingMembers);
 
       const executiveMembers = sortedMembers.filter(
-        (member) => member.member_type === 11
+        (member) => member.member_type === 12
       );
       setExecutive(executiveMembers);
 
@@ -92,10 +93,16 @@ export const DataProvider = ({ children }) => {
       );
       setTooryanaad23Members(tooryanaad23Members);
 
+       const tooryanaad24Members = sortedMembers.filter(
+        (member) => member.member_type === 11
+      );
+      setTooryanaad24Members(tooryanaad24Members);
+
       const regularMembers = sortedMembers.filter(
-        (member) => member.member_type === 12
+        (member) => member.member_type === 13
       );
       setRegular(regularMembers);
+
     }
   }, [members]);
   
@@ -116,6 +123,7 @@ export const DataProvider = ({ children }) => {
         setShowMsg1,
         tooryanaad22Members,
         tooryanaad23Members,
+        tooryanaad24Members,
         newEvents,
         eventCardValue,
         setShowVid,
