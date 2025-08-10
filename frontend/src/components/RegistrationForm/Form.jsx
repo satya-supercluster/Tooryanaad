@@ -86,7 +86,7 @@ const RegForm = () => {
         alert("Something went wrong.");
         setP(false);
       } else {
-        alert("पंजीकरण सफल हुआ!");
+        alert("पंजीयन सफल हुआ, कृपया मेल चेक करें।");
         setP(false);
         setResponse({
           name: "",
