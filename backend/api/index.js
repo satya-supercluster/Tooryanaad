@@ -33,7 +33,7 @@ app.use(express.json());
 // const contactRouter = require("./routers/contact");
 const teamRouter = require("./routers/teams");
 const guestRouter = require("./routers/guests");
-const registrationRouter = require("./routers/registration25");
+const registrationRouter = require("./routers/registration26");
 // const A_registrationRouter = require("./routers/a_registration");
 // const T_registrationRouter = require("./routers/T_registration");
 // const TG_registrationRouter = require("./routers/Tg_registration");
