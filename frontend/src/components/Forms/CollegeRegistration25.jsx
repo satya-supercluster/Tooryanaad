@@ -144,7 +144,7 @@ export default function CollegeRegistration25() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_SITE}/REG25`,
+        `${import.meta.env.VITE_BACKEND_SITE}/reg26`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -192,7 +192,7 @@ export default function CollegeRegistration25() {
       >
         <div className="px-6 py-4">
           <h2 className="text-3xl font-bold text-yellow-400 text-center">
-            आह्वान '25
+            आह्वान '26
           </h2>
           <div className="flex justify-center mt-4">
             <div className="flex space-x-1 sm:space-x-2">

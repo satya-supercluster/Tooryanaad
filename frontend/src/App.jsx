@@ -14,7 +14,7 @@ import Gallery from "./components/Gallery/Gallery";
 import { useData } from "./Data/useData";
 import PastMembers from "./components/Team/PastMembers";
 import RegForm from "./components/RegistrationForm/Form";
-// import CollegeRegistration25 from "./components/Forms/CollegeRegistration25";
+import CollegeRegistration25 from "./components/Forms/CollegeRegistration25";
 import NewEventDetails from "./components/Events/NewEventDetails";
 // import T24TimeTable from "./components/Posters/T24TimeTable";
 import CollegeAmbassador from "./components/Forms/CollegeAmbassador";
@@ -35,6 +35,7 @@ const App = () => {
           <Route path="/PastMembers" element={<PastMembers />} />
           <Route path="/reg" element={<RegForm />} />
           <Route path="/ambassador" element={<CollegeAmbassador />} />
+          <Route path="/collegeRegistration" element={<CollegeRegistration25 />} />
           {/* <Route path="TimeTable" element={<T24TimeTable/>} /> */}
           <Route
             path="/events/Khichdi"
