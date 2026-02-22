@@ -35,7 +35,7 @@ const App = () => {
           <Route path="/PastMembers" element={<PastMembers />} />
           <Route path="/reg" element={<RegForm />} />
           <Route path="/ambassador" element={<CollegeAmbassador />} />
-          <Route path="/collegeRegistration" element={<CollegeRegistration25 />} />
+          <Route path="/collegeReg" element={<CollegeRegistration25 />} />
           {/* <Route path="TimeTable" element={<T24TimeTable/>} /> */}
           <Route
             path="/events/Khichdi"

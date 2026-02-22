@@ -19,9 +19,9 @@ function generateUniqueID() {
 router.post("/reg26", async (req, res) => {
   try {
     const { name, email, year, contact, scholar, branch, vertical } = req.body;
-
+    const token = generateUniqueID();
     const users = {
-      token: generateUniqueID(),
+      token,
       name,
       email,
       year,
@@ -31,7 +31,7 @@ router.post("/reg26", async (req, res) => {
       vertical,
     };
 
-    const token = generateUniqueID();
+    
 
     const existingUser = await Register.findOne({ email });
     if (existingUser) {

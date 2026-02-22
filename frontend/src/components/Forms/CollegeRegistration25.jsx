@@ -36,6 +36,12 @@ export default function CollegeRegistration25() {
         "वेबसाइट बनाने, विकसित करने और कार्यशील बनाने का कार्य करता है।",
     },
     {
+      id: "प्रयोजन प्रबन्धक",
+      translatedName: "Sponsorship Executive",
+      description:
+        "प्रायोजकों से समन्वय कर कार्यक्रमों हेतु वित्तीय एवं संसाधन सहयोग सुनिश्चित करता है।"
+    },
+    {
       id: "छायाकार",
       translatedName: "Photographer",
       description:
