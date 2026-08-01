@@ -5,7 +5,7 @@ const path = require("path");
 const router = express.Router();
 const Register = require("../model/registration26");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.use(express.static(path.join(__dirname, "public")));
 
