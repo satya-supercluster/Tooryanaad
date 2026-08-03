@@ -206,7 +206,7 @@ const sendEmail = async (email, name, token, competitions) => {
   await transporter.sendMail({
     from: process.env.REACT_APP_EMAIL_,
     to: email,
-    subject: "तूर्यनाद'25 पंजीयन हेतु",
+    subject: "तूर्यनाद'26 पंजीयन हेतु",
     html: generateEmailTemplate(name, token),
     attachments: attachments,
   });

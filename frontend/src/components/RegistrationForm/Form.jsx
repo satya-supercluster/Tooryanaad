@@ -46,7 +46,7 @@ const RegForm = () => {
     }
     const generateUniqueToken = () => {
       const randomDigits = Math.floor(10000 + Math.random() * 90000); // Generates a random 5-digit number
-      return `T25${randomDigits}`;
+      return `T26${randomDigits}`;
     };
     let newResponse = {
       token: generateUniqueToken(),
