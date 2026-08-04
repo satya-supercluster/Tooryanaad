@@ -39,7 +39,7 @@ export default function Footer() {
             <NavLink to="/gallery">वीथिका</NavLink>
           </div>
           <p className="footer-company-name text-sm text-center text-yellow-500">
-            Tooryanaad © 2025
+            Tooryanaad © 2026
           </p>
         </motion.div>
 
