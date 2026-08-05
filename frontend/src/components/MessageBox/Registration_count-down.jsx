@@ -57,7 +57,7 @@ const RegistrationCountdown = () => {
 
       
       <img
-        src="/TOORYNAAD_25_VECTO white.png"
+        src="/toorynaad-26-white.png"
         alt="ty25"
         className="w-[200px] mx-auto filter brightness-0 invert sepia saturate-200 hue-rotate-10"
         style={{ filter:'brightness(0) saturate(100%) invert(93%) sepia(81%) saturate(493%) hue-rotate(0deg) brightness(102%) contrast(101%) '}}

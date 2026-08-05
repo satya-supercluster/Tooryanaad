@@ -25,7 +25,7 @@ export default function Footer() {
           transition={{ duration: 0.5 }}
           viewport={{ once: false }}
         >
-          <img className="w-[200px]" src="/TOORYNAAD_25_VECTO white.png" alt="ty25" />
+          <img className="w-[200px]" src="/toorynaad-26-white.png" alt="ty25" />
           <div className="flex flex-wrap gap-2 text-sm xl:text-md">
             <NavLink className="border-r-2 border-white pr-2" to="/">
               मुख्य पृष्ठ

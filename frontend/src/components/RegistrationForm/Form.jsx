@@ -188,7 +188,7 @@ const RegForm = () => {
 
   {/* Toorynaad Logo in center */}
   <img
-    src="/utils/TOORYNAAD_25_VECTO.png"
+    src="/utils/toorynaad-26-black.png"
     alt="Toorynaad Logo"
     className="sm:w-10 md:w-48 lg:w-56"
   />
@@ -226,7 +226,7 @@ const RegForm = () => {
                 className="w-[175px] max-sm:w-[100px] max-[440px]:w-[100px] max-[376px]:w-[80px]"
               />
               <img
-                src="/utils/TOORYNAAD_25_VECTO.png" //tooryanaad 25 logo mobile view
+                src="/utils/toorynaad-26-black.png" //tooryanaad 26 logo mobile view
                 alt="Toorynaad Logo"
                 className="w-[250px] max-sm:w-[150px] max-[440px]:w-[120px] max-[376px]:w-[100px]"
               />
