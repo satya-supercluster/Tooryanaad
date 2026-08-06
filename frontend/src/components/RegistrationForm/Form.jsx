@@ -7,7 +7,7 @@ const eventsMap = {
   चक्रव्यूह: "chakravyuh",
   सृजन: "srijan",
   // "डिजिटल सृजन": "digitalSrijan",
-  "अभिव्यक्ति मंच": "abhivyaktiManch",
+  // "अभिव्यक्ति मंच": "abhivyaktiManch",
   "अभिव्यक्ति नृत्य": "abhivyaktiNritya",
   परिधानिका: "paridhanika",
   "भाषा संगमम्": "bhashaSangam",
