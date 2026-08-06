@@ -1,5 +1,6 @@
 const express = require("express");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
+const { Resend } = require("resend")
 const ejs = require("ejs");
 const pug = require("pug");
 const validator = require("validator");
@@ -15,6 +16,7 @@ const Register = require("../model/T_reg26");
 const G_Register = require("../model/TG_reg26");
 //middleware
 router.use(express.static(path.join(__dirname, "public")));
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post("/T_Reg24", async (req, res) => {
   // console.log("Received POST request:", req.body);
@@ -39,7 +41,8 @@ router.post("/T_Reg24", async (req, res) => {
       // If the PDF file exists, add it as an attachment
       attachments.push({
         filename: `${competition}.pdf`,
-        path: pdfPath,
+        // path: pdfPath,
+        content: fs.readFileSync(pdfPath),
       });
     } else {
       console.error(`PDF file for post '${competition}' not found.`);
@@ -98,37 +101,53 @@ router.post("/T_Reg24", async (req, res) => {
 </body>
 </html>
 `;
-    // console.log(process.env.REACT_APP_PASSKEY_);
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        pass: process.env.REACT_APP_PASSKEY_,
-        user: process.env.REACT_APP_EMAIL_,
-      },
-    });
-    const mail = async () => {
-      await transporter.sendMail({
-        from: process.env.REACT_APP_EMAIL_,
-        to: `${email}`,
-        subject: "तूर्यनाद'26 पंजीयन हेतु",
-        text: "Thankyou for registration",
-        html: emailTemplate,
-        attachments: attachments,
-      });
-    };
-    await mail()
-      .then(() => {
-        console.log("Email sent successfully\n", users);
-        res.status(200).json({
-          message: "Success",
-          success: true,
+    await resend.emails.send({
+          from: "recruitment@tooryanaad.com",   // verified domain
+          to: email,
+          subject: "तूर्यनाद'26 पंजीयन हेतु",
+          text: "Thank you for registration.",
+          html: emailTemplate,
+          // attachments: attachments.map(file => ({
+          //   filename: file.filename,
+          //   path: file.path,
+          // })),
+          attachments,
         });
-      })
-      .catch((err) => {
-        console.error("Error sending email:", err, "\n", users);
-      });
+       
+        console.log("Email sent successfully");
+        res.send("success");
+
+    // console.log(process.env.REACT_APP_PASSKEY_);
+    // const transporter = nodemailer.createTransport({
+    //   host: "smtp.gmail.com",
+    //   port: 465,
+    //   secure: true,
+    //   auth: {
+    //     pass: process.env.REACT_APP_PASSKEY_,
+    //     user: process.env.REACT_APP_EMAIL_,
+    //   },
+    // });
+    // const mail = async () => {
+    //   await transporter.sendMail({
+    //     from: process.env.REACT_APP_EMAIL_,
+    //     to: `${email}`,
+    //     subject: "तूर्यनाद'26 पंजीयन हेतु",
+    //     text: "Thankyou for registration",
+    //     html: emailTemplate,
+    //     attachments: attachments,
+    //   });
+    // };
+    // await mail()
+    //   .then(() => {
+    //     console.log("Email sent successfully\n", users);
+    //     res.status(200).json({
+    //       message: "Success",
+    //       success: true,
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.error("Error sending email:", err, "\n", users);
+    //   });
   } catch (error) {
     res.status(500).json(error.message);
   }
@@ -143,15 +162,15 @@ router.get("/T", async (req, res) => {
   }
 });
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    pass: process.env.REACT_APP_PASSKEY_,
-    user: process.env.REACT_APP_EMAIL_,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     pass: process.env.REACT_APP_PASSKEY_,
+//     user: process.env.REACT_APP_EMAIL_,
+//   },
+// });
 
 // Email template function
 const generateEmailTemplate = (name, token) => `
@@ -196,15 +215,16 @@ const sendEmail = async (email, name, token, competitions) => {
       if (fs.existsSync(pdfPath)) {
         return {
           filename: `${competition}.pdf`,
-          path: pdfPath,
+          // path: pdfPath,
+          content: fs.readFileSync(pdfPath),
         };
       }
       return null;
     })
     .filter((attachment) => attachment !== null);
 
-  await transporter.sendMail({
-    from: process.env.REACT_APP_EMAIL_,
+  await resend.emails.send({
+    from: "recruitment@tooryanaad.com",
     to: email,
     subject: "तूर्यनाद'26 पंजीयन हेतु",
     html: generateEmailTemplate(name, token),
@@ -290,7 +310,8 @@ router.post("/sendEmail", async (req, res) => {
         if (fs.existsSync(pdfPath)) {
           attachments.push({
             filename: `${competition}.pdf`,
-            path: pdfPath,
+            // path: pdfPath,
+            content: fs.readFileSync(pdfPath),
           });
         } else {
           console.error(`PDF file for competition '${competition}' not found.`);
@@ -342,8 +363,8 @@ router.post("/sendEmail", async (req, res) => {
     const sendEmail = async (user, isGroupUser = false) => {
       const attachments = generateAttachments(user.competitions || []);
       const emailTemplate = createEmailTemplate(user, isGroupUser);
-      return transporter.sendMail({
-        from: process.env.REACT_APP_EMAIL_,
+      return resend.emails.send({
+        from: "recruitment@tooryanaad.com",
         to: email,
         subject: "तूर्यनाद'26 पंजीयन हेतु",
         text: "Thank you for registration",
