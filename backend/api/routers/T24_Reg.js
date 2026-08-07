@@ -102,7 +102,7 @@ router.post("/T_Reg24", async (req, res) => {
 </html>
 `;
     await resend.emails.send({
-          from: "recruitment@tooryanaad.com",   // verified domain
+          from: "events@tooryanaad.com",   // verified domain
           to: email,
           subject: "तूर्यनाद'26 पंजीयन हेतु",
           text: "Thank you for registration.",
@@ -224,7 +224,7 @@ const sendEmail = async (email, name, token, competitions) => {
     .filter((attachment) => attachment !== null);
 
   await resend.emails.send({
-    from: "recruitment@tooryanaad.com",
+    from: "events@tooryanaad.com",
     to: email,
     subject: "तूर्यनाद'26 पंजीयन हेतु",
     html: generateEmailTemplate(name, token),
@@ -273,12 +273,6 @@ router.post("/T/bulk-insert", async (req, res) => {
     res.status(500).json({ error: "Internal server error during operation" });
   }
 });
-
-
-
-
-
-
 
 router.post("/sendEmail", async (req, res) => {
   try {
@@ -364,7 +358,7 @@ router.post("/sendEmail", async (req, res) => {
       const attachments = generateAttachments(user.competitions || []);
       const emailTemplate = createEmailTemplate(user, isGroupUser);
       return resend.emails.send({
-        from: "recruitment@tooryanaad.com",
+        from: "events@tooryanaad.com",
         to: email,
         subject: "तूर्यनाद'26 पंजीयन हेतु",
         text: "Thank you for registration",
