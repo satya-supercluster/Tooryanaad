@@ -82,7 +82,14 @@ router.post("/TG24_Reg", async (req, res) => {
         message: "User Already Exists",
       });
     }
+
+    if (!req.body.teamName || req.body.teamName.trim() === "") {
+      return res.status(400).json({
+        message: "Group name is required.",
+      });
+    }
     //saving to database
+    try{
     
       const newUser = new G_Register(users);
       await newUser.save();
@@ -123,7 +130,7 @@ router.post("/TG24_Reg", async (req, res) => {
 `;
 
       await resend.emails.send({
-        from: "recruitment@tooryanaad.com",
+        from: "events@tooryanaad.com",
         to: email,
         subject: "तूर्यनाद'26 पंजीयन हेतु",
         text: "Thank you for registration.",
@@ -169,11 +176,11 @@ router.post("/TG24_Reg", async (req, res) => {
       //       message: err.message,
       //     });
       //   });
-    // } catch (error) {
-    //   res.status(400).json({
-    //     message: error.message,
-    //   });
-    // }
+    } catch (error) {
+      res.status(400).json({
+        message: error.message,
+      });
+    }
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({
@@ -254,7 +261,7 @@ const sendEmail = async (email, teamName, token, competitions) => {
     .filter((attachment) => attachment !== null);
 
   await resend.emails.send({
-    from: "recruitment@tooryanaad.com",
+    from: "events@tooryanaad.com",
     to: email,
     subject: "तूर्यनाद'26 पंजीयन हेतु",
     html: generateEmailTemplate(teamName, token),

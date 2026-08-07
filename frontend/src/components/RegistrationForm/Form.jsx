@@ -76,7 +76,11 @@ const RegForm = () => {
           },
         }
       );
-      if (res.status === 403) {
+      if (res.status === 400) {
+        const data = await res.json();
+        alert(data.message);
+        setP(false);
+      }else if (res.status === 403) {
         alert("यह ईमेल पता पहले से पंजीकृत है");
         setP(false);
       } else if (res.status === 401) {
