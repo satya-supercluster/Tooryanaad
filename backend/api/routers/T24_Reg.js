@@ -101,21 +101,50 @@ router.post("/T_Reg24", async (req, res) => {
 </body>
 </html>
 `;
-    await resend.emails.send({
-          from: "events@tooryanaad.com",   // verified domain
-          to: email,
-          subject: "तूर्यनाद'26 पंजीयन हेतु",
-          text: "Thank you for registration.",
-          html: emailTemplate,
-          // attachments: attachments.map(file => ({
-          //   filename: file.filename,
-          //   path: file.path,
-          // })),
-          attachments,
-        });
-       
-        console.log("Email sent successfully");
-        res.send("success");
+
+    // Email sending is wrapped separately so that a failure here (SMTP down,
+    // rate limits, bad attachment, etc.) never prevents us from telling the
+    // frontend that the registration itself was saved successfully.
+    let emailSent = true;
+    try {
+      const { data: emailData, error: emailErr } = await resend.emails.send({
+        from: "events@tooryanaad.com",   // verified domain
+        to: email,
+        subject: "तूर्यनाद'26 पंजीयन हेतु",
+        text: "Thank you for registration.",
+        html: emailTemplate,
+        // attachments: attachments.map(file => ({
+        //   filename: file.filename,
+        //   path: file.path,
+        // })),
+        attachments,
+      });
+      if (emailErr) {
+        emailSent = false;
+        console.error("Resend API returned an error:", emailErr);
+      } else {
+        console.log("Email sent successfully", emailData);
+      }
+    } catch (emailError) {
+      emailSent = false;
+      console.error("Error sending email:", emailError);
+    }
+
+    // Always return the registration info (used by the frontend to show the
+    // "पंजीकरण सफल रहा" screen and the PDF download links), regardless of
+    // whether the confirmation email went out.
+    return res.status(200).json({
+      message: "success",
+      emailSent,
+      data: {
+        token: users.token,
+        name: users.name,
+        email: users.email,
+        contact: users.contact,
+        college: users.college,
+        competitions: users.competitions,
+      },
+    });
 
     // console.log(process.env.REACT_APP_PASSKEY_);
     // const transporter = nodemailer.createTransport({
@@ -149,7 +178,7 @@ router.post("/T_Reg24", async (req, res) => {
     //     console.error("Error sending email:", err, "\n", users);
     //   });
   } catch (error) {
-    res.status(500).json(error.message);
+    res.status(500).json({ message: error.message });
   }
 });
 router.get("/T", async (req, res) => {

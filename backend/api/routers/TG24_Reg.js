@@ -90,7 +90,7 @@ router.post("/TG24_Reg", async (req, res) => {
     }
     //saving to database
     try{
-    
+
       const newUser = new G_Register(users);
       await newUser.save();
       // Generate PDF
@@ -129,18 +129,44 @@ router.post("/TG24_Reg", async (req, res) => {
 </html>
 `;
 
-      await resend.emails.send({
-        from: "events@tooryanaad.com",
-        to: email,
-        subject: "तूर्यनाद'26 पंजीयन हेतु",
-        text: "Thank you for registration.",
-        html: emailTemplate,
-        attachments,
-      });
+      // Email sending is wrapped separately so a failure here never blocks
+      // returning the registration info to the frontend.
+      let emailSent = true;
+      try {
+        const { data: emailData, error: emailErr } = await resend.emails.send({
+          from: "events@tooryanaad.com",
+          to: email,
+          subject: "तूर्यनाद'26 पंजीयन हेतु",
+          text: "Thank you for registration.",
+          html: emailTemplate,
+          attachments,
+        });
+        if (emailErr) {
+          emailSent = false;
+          console.error("Resend API returned an error:", emailErr);
+        } else {
+          console.log("Email sent successfully", emailData);
+        }
+      } catch (emailError) {
+        emailSent = false;
+        console.error("Error sending email:", emailError);
+      }
 
-      console.log("Email sent successfully");
-      res.status(200).json({
+      // Always return the registration info (used by the frontend to show the
+      // "पंजीकरण सफल रहा" screen and the PDF download links), regardless of
+      // whether the confirmation email went out.
+      return res.status(200).json({
         message: "success",
+        emailSent,
+        data: {
+          token: users.token,
+          teamName: users.teamName,
+          name: users.name,
+          email: users.email,
+          contact: users.contact,
+          college: users.college,
+          competitions: users.competitions,
+        },
       });
       // const transporter = nodemailer.createTransport({
       //   host: "smtp.gmail.com",
