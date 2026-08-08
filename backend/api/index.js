@@ -23,7 +23,8 @@ app.use(
       "https://tooryanaad-info.netlify.app",
       "https://tooryanaad-backend-muz0.onrender.com",
       "https://tooryanaad-backend-bgsn.onrender.com",
-      "https://tooryanaad-23.onrender.com/"
+      "https://tooryanaad-23.onrender.com/",
+      "https://tooryanaad-yat1.onrender.com"
     ],
     credentials: true, //access-control-allow-credentials:true
   })
