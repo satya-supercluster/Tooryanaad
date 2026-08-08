@@ -11,6 +11,12 @@ const photos = [
   "/news/photo4.jpg",
   "/news/photo3.jpg",
   "/news/photo5.jpg",
+  "/news/photo6.jpg",
+  "/news/photo7.jpg",
+  "/news/photo8.jpg",
+  "/news/photo9.jpg",
+  "/news/photo10.jpg",
+  "/news/photo11.jpg",
 ];
 
 function News() {
