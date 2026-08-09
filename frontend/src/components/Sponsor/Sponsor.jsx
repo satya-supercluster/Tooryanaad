@@ -7,7 +7,7 @@ const logos = [
   "/sponsor/logo1.png",
   "/sponsor/logo2.jpeg",
   "/sponsor/logo3.png",
-  "/sponsor/logo4.png",
+  "/sponsor/logo4.jpg",
   "/sponsor/logo5.png",
   "/sponsor/logo2_t23.png",
   "/sponsor/logo3_t23.png",

@@ -15,8 +15,8 @@ const About = () => {
   };
 
   const images = [
-    { src: "/about/1.jpg", className: "number1img" },
-    { src: "/about/2.jpg", className: "number2img" },
+    { src: "/about/1.JPG", className: "number1img" },
+    { src: "/about/2.JPG", className: "number2img" },
     { src: "/about/3.jpg", className: "number3img" },
     { src: "/about/4.jpg", className: "number5img" },
     { src: "/about/5.jpg", className: "number7img" },

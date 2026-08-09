@@ -7,7 +7,7 @@ import ScrollToTop from "../ScrollToTop/ScrollToTop";
  import MessageBox from "../MessageBox/MessageBox";
 // import MessageBox1 from "../MessageBox/MessageBox1";
 
-import VideoPlayer from "./Vid";
+// import VideoPlayer from "./Vid";
 import { useData } from "../../Data/useData";
 const Layout = () => {
   const { pathname } = useLocation();
@@ -29,7 +29,7 @@ const Layout = () => {
       <div className="md:mt-14">
         <Outlet />
       </div>
-      {pathname === "/" && showVid === true && <VideoPlayer />}
+      {/* {pathname === "/" && showVid === true && <VideoPlayer />} */}
       <ScrollToTop />
       <Footer className="z-20" />
       { pathname === "/" && showMsg === true && <MessageBox /> }
