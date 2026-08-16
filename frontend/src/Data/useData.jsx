@@ -10,8 +10,8 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [members, setMembers] = useState([]);
   const [founder, setFounder] = useState([]);
-  const [executive, setExecutive] = useState([]);
-  const [regular, setRegular] = useState([]);
+  const [tooryanaad27Members, setTooryanaad27Members] = useState([]);
+  const [tooryanaad26Members, setTooryanaad26Members] = useState([]);
   const [guests, setGuests] = useState({});
   const [events, setEvents] = useState([]);
   const [showMsg, setShowMsg] = useState(true);
@@ -20,6 +20,7 @@ export const DataProvider = ({ children }) => {
   const [tooryanaad22Members, setTooryanaad22Members] = useState([]);
   const [tooryanaad23Members, setTooryanaad23Members] = useState([]);
   const [tooryanaad24Members, setTooryanaad24Members] = useState([]);
+  const [tooryanaad25Members, setTooryanaad25Members] = useState([]);
   const [newEvents, setNewEvents] = useState(newEvents24);
   const [eventCardValue, setEventCardValue] = useState(events24);
   useEffect(() => {
@@ -78,11 +79,6 @@ export const DataProvider = ({ children }) => {
       );
       setFounder(foundingMembers);
 
-      const executiveMembers = sortedMembers.filter(
-        (member) => member.member_type === 12
-      );
-      setExecutive(executiveMembers);
-
       const tooryanaad22Members = sortedMembers.filter(
         (member) => member.member_type === 9
       );
@@ -98,11 +94,21 @@ export const DataProvider = ({ children }) => {
       );
       setTooryanaad24Members(tooryanaad24Members);
 
-      const regularMembers = sortedMembers.filter(
+      const tooryanaad25Members = sortedMembers.filter(
+        (member) => member.member_type === 12
+      );
+      setTooryanaad25Members(tooryanaad25Members);
+      
+      const tooryanaad26MembersData = sortedMembers.filter(
+        (member) => member.member_type === 14
+      );
+      setTooryanaad26Members(tooryanaad26MembersData);
+      
+      const tooryanaad27MembersData = sortedMembers.filter(
         (member) => member.member_type === 13
       );
-      setRegular(regularMembers);
-
+      setTooryanaad27Members(tooryanaad27MembersData);
+      
     }
   }, [members]);
   
@@ -111,9 +117,9 @@ export const DataProvider = ({ children }) => {
       value={{
         isLoading,
         setIsLoading,
-        executive,
+        tooryanaad27Members,
         founder,
-        regular,
+        tooryanaad26Members,
         guests,
         events,
         eventDescriptions,
@@ -124,6 +130,7 @@ export const DataProvider = ({ children }) => {
         tooryanaad22Members,
         tooryanaad23Members,
         tooryanaad24Members,
+        tooryanaad25Members,
         newEvents,
         eventCardValue,
         setShowVid,
