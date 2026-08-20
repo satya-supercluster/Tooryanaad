@@ -66,7 +66,7 @@ export default function Footer() {
               icon={faPhoneAlt}
               className="text-sm bg-gray-900 rounded-full p-2"
             />
-            <p className="inline text-sm ml-4">(+91) 9404429037</p>
+            <p className="inline text-sm ml-4">(+91) 6261988045</p>
           </div>
 
           <div className="mb-4 flex items-center">
